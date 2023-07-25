@@ -1,0 +1,62 @@
+/*! @fronnt/styles NNDateRangePicker */
+.nn-date-range-picker {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.nn-date-range-picker__field {
+  border: var(--nn-stroke-width) solid var(--nn-color-gray-200);
+  border-radius: var(--nn-border-radius);
+  padding: 0.25rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  min-width: 14rem;
+}
+
+.nn-date-range-picker__selection {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.25em;
+  height: 2em;
+  line-height: 2em;
+}
+
+.nn-date-range-picker__icon {
+  flex: 0 0 1.5rem;
+  color: var(--nn-color-gray-200);
+}
+
+.nn-date-range-picker__clear {
+  flex: 0;
+}
+
+.nn-date-range-picker__popup {
+  padding: 0.25rem;
+}
+
+.nn-date-range-picker__calendars {
+  display: grid;
+  gap: 1rem;
+}
+
+.nn-date-range-picker__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.nn-date-range-picker--disabled {
+  & .nn-date-range-picker__field {
+    color: gray;
+  }
+}
+
+@media screen and (min-width: 38rem) {
+  .nn-date-range-picker__calendars {
+    grid-template-columns: 1fr 1fr;
+  }
+}

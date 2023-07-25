@@ -1,0 +1,60 @@
+/*! @fronnt/styles NNDatePicker */
+
+.nn-date-picker {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.nn-date-picker__field {
+  border: var(--nn-stroke-width) solid var(--nn-color-gray-200);
+  border-radius: var(--nn-border-radius);
+  padding: 0.25rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  min-width: 14rem;
+}
+
+.nn-date-picker__selection {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.25em;
+  height: 2em;
+  line-height: 2em;
+}
+
+.nn-date-picker__icon {
+  flex: 0 0 1.5rem;
+  color: var(--nn-color-gray-200);
+}
+
+.nn-date-picker__clear {
+  flex: 0;
+}
+
+.nn-date-picker__popup {
+  padding: 0.25rem;
+}
+
+.nn-date-picker__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.nn-date-picker--focused,
+.nn-date-picker:not(.nn-date-picker--disabled):hover {
+  & .nn-date-picker__field {
+    color: var(--nn-color-gray);
+    border-color: var(--nn-color-primary);
+  }
+}
+
+.nn-date-picker--disabled {
+  & .nn-date-picker__field {
+    color: var(--nn-color-gray);
+  }
+}

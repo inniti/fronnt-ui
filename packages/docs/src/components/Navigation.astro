@@ -1,0 +1,53 @@
+---
+import type { NavigationItem } from "../../types";
+type Props = {
+  items: NavigationItem[];
+};
+
+const { items = [] } = Astro.props as Props;
+---
+
+<nav class="navigation">
+  <ul class="root-items">
+    {
+      items.map((rootItem) => (
+        <li class="root-item">
+          <a href={rootItem.link}>{rootItem.label}</a>
+          {rootItem.children && rootItem.children.length > 0 && (
+            <ul class="child-items">
+              {rootItem.children?.map((childItem) => (
+                <li class="child-item">
+                  <a href={childItem.link}>{childItem.label}</a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  ul {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  li {
+    display: block;
+    line-height: 2.5;
+    padding: 0 0 0 1rem;
+  }
+
+  a {
+    text-decoration: none;
+    display: block;
+  }
+
+  .root-item > a {
+    display: block;
+    font-weight: bold;
+  }
+</style>

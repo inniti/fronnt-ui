@@ -1,0 +1,26 @@
+---
+interface Props {
+  siteTitle: string;
+}
+const { siteTitle } = Astro.props as Props;
+---
+
+<header class="topbar">
+  <div class="site-title">{siteTitle}</div>
+</header>
+
+<style lang="stylus">
+
+    .topbar {
+        padding: 2rem;
+        backdrop-filter: blur(10px);
+        background: rgba(white, 0.5);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    
+    .site-title {
+        font-weight: bold;
+    }
+</style>

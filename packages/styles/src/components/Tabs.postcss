@@ -1,0 +1,55 @@
+/*! @fronnt/styles NNTabs */
+
+.nn-tabs {
+}
+
+.nn-tabs__header {
+  display: flex;
+  flex-wrap: no-wrap;
+  align-items: center;
+  column-gap: 3.75rem;
+  overflow-x: auto;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-gutter: stable;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.nn-tabs__tab {
+  display: none;
+
+  &.nn-tabs__tab--active {
+    display: block;
+  }
+}
+
+.nn-tabs__trigger {
+  cursor: pointer;
+  padding: 0.625rem 0;
+  white-space: nowrap;
+  &:focus {
+    outline: none;
+  }
+  &:hover,
+  &:focus-visible {
+    color: var(--nn-color-primary);
+  }
+}
+
+.nn-tabs__highlight {
+  height: 0.25rem;
+  background: var(--nn-color-primary);
+  display: block;
+  width: 100px;
+  position: absolute;
+  bottom: 0rem;
+  left: 0;
+  transform-origin: left center;
+  transition: transform 200ms ease-out;
+}

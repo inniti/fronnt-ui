@@ -1,0 +1,35 @@
+/*! @fronnt/styles NNActionButton */
+.nn-action-button {
+  & svg {
+    display: block;
+    width: 1.5em;
+    height: 1.5em;
+  }
+
+  &.nn-action-button--success {
+    background: var(--nn-color-success);
+    border-color: var(--nn-color-success);
+    color: var(--nn-color-success-contrast);
+    &:hover:enabled {
+      background: var(--nn-color-success);
+      cursor: default;
+    }
+  }
+
+  &.nn-action-button--error {
+    background: var(--nn-color-error);
+    border-color: var(--nn-color-error);
+    color: var(--nn-color-error-contrast);
+    &:hover:enabled {
+      background: var(--nn-color-error);
+      cursor: default;
+    }
+  }
+
+  &.nn-action-button--pending {
+    &:hover:enabled {
+      background-color: var(--nn-color-primary-800);
+      cursor: default;
+    }
+  }
+}

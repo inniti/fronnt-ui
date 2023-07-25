@@ -1,0 +1,90 @@
+/*! @fronnt/styles NNCheckbox */
+.nn-checkbox {
+  display: flex;
+  position: relative;
+  overflow: visible;
+  font-size: 1rem;
+
+  & input {
+    display: flex;
+    border-radius: 0;
+    appearance: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    border: none;
+    flex: 0 0 2.5rem;
+    align-items: center;
+    margin: 0;
+    justify-content: center;
+    transition: background 100ms ease;
+    transform: translateX(-0.75em);
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      width: 1.5rem;
+      height: 1.5rem;
+      border: var(--nn-stroke-width) solid var(--nn-color-primary);
+      border-radius: var(--nn-border-radius);
+    }
+
+    &:focus-visible::before {
+      box-shadow: 0 0 0 0.05em white, 0 0 0 0.2em var(--nn-color-primary-300);
+    }
+  }
+
+  &.nn-checkbox--checked {
+    & .nn-checkbox__icon {
+      opacity: 1;
+    }
+
+    & input::before {
+      background: var(--nn-color-primary-50);
+    }
+  }
+
+  &.nn-checkbox--disabled {
+    color: var(--nn-color-gray-400);
+
+    & input {
+      cursor: default;
+
+      &::before {
+        background: white;
+        border-color: var(--nn-color-gray-400);
+      }
+    }
+
+    & .nn-checkbox__icon {
+      color: var(--nn-color-gray-400);
+    }
+  }
+}
+
+.nn-checkbox__icon {
+  display: block;
+  position: absolute;
+  top: 0.625em;
+  left: -0.125em;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 100ms ease;
+  color: var(--nn-color-primary);
+  & svg {
+    display: block;
+    width: 1.25em;
+    height: 1.25em;
+    stroke-width: var(--nn-icon-stroke-width);
+  }
+}
+
+.nn-checkbox__label {
+  padding-top: calc(0.5rem + var(--nn-stroke-width));
+  margin-left: -0.5rem;
+}

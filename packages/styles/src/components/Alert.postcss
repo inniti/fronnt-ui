@@ -1,0 +1,37 @@
+/*! @fronnt/styles NNAlert */
+.nn-alert {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 1.25rem;
+  padding: 1rem;
+  border-radius: var(--nn-alert-radius);
+  background: var(--nn-color-gray-100);
+
+  &.nn-alert--info {
+  }
+
+  &.nn-alert--warning {
+    background: var(--nn-color-warning);
+    color: var(--nn-color-warning-contrast);
+  }
+
+  &.nn-alert--success {
+    background: var(--nn-color-success);
+    color: var(--nn-color-success-contrast);
+  }
+
+  &.nn-alert--error {
+    background: var(--nn-color-error);
+    color: var(--nn-color-error-contrast);
+  }
+}
+
+.nn-alert__icon {
+  display: flex;
+  align-items: center;
+}
+
+.nn-alert__message {
+  display: flex;
+  align-items: center;
+}

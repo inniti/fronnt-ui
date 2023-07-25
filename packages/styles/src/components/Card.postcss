@@ -1,0 +1,25 @@
+/*! @fronnt/styles NNCard */
+
+.nn-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--nn-border-radius);
+  background: white;
+
+  & .nn-card__header {
+    padding: 1rem 1rem;
+    display: flex;
+    gap: 1rem;
+  }
+  & .nn-card__title {
+    flex: 1;
+  }
+  & .nn-card__content {
+    padding: 0.5rem 1rem;
+    flex: 1;
+  }
+  & .nn-card__footer {
+    padding: 1rem 1rem;
+    flex: 0 0 auto;
+  }
+}

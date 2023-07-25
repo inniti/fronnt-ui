@@ -1,0 +1,73 @@
+/*! @fronnt/styles NNAutocomplete */
+.nn-autocomplete {
+  position: relative;
+}
+
+.nn-autocomplete__input {
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  font-family: inherit;
+  padding: 0.75rem 5.25rem 0.75rem 1.25rem;
+  line-height: 1;
+  border-radius: var(--nn-control-border-radius);
+  border: var(--nn-stroke-width) solid var(--nn-color-primary-500);
+
+  &:focus {
+    outline: none;
+    border-color: var(--nn-color-primary-800);
+  }
+
+  .--tabbing &:focus {
+    box-shadow: 0 0 0 3px var(--nn-color-primary-200);
+  }
+}
+
+.nn-autocomplete__control {
+  display: flex;
+  align-items: center;
+}
+
+.nn-autocomplete__clear {
+  position: absolute;
+  cursor: pointer;
+  right: 0.5rem;
+}
+
+.nn-autocomplete__loading {
+  position: absolute;
+  right: 3rem;
+}
+
+.nn-autocomplete__results {
+  position: absolute;
+  top: calc(100% + 0.25rem);
+  display: block;
+  min-width: 100%;
+  left: 0;
+  border: var(--nn-stroke-width) solid var(--nn-color-primary-500);
+  background: white;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem 0;
+  margin: 0;
+  border-radius: var(--nn-border-radius);
+  max-height: 14rem;
+  overflow-y: auto;
+}
+
+.nn-autocomplete__result {
+  display: block;
+  border-radius: var(--nn-border-radius);
+  padding: 0.5rem 1rem;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background: var(--nn-color-primary-50);
+  }
+}

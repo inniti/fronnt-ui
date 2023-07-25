@@ -1,0 +1,45 @@
+/*! @fronnt/styles NNIconButton */
+.nn-icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  user-select: none;
+  appearance: none;
+  border: none;
+  border-radius: var(--nn-button-border-radius);
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 150ms ease, background 150ms ease;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    color: var(--nn-color-primary);
+    background: var(--nn-color-primary-50);
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 0.05em white, 0 0 0 0.2em var(--nn-color-primary-300);
+  }
+
+  &:active {
+    color: var(--nn-color-primary-800);
+  }
+
+  &.nn-icon-button--primary {
+    color: var(--nn-color-primary);
+
+    &:focus-visible {
+      background: var(--nn-color-primary-50);
+    }
+
+    &:active {
+      background: var(--nn-color-primary-50);
+    }
+  }
+}

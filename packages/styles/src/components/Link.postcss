@@ -1,0 +1,30 @@
+/*! @fronnt/styles NNLink */
+.nn-link {
+  user-select: none;
+  display: inline-block;
+  color: var(--nn-color-primary);
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  text-decoration: none;
+
+  &::after {
+    content: "";
+    display: block;
+    height: 2px;
+    background: currentColor;
+    width: 3.75rem;
+    margin-top: 0.25rem;
+    transition: width 300ms cubic-bezier(0, 0.45, 0, 1);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover, &:focus-visible {
+    &::after {
+      width: 100%;
+    }
+  }
+}

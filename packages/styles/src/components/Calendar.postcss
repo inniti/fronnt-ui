@@ -1,0 +1,128 @@
+/*! @fronnt/styles NNCalendar */
+.nn-calendar {
+}
+
+.nn-calendar__header {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: space-between;
+}
+
+.nn-calendar__days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.nn-calendar__day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+}
+
+.nn-calendar__day:focus {
+  outline: none;
+}
+
+.nn-calendar__day:focus-visible {
+  color: var(--nn-color-primary);
+}
+
+.nn-calendar__day--highlighted {
+  background: var(--nn-color-primary-100);
+}
+.nn-calendar__day--filled {
+  background: white;
+  color: var(--nn-color-gray-200);
+}
+
+.nn-calendar__day--highlighted
+  + .nn-calendar__day--highlighted.nn-calendar__day--filled {
+  position: relative;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(
+      to right,
+      var(--nn-color-primary-100),
+      rgba(255, 255, 255, 0)
+    );
+  }
+}
+
+.nn-calendar__day--highlighted.nn-calendar__day--filled
+  + .nn-calendar__day--highlighted.nn-calendar__day--filled {
+  &::after {
+    display: none;
+  }
+}
+
+.nn-calendar__day--highlighted.nn-calendar__day--filled
+  + .nn-calendar__day--highlighted {
+  position: relative;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 100%;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(
+      to left,
+      var(--nn-color-primary-100),
+      rgba(255, 255, 255, 0)
+    );
+  }
+}
+
+.nn-calendar__day--start:not(:where(.nn-calendar__day--filled)) {
+  background: var(--nn-color-primary-100);
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+.nn-calendar__day--end:not(:where(.nn-calendar__day--filled)) {
+  background: var(--nn-color-primary-100);
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.nn-calendar__month-and-year {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  & select {
+    width: 4rem;
+  }
+}
+
+.nn-calendar__arrow {
+  user-select: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em;
+}
+
+.nn-calendar__weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 0.5rem;
+}
+
+.nn-calendar__weekday {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.75rem;
+  color: gray;
+}

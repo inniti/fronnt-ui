@@ -1,0 +1,148 @@
+---
+type Props = {
+  title: string;
+  path: string;
+};
+
+type ComponentProp = {
+  key: string;
+  type: string;
+  description: string;
+};
+
+const { title, path } = Astro.props;
+
+let Content;
+let props = [];
+let docs;
+
+if (path) {
+  const parts = path.split("/");
+  if (parts.length === 1) {
+    docs = await import(`../examples/${parts[0]}.md`);
+  }
+  if (parts.length === 2) {
+    docs = await import(`../examples/${parts[0]}/${parts[1]}.md`);
+  }
+  if (parts.length === 3) {
+    docs = await import(`../examples/${parts[0]}/${parts[1]}/${parts[2]}.md`);
+  }
+  Content = docs.Content;
+  props = docs.frontmatter.props || [];
+}
+
+const safeTitle = title.trim().replace(/\s+/g, "-").toLowerCase();
+---
+
+<div class="example">
+  <header>
+    <h3 class="title">
+      <a id={safeTitle} href={`#${safeTitle}`}>#</a>
+      <span>{title}</span>
+    </h3>
+  </header>
+  <div class="canvas">
+    <slot />
+  </div>
+  <div class="docs">
+    {Content && <Content />}
+  </div>
+  <div class="subheading">Props</div>
+  <div class="props">
+    {
+      props.map((prop: ComponentProp) => (
+        <div class="prop">
+          <div>
+            <code>{prop.key}</code>
+          </div>
+          <div>
+            <code>{prop.type}</code>
+          </div>
+          <div>{prop.description}</div>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style lang="stylus">
+    .example {
+
+        &:not(:last-of-type) {
+          margin-bottom: 6rem;
+        }
+
+        header {
+            padding: 1rem 0;
+        }
+
+        .canvas {
+            padding: 1rem;
+            background: white;
+            padding: 4rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            background-image: url(/grid_dot.svg);
+            background-repeat: repeat;
+            background-size: 1.5rem;
+            border-radius: 0.33rem;
+            border: 1px solid #e2e8f0;
+            resize: both;
+        }
+
+        .docs {
+          margin-bottom: 2rem;
+        }
+
+        .subheading {
+          font-weight: bold;
+          font-size: 1.25rem;
+          margin-bottom: 1rem;
+        }
+
+        .title {
+          display: flex;
+          gap: 0.5rem;
+
+          a {
+              opacity: 0.1;
+              text-decoration: none;
+          }
+
+          &:hover {
+              a {
+                  opacity: 0.3;
+              }  
+          }
+        }
+
+        .props {
+            background: white;
+            display:flex;
+            flex-direction: column;
+        }
+
+        .prop {
+            display: grid;
+            grid-template-columns: 10rem 15rem 1fr;
+            gap: 0.5em;
+            padding: 1rem;
+
+            &:not(:last-child) {
+              border-bottom: 1px solid rgb(208, 208, 208);
+            }
+
+            code {
+                border: 1px solid #ddd;
+                display: inline-flex;
+                padding: 0.25em;
+                border-radius: 4px;
+                font-size: 0.75rem;
+                user-select: all;
+            }
+        }
+    }
+</style>

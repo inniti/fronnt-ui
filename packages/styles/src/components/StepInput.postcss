@@ -1,0 +1,67 @@
+/*! @fronnt/styles NNStepInput */
+.nn-step-input {
+  background: white;
+  border: var(--nn-stroke-width) solid var(--nn-color-primary-500);
+  border-radius: var(--nn-control-border-radius);
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+
+  & .nn-step-input__button {
+    appearance: none;
+    display: flex;
+    height: 3rem;
+    width: 2rem;
+    background: white;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    flex: 0;
+    border-radius: var(--nn-button-border-radius);
+    font-size: 1rem;
+    position: absolute;
+    top: 0;
+    z-index: 15;
+    right: 0;
+    color: var(--nn-color-primary-200);
+
+    &:first-of-type {
+      left: 0;
+      right: unset;
+    }
+
+    &:enabled {
+      cursor: pointer;
+      color: var(--nn-color-primary-500);
+
+      &:hover,
+      &:focus-visible {
+        color: var(--nn-color-primary-dark);
+      }
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  & .nn-step-input__input {
+    font-size: 1rem;
+    flex: 1 1 4rem;
+    width: 100%;
+    display: block;
+    appearance: none;
+    border-radius: 0;
+    padding: 0 2rem;
+    border: none;
+    border-radius: var(--nn-control-border-radius);
+    line-height: 3rem;
+    position: relative;
+    z-index: 10;
+    text-align: center;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

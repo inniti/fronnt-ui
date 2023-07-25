@@ -1,0 +1,12 @@
+/*! @fronnt/styles NNExpandTransition */
+
+.nn-expand-transition-enter-active,
+.nn-expand-transition-leave-active {
+  transition: height var(--speed) ease-in-out;
+  overflow: hidden;
+}
+
+.nn-expand-transition-enter,
+.nn-expand-transition-leave-to {
+  height: 0;
+}

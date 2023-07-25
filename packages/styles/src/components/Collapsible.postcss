@@ -1,0 +1,43 @@
+/*! @fronnt/styles NNCollapsible */
+.nn-collapsible {
+  &.nn-collapsible--show .nn-collapsible__chevron {
+    transform: rotate(-90deg);
+  }
+}
+
+.nn-collapsible__header {
+  display: flex;
+  border-radius: var(--nn-border-radius);
+  padding: 0.5rem;
+  align-items: center;
+  font-weight: var(--nn-font-weight-bold);
+
+  & > * {
+    flex: 1 1 100%;
+  }
+
+  & .nn-collapsible__chevron {
+    flex: 0 0 auto;
+    transform: rotate(0deg);
+    transition: transform 100ms ease;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 3px var(--nn-color-primary-200);
+  }
+}
+
+.nn-collapsible__content {
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+  position: realtive;
+  &::after {
+    content: "";
+    display: block;
+    height: 1rem;
+  }
+}

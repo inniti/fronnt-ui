@@ -1,0 +1,91 @@
+
+
+<template>
+  <span class="nn-loading-indicator">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <line
+        x1="12"
+        y1="3"
+        x2="12"
+        y2="6.27"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+      <line
+        x1="18.36"
+        y1="5.64"
+        x2="16.05"
+        y2="7.95"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+
+      <line
+        x1="17.73"
+        y1="12"
+        x2="21"
+        y2="12"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+      <line
+        x1="16.05"
+        y1="16.05"
+        x2="18.36"
+        y2="18.36"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+      <line
+        x1="12"
+        y1="17.73"
+        x2="12"
+        y2="21"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+      <line
+        x1="7.95"
+        y1="16.05"
+        x2="5.64"
+        y2="18.36"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+
+      <line
+        x1="3"
+        y1="12"
+        x2="6.27"
+        y2="12"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+
+      <line
+        x1="5.64"
+        y1="5.64"
+        x2="7.95"
+        y2="7.95"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+  </span>
+</template>

@@ -1,0 +1,92 @@
+/*! @fronnt/styles NNModal */
+.nn-modal {
+  position: fixed;
+  z-index: 900;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: flex-end;
+  transition: opacity 0.2s cubic-bezier(0, 0.29, 0.25, 1);
+  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.nn-modal__panel {
+  background: white;
+  margin: 0 auto;
+  max-width: 40rem;
+  max-height: calc(100vh - 2rem);
+  width: 100%;
+  border-top-left-radius: var(--nn-border-radius);
+  border-top-right-radius: var(--nn-border-radius);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0, 0.29, 0.25, 1);
+  box-shadow: 0px 0.5px 2.2px rgba(0, 0, 0, 0.02),
+    0px 1.1px 5.3px rgba(0, 0, 0, 0.028), 0px 2.1px 10px rgba(0, 0, 0, 0.035),
+    0px 3.8px 17.9px rgba(0, 0, 0, 0.042), 0px 7.1px 33.4px rgba(0, 0, 0, 0.05),
+    0px 17px 80px rgba(0, 0, 0, 0.07);
+
+  @media screen and (min-height: 700px) {
+    margin-top: auto;
+    margin-bottom: auto;
+    border-bottom-left-radius: var(--nn-border-radius);
+    border-bottom-right-radius: var(--nn-border-radius);
+  }
+}
+
+.nn-modal__header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1rem 0.5rem;
+  border-top-left-radius: var(--nn-border-radius);
+  border-top-right-radius: var(--nn-border-radius);
+  flex: 0;
+}
+
+.nn-modal__footer {
+  padding: 0.5rem 1rem 1rem;
+  flex: 0;
+
+  @media screen and (min-height: 700px) {
+    border-bottom-left-radius: var(--nn-border-radius);
+    border-bottom-right-radius: var(--nn-border-radius);
+  }
+}
+
+.nn-modal__title {
+  flex: 1 0 auto;
+}
+
+.nn-modal__body {
+  padding: 1rem;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.nn-modal-transition-enter-from {
+  opacity: 0;
+}
+
+.nn-modal-transition-leave-to {
+  opacity: 0;
+}
+
+.nn-modal-transition-enter-from .nn-modal__panel,
+.nn-modal-transition-leave-to .nn-modal__panel {
+  transform: translateY(5rem);
+  @media (prefers-reduced-motion) {
+    transform: translateY(0);
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .nn-modal__header,
+  .nn-modal__body,
+  .nn-modal__footer {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}

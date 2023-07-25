@@ -1,0 +1,45 @@
+/*! @fronnt/styles NNBreadcrumbs */
+.nn-breadcrumbs {
+  user-select: none;
+  display: block;
+  font-size: 0.875rem;
+}
+
+.nn-breadcrumbs__list {
+  display: flex;
+  overflow-x: auto;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 0.5em;
+  padding: 1rem 0;
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-gutter: stable;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.nn-breadcrumbs__crumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  
+  & a {
+    color: inherit;
+    text-decoration: none;
+    color: var(--nn-color-primary);
+  }
+}
+
+.nn-breadcrumbs__separator {
+  color: var(--nn-color-subdued);
+}

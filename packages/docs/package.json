@@ -1,0 +1,31 @@
+{
+  "name": "@fronnt/docs",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "format": "prettier --write src/**/*"
+  },
+  "dependencies": {
+    "@fontsource/barlow-semi-condensed": "^5.0.5",
+    "@fronnt/components-vue": "workspace:*",
+    "@fronnt/icons": "workspace:*",
+    "@fronnt/styles": "workspace:*",
+    "astro": "^2.9.2"
+  },
+  "devDependencies": {
+    "@astrojs/vue": "^2.2.1",
+    "autoprefixer": "^10.4.14",
+    "cssnano": "~6.0.1",
+    "prettier": "^3.0.0",
+    "prettier-plugin-astro": "^0.11.0",
+    "prettier-plugin-stylus": "0.0.1-beta.9",
+    "stylus": "^0.59.0",
+    "vue": "^3.3.4",
+    "shiki":"^0.14.3"
+  }
+}

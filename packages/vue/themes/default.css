@@ -1,0 +1,7 @@
+:root {
+  --nn-border-radius: 4px;
+}
+
+html {
+  font-family: "Barlow Semi Condensed", system-ui, sans-serif;
+}

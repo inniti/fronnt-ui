@@ -1,0 +1,103 @@
+/*! @fronnt/styles NNTextarea */
+.nn-textarea {
+  position: relative;
+  background: white;
+  display: block;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  box-sizing: border-box;
+
+  & * {
+    box-sizing: border-box;
+  }
+
+  & .nn-textarea__note {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--nn-color-gray-400);
+  }
+
+  & .nn-textarea__label {
+    color: var(--nn-color-primary-500);
+    text-transform: uppercase;
+    position: absolute;
+    top: calc(1rem + 2px);
+    left: 1.25rem;
+    line-height: 1;
+    transition: transform 0.1s ease;
+    transform: translateY(-0.5rem) scale(0.625);
+    transform-origin: top left;
+  }
+
+  & .nn-textarea__control {
+    border: var(--nn-stroke-width) solid var(--nn-color-primary-500);
+    font-size: 1rem;
+    color: black;
+    display: block;
+    width: 100%;
+    appearance: none;
+    padding: 1.5rem 1.25rem 0.5rem;
+    font-family: inherit;
+    transition: background-color 0.1s ease, border-color 0.1s ease;
+    border-radius: var(--nn-control-border-radius);
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 3.5rem;
+
+    &:placeholder-shown ~ .nn-textarea__label {
+      transform: none;
+    }
+
+    &:focus {
+      outline: none;
+      background: var(--nn-color-primary-50);
+      border-color: var(--nn-color-primary-800);
+      & ~ .nn-textarea__label {
+        color: var(--nn-color-primary-800);
+        transform: translateY(-0.5rem) scale(0.625);
+      }
+      .--tabbing &:focus {
+        box-shadow: 0 0 0 3px var(--nn-color-primary-200);
+      }
+    }
+  }
+
+  &.nn-textarea--required {
+    & .nn-textarea__label::after {
+      content: "*";
+      display: inline-block;
+      margin-left: 0.25em;
+    }
+  }
+
+  &.nn-textarea--disabled {
+    border-color: var(--nn-color-primary-200);
+
+    & .nn-textarea__label,
+    & .nn-textarea__input {
+      color: var(--nn-color-primary-200);
+      background: white;
+    }
+  }
+
+  &.nn-textarea--error {
+    border-color: var(--nn-color-error);
+
+    & .nn-textarea__label,
+    & .nn-textarea__note,
+    & .nn-textarea__input {
+      color: var(--nn-color-error);
+    }
+
+    & .nn-textarea__control {
+      border-color: var(--nn-color-error);
+      background: white;
+
+      &:focus ~ .nn-textarea__label {
+        color: var(--nn-color-error);
+      }
+    }
+  }
+}
