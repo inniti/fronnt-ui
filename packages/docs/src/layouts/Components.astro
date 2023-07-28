@@ -1,14 +1,56 @@
 ---
-import BaseLayout from './Layout.astro';
-import { components } from '../navigation';
+import BaseLayout from "./Base.astro";
+import Navigation from "../components/Navigation.astro";
+import "@fronnt/styles";
+import "../fronnt-vars.css";
 
-interface Props {
-  title: string
-}
+import { components } from "../navigation";
+import PrevNext from "../components/PrevNext.astro";
 
-const { title } = Astro.props as Props;
+const { frontmatter } = Astro.props;
 ---
 
-<BaseLayout title={title} sidebar={components} withSidebar>
-  <slot />
+<BaseLayout title={frontmatter.title}>
+  <div class="layout">
+    <aside>
+      <div class="affix">
+        <Navigation items={components} />
+      </div>
+    </aside>
+
+    <main>
+      <slot />
+
+      <PrevNext prev={frontmatter.prev} next={frontmatter.next} />
+    </main>
+  </div>
 </BaseLayout>
+
+<style>
+  .layout {
+    display: grid;
+  }
+
+  aside {
+    max-height: 80vh;
+  }
+
+  .affix {
+  }
+
+  @media screen and (min-width: 40rem) {
+    .layout {
+      grid-template-columns: 16rem 1fr;
+    }
+
+    aside {
+      position: relative;
+    }
+
+    .affix {
+      position: sticky;
+      top: 6rem;
+      align-self: start;
+    }
+  }
+</style>

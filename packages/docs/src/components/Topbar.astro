@@ -1,73 +1,80 @@
 ---
-import { topbar } from '../navigation';
-interface Props {
-  siteTitle: string;
-}
-const { siteTitle } = Astro.props as Props;
+import { topbar } from "../navigation";
+interface Props {}
+// const {  } = Astro.props as Props;
 ---
 
 <header class="topbar">
-  <div class="site-title">{siteTitle}</div>
-  <nav>
-    <ul>
-      {topbar.map(navItem => (<li><a href={navItem.link}>{navItem.label}</a></li>))}
-    </ul>
-  </nav>
-  <div>Github</div>
+  <div class="content">
+    <a class="site-title" href="/">fronnt UI</a>
+    <nav>
+      <ul>
+        {
+          topbar.map((navItem) => (
+            <li>
+              <a href={navItem.link}>{navItem.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <div>Github</div>
+  </div>
 </header>
 
-<style lang="stylus">
+<style lang="scss">
+  .topbar {
+    backdrop-filter: blur(10px);
+    background: rgba(white, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
 
-    .topbar {
-        padding: 0.5rem 2rem;
-        backdrop-filter: blur(10px);
-        background: rgba(white, 0.5);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        display: flex;
-        align-items: center;
-        gap: 4rem;
-        justify-content: space-between;
-    }
-    
-    .site-title {
-        font-weight: bold;
+  .content {
+    padding: 0.5rem var(--page-padding);
+    max-width: var(--page-max-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    justify-content: space-between;
+  }
+  .site-title {
+    font-weight: bold;
+  }
+
+  nav {
+    display: block;
+    flex: 1;
+
+    ul {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      padding: 0;
+      margin: 0;
+      list-style: none;
     }
 
-    nav {
+    li {
       display: block;
-      flex: 1;
+      padding: 0;
+      margin: 0;
 
-      ul {
-        display: flex;
-        gap: 1rem;
-        overflow-x: auto;
-        padding: 0;
-        margin: 0;
-        list-style: none;
-      }
-
-      li {
+      a {
         display: block;
-        padding: 0;
-        margin: 0;
+        line-height: 3;
+        text-decoration: none;
+        border-radius: 0.5em;
+        padding: 0 1em;
+        transition: background-color 100ms ease;
+        font-weight: bold;
 
-        a {
-          display: block;
-          line-height: 3;
-          text-decoration: none;
-          border-radius: 0.5em;
-          padding: 0 1em;
-          transition: background-color 100ms ease;
-          font-weight: bold;
-
-          &:hover {
-            background: #efefef;
-          }
+        &:hover {
+          background: #efefef;
         }
       }
     }
-
-
+  }
 </style>

@@ -1,0 +1,99 @@
+---
+layout: ../../layouts/Components.astro
+title: Buttons
+next:
+  link: /components/links/
+  label: Links
+---
+
+import Preview from "../../components/Preview.astro";
+import PropsTable from "../../components/PropsTable.astro";
+
+import { NNButton } from "@fronnt/components-vue";
+import ActionButton from "./_examples/ActionButton.vue";
+
+# Buttons
+
+Buttons can be clicked
+
+## NNButton
+
+Some words about buttons
+
+<Preview>
+  <NNButton client:only="vue">Default</NNButton>
+  <NNButton primary client:only="vue">
+    Primary
+  </NNButton>
+  <NNButton disabled client:only="vue">
+    Disabled
+  </NNButton>
+  <NNButton primary disabled client:only="vue">
+    Primary Disabled
+  </NNButton>
+</Preview>
+
+```vue
+<NNButton>Button</NNButton>
+<NNButton primary>Primary</NNButton>
+```
+
+<PropsTable
+  props={[{ key: "primary", type: "boolean", description: "adsfa asdf" }]}
+/>
+
+## NNActionButton
+
+Action Buttons can be passed an async function, which is executed on click.
+
+While running, the button shows a loading state.
+
+The button shows a success state when the promise is fulfilled and an error state when the promise is rejected.
+
+<Preview>
+  <ActionButton success client:only="vue">
+    Success
+  </ActionButton>
+  <ActionButton client:only="vue">Error</ActionButton>
+</Preview>
+
+```vue
+<script setup>
+const successAction = () =>
+  new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(true);
+    }, 1000);
+  });
+
+const errorAction = () =>
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      reject(new Error());
+    }, 1000);
+  });
+</script>
+
+<template>
+  <NNActionButton :action="successAction">Success</NNActionButton>
+  <NNActionButton :action="errorAction">Error</NNActionButton>
+</template>
+```
+
+<PropsTable
+  props={[
+    {
+      key: "action",
+      type: "() => Promise<unknown>",
+      description: "The action to be run",
+      required: true,
+    },
+    { key: "timeout", type: "number", description: "defaults to 1000ms" },
+    { key: "pendingDelay", type: "number", desciption: "defaults to 100ms" },
+    {
+      key: "disabled",
+      type: "boolean",
+      description: "Whether or not the button should be disabled",
+    },
+  ]}
+/>

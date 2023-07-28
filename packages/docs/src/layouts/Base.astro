@@ -1,0 +1,55 @@
+---
+import "../global.css";
+
+import "@fontsource/barlow/400.css";
+import "@fontsource/barlow/700.css";
+
+import Topbar from "../components/Topbar.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title: string;
+  appendSiteTitle?: boolean;
+  prev?: {
+    label: string;
+    link: string;
+  };
+  next?: {
+    label: string;
+    link: string;
+  };
+}
+
+const SITE_TITLE = "fronnt UI";
+
+const { title, appendSiteTitle = true } = Astro.props;
+
+const docTitle = appendSiteTitle ? `${title} | ${SITE_TITLE}` : title;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{docTitle}</title>
+  </head>
+  <body>
+    <Topbar />
+    <div class="page">
+      <slot />
+    </div>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .page {
+    padding: 6rem var(--page-padding) 2rem;
+    max-width: var(--page-max-width);
+    margin: 0 auto;
+  }
+</style>

@@ -1,6 +1,9 @@
-import type { NavigationItem } from "../types";
+import type {
+  LabelNavigationItem,
+  LinkNavigationItem,
+} from "../types";
 
-const components: NavigationItem[] = [
+const components: LabelNavigationItem[] = [
   {
     label: "Base",
     children: [
@@ -10,7 +13,7 @@ const components: NavigationItem[] = [
   },
 ];
 
-const topbar: NavigationItem[] = [
+const topbar: LinkNavigationItem[] = [
   {
     label: "Design System",
     link: "/design-system/",

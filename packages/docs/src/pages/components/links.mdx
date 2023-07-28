@@ -1,0 +1,27 @@
+---
+layout: ../../layouts/Components.astro
+title: Links
+prev:
+  link: /components/buttons/
+  label: Buttons
+---
+
+import Preview from "../../components/Preview.astro";
+import PropsTable from "../../components/PropsTable.astro";
+import { NNLink } from "@fronnt/components-vue";
+
+# Links
+
+## NNLink
+
+<Preview>
+  <NNLink client:only="vue">This is a link</NNLink>
+</Preview>
+
+```vue
+<NNLink>This is a link</NNLink>
+```
+
+<PropsTable
+  props={[{ key: "primary", type: "boolean", description: "adsfa asdf" }]}
+/>

@@ -1,0 +1,21 @@
+---
+import PrevNext from "../components/PrevNext.astro";
+import Base from "./Base.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<Base title={frontmatter.title} appendSiteTitle={frontmatter.appendSiteTitle}>
+  <main>
+    <slot />
+  </main>
+
+  <PrevNext prev={frontmatter.prev} next={frontmatter.next} />
+</Base>
+
+<style>
+  main {
+    max-width: 60rem;
+    margin-right: auto;
+  }
+</style>
