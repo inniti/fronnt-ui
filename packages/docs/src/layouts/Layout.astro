@@ -1,7 +1,7 @@
 ---
 import "../global.css";
-import "@fontsource/barlow-semi-condensed/400.css";
-import "@fontsource/barlow-semi-condensed/700.css";
+import "@fontsource/barlow/400.css";
+import "@fontsource/barlow/700.css";
 import "@fronnt/styles";
 import "../fronnt-vars.css";
 import Topbar from "../components/Topbar.astro";
@@ -10,10 +10,13 @@ import type { NavigationItem } from "../../types";
 
 interface Props {
   title: string;
-  navigation: NavigationItem[];
+  sidebar?: NavigationItem[];
+  withSidebar?: boolean;
 }
 
-const { title, navigation = [] } = Astro.props;
+
+
+const { title, withSidebar, sidebar = []} = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -24,16 +27,17 @@ const { title, navigation = [] } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>{`${title} | fronnt UI`}</title>
   </head>
   <body>
     <Topbar siteTitle="fronnt UI" />
     <div class="page">
-      <aside>
+      {withSidebar && <aside>
         <div class="affix">
-          <Navigation items={navigation} />
+          <Navigation items={sidebar} />
         </div>
-      </aside>
+        <slot name="sidebar"/>
+      </aside>}
       <main>
         <div class="content">
           <slot />
@@ -57,20 +61,26 @@ const { title, navigation = [] } = Astro.props;
   }
 
   aside {
+    position: relative;
     
-    padding: 2rem 2rem;
-    @media (min-width: 40rem) {
-      position: sticky;
-      top: 5rem;
-      align-self: start;
+    .affix {
+      overflow-y: auto;
+      @media (min-width: 40rem) {
+        position: sticky;
+        top: 6rem;
+        align-self: start;
+      }
     }
   }
 
   main {
     padding: 0 1rem;
+    min-height: 70vh;
   }
 
+
   .content {
-    /* max-width: 800px; */
+    max-width: 60rem;
+    margin-right: auto;
   }
 </style>

@@ -1,5 +1,5 @@
 html {
-  font-family: "Barlow Semi Condensed", system-ui, sans-serif;
+  font-family: "Barlow", system-ui, sans-serif;
   background-color: #f6f6f6;
   padding: 0;
   margin: 0;
@@ -25,6 +25,7 @@ code {
 
 .astro-code {
   padding: 1rem;
+  max-width: calc(100vw - 4rem);
 }
 
 a {

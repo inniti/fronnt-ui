@@ -1,5 +1,10 @@
-export type NavigationItem = {
-  link: string;
-  label: string;
-  children?: NavigationItem[];
-};
+export type NavigationItem =
+  | {
+      label: string;
+      children: NavigationItem[];
+    }
+  | {
+      label: string;
+      link: string;
+      children?: NavigationItem[];
+    };

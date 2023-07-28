@@ -1,4 +1,5 @@
 ---
+import { topbar } from '../navigation';
 interface Props {
   siteTitle: string;
 }
@@ -7,20 +8,66 @@ const { siteTitle } = Astro.props as Props;
 
 <header class="topbar">
   <div class="site-title">{siteTitle}</div>
+  <nav>
+    <ul>
+      {topbar.map(navItem => (<li><a href={navItem.link}>{navItem.label}</a></li>))}
+    </ul>
+  </nav>
+  <div>Github</div>
 </header>
 
 <style lang="stylus">
 
     .topbar {
-        padding: 2rem;
+        padding: 0.5rem 2rem;
         backdrop-filter: blur(10px);
         background: rgba(white, 0.5);
         position: sticky;
         top: 0;
         z-index: 100;
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+        justify-content: space-between;
     }
     
     .site-title {
         font-weight: bold;
     }
+
+    nav {
+      display: block;
+      flex: 1;
+
+      ul {
+        display: flex;
+        gap: 1rem;
+        overflow-x: auto;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+
+      li {
+        display: block;
+        padding: 0;
+        margin: 0;
+
+        a {
+          display: block;
+          line-height: 3;
+          text-decoration: none;
+          border-radius: 0.5em;
+          padding: 0 1em;
+          transition: background-color 100ms ease;
+          font-weight: bold;
+
+          &:hover {
+            background: #efefef;
+          }
+        }
+      }
+    }
+
+
 </style>

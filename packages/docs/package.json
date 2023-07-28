@@ -11,7 +11,7 @@
     "format": "prettier --write src/**/*"
   },
   "dependencies": {
-    "@fontsource/barlow-semi-condensed": "^5.0.5",
+    "@fontsource/barlow": "^5.0.5",
     "@fronnt/components-vue": "workspace:*",
     "@fronnt/icons": "workspace:*",
     "@fronnt/styles": "workspace:*",

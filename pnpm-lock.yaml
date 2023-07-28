@@ -14,7 +14,7 @@ importers:
 
   packages/docs:
     dependencies:
-      '@fontsource/barlow-semi-condensed':
+      '@fontsource/barlow':
         specifier: ^5.0.5
         version: 5.0.5
       '@fronnt/components-vue':
@@ -93,7 +93,7 @@ importers:
         specifier: ~3.3.4
         version: 3.3.4
     devDependencies:
-      '@fontsource/barlow-semi-condensed':
+      '@fontsource/barlow':
         specifier: ~5.0.5
         version: 5.0.5
       '@histoire/plugin-vue':
@@ -1333,8 +1333,8 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@fontsource/barlow-semi-condensed@5.0.5:
-    resolution: {integrity: sha512-D7/G55bWMBwUY/jOA76y/95Vs14Z6uO+ZwKR80w3qLAmla7Nf7WrY+rIRJasF+NPRvDQakSmiFyzDnjrWcNbjg==}
+  /@fontsource/barlow@5.0.5:
+    resolution: {integrity: sha512-nPwOFPAKrhAf712sUrhc6BcT51EB7nqxP+PPJmOQdapQo7bAIXgk8TFVs1duub/81dlA9tkZqVdSu8I58Pa2pw==}
 
   /@histoire/app@0.16.1(vite@4.4.3):
     resolution: {integrity: sha512-13komnhVk1Pk0wMmkJKDPWT8RKpA5HfAbeeXSHAq29pvFP9Faq+dAa62g1wqOpoyJD5C7SkI0OPI3eJwJHgTiQ==}

@@ -1,0 +1,25 @@
+---
+import Layout from "../../../layouts/Components.astro";
+import Example from "../../../components/Example.astro";
+
+import { NNButton } from "@fronnt/components-vue";
+import ActionButton from "../../../examples/components/ActionButton/Success.vue";
+---
+
+<Layout title="Components/Buttons">
+  <h1>Buttons</h1>
+
+  <p>Buttons can be clicked</p>
+
+  <Example title="NNButton" path="components/button">
+    <NNButton client:only="vue">Button</NNButton>
+    <NNButton primary client:only="vue">Primary</NNButton>
+    <NNButton disabled client:only="vue">Disabled</NNButton>
+    <NNButton primary disabled client:only="vue">Primary Disabled</NNButton>
+  </Example>
+
+  <Example title="NNActionButton" path="components/action-button">
+    <ActionButton client:only="vue" success />
+    <ActionButton client:only="vue" />
+  </Example>
+</Layout>
