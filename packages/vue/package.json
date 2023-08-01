@@ -16,17 +16,16 @@
   },
   "scripts": {
     "dev": "histoire dev",
-    "build": "vue-tsc --noEmit && vite build && histoire build",
-    "build:package": "vue-tsc --noEmit && vite build",
+    "build": "vue-tsc --noEmit && vite build",
     "build:histoire": "histoire build",
     "lint": "eslint --ext .ts,.vue --ignore-path .gitignore --fix src/components",
     "format": "prettier --write src/**/*"
   },
   "dependencies": {
-    "@fronnt/icons": "workspace:*",
     "vue": "~3.3.4"
   },
   "peerDependencies": {
+    "@fronnt/icons": "workspace:*",
     "@fronnt/styles": "workspace:*"
   },
   "devDependencies": {

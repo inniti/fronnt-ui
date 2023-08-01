@@ -6,7 +6,3 @@ declare module "*.vue" {
   const component: DefineComponent<{}, {}, any>;
   export default component;
 }
-
-declare global {
-  const FRONNT_URL: string|undefined;
-}
