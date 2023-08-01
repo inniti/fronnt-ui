@@ -1,89 +1,75 @@
 <script lang="ts">
-export default {
-  name: "NNToast",
-};
+import { storeToast } from "../../stores/Toast.store.vue";
+import { watch } from "vue";
+
+export function useToast() {
+  return (
+    type: string,
+    title: string,
+    message: string,
+    submit: string,
+    timeout: number
+  ) => {
+    storeToast.push({
+      id: Math.floor(Math.random() * 1000000),
+      type: type,
+      title: title,
+      message: message,
+      submit: submit,
+      timeout: timeout,
+      show: true
+    });
+  };
+}
 </script>
 
 <script lang="ts" setup>
-import { computed, ref, watch, onBeforeUnmount } from "vue";
-import { FronntIcon } from "@fronnt/icons";
 import Icon from "./Icon.vue";
 
-const props = withDefaults(
-  defineProps<{
-    show: boolean;
-    timeout?: number;
-    type?: "success" | "error" | "info" | "warning";
-    clickable?: boolean;
-  }>(),
-  {
-    timeout: 3000,
-    type: "info",
-  }
-);
+watch(storeToast, (toasts) => {
+  const toastId = toasts[toasts.length - 1].id;
 
-const emit = defineEmits(["timeout", "click"]);
-
-const icon = computed<FronntIcon | null>(() => {
-  switch (props.type) {
-    case "success":
-      return "check";
-    case "error":
-      return "x";
-    default:
-      return "Arrow";
-  }
-});
-
-const show = ref(false);
-
-const timeout = ref<ReturnType<typeof setTimeout>>();
-
-const startTimer = () => {
-  timeout.value = setTimeout(() => {
-    show.value = false;
-    emit("timeout");
-  }, props.timeout);
-};
-
-watch(
-  () => props.show,
-  (value) => {
-    clearTimeout(timeout.value);
-    show.value = value;
-    if (show.value && props.timeout > 0) {
-      startTimer();
-    }
-  }
-);
-
-onBeforeUnmount(() => {
-  clearTimeout(timeout.value);
+  /**
+   * Starting timeout after which the taost automatically disappears.
+   */
+  setTimeout(() => 
+    toasts.forEach((item) => (item.id === toastId) ? item.show = false : null), 
+    toasts[toasts.length - 1].timeout
+  );
 });
 </script>
 
 <template>
   <Teleport to="body">
-    <Transition name="nn-toast-transition">
-      <div
-        v-if="show"
-        class="nn-toast"
-        aria-live="assertive"
-        role="alert"
-        :class="[
-          `nn-toast--${props.type}`,
-          props.clickable && `nn-toast--clickable`,
-        ]"
-        @click="emit('click')"
-      >
-        <span class="nn-toast__icon">
-          <slot name="icon">
-            <Icon v-if="icon" :name="icon" />
-          </slot>
-        </span>
-        <span class="nn-toast__content"><slot /></span>
-        <Icon name="Chevron" class="nn-toast__chevron" />
+    <Transition name="fadeHeight" mode="out-in">
+      <div class="nn-toast__wrapper">
+        <Transition name="nn-toast-transition" v-for="toast in storeToast.slice().reverse()">
+          <div :class="`nn-toast nn-toast--${toast.type}`" v-if="toast.show">
+            <div class="nn-toast__close" @click="toast.show = false">
+              <Icon name="x" />
+            </div>
+
+            <h1 class="nn-text-m nn-toast__title">{{ toast.title }}</h1>
+            <p class="nn-text-m nn-toast__message">{{ toast.message }}</p>
+            <a class="nn-text-m nn-toast__clickable" v-if="toast.submit"><b>{{ toast.submit }}</b></a>
+          </div>
+        </Transition>
       </div>
     </Transition>
   </Teleport>
 </template>
+
+<style scoped>
+.fadeHeight-enter-active,
+.fadeHeight-leave-active {
+  transition: all 0.2s;
+  max-height: 230px;
+}
+.fadeHeight-enter,
+.fadeHeight-leave-to
+{
+  opacity: 0;
+  max-height: 0px;
+}
+
+</style>
