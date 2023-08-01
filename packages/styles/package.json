@@ -31,7 +31,6 @@
     "./components/Card": "./dist/components/Card.css",
     "./components/Paging": "./dist/components/Paging.css",
     "./components/Autocomplete": "./dist/components/Autocomplete.css",
-    "./components/Price": "./dist/components/Price.css",
     "./components/IconButton": "./dist/components/IconButton.css",
     "./components/Modal": "./dist/components/Modal.css",
     "./components/Tooltip": "./dist/components/Tooltip.css",
@@ -43,15 +42,7 @@
     "./components/Popup": "./dist/components/Popup.css",
     "./components/DatePicker": "./dist/components/DatePicker.css",
     "./components/DateRangePicker": "./dist/components/DateRangePicker.css",
-    "./transitions/Expand": "./dist/transitions/Expand.css",
-    "./compositions/ProductTile": "./dist/compositions/ProductTile.css",
-    "./compositions/ShopTheLook": "./dist/compositions/ShopTheLook.css",
-    "./compositions/OrderList": "./dist/compositions/OrderList.css",
-    "./compositions/OrderListItem": "./dist/compositions/OrderListItem.css",
-    "./compositions/Cart": "./dist/compositions/Cart.css",
-    "./compositions/CartItem": "./dist/compositions/CartItem.css",
-    "./compositions/PDP": "./dist/compositions/PDP.css",
-    "./compositions/SearchFilter": "./dist/compositions/SearchFilter.css"
+    "./transitions/Expand": "./dist/transitions/Expand.css"
   },
   "scripts": {
     "build": "rimraf dist && postcss ./src/** --base src --ext css --verbose --dir dist",
