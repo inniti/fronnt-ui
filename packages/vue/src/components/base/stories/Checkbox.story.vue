@@ -15,7 +15,7 @@ const label = ref("Something to be checked");
     </template>
     <Variant title="Default">
       <Checkbox v-model="modelValue" :disabled="disabled">
-        {{  label  }}
+        {{ label }}
       </Checkbox>
     </Variant>
   </Story>

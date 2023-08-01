@@ -18,9 +18,7 @@ const crumbs = [
 </script>
 
 <template>
-  <Story
-    title="Components/Breadcrumbs"
-  >
+  <Story title="Components/Breadcrumbs">
     <Variant title="Default">
       <Breadcrumbs :crumbs="crumbs" />
     </Variant>
@@ -32,7 +30,7 @@ const crumbs = [
             <template v-else>{{ crumb.label }}</template>
           </a>
         </template>
-        <template #separator>&raquo;</template>
+        <template #separator> &raquo; </template>
       </Breadcrumbs>
     </Variant>
   </Story>

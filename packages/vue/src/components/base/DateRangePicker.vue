@@ -23,6 +23,8 @@ const props = withDefaults(
   }>(),
   {
     firstYear: 1900,
+    lastYear: undefined,
+    modelValue: null,
   }
 );
 
@@ -169,8 +171,8 @@ const onClose = () => {
           </slot>
         </div>
         <NNIconButton
-          icon="x"
           v-show="start !== null"
+          icon="x"
           class="nn-date-range-picker__clear"
           @click.stop="clear"
         />
@@ -185,12 +187,12 @@ const onClose = () => {
               :month="month"
               :first-year="props.firstYear"
               :last-year="props.lastYear"
-              @select="selectDay"
-              @enter="onEnterDay"
-              @leave="onLeaveDay"
               :is-highlighted="isHighlighted"
               :is-start="isStart"
               :is-end="isEnd"
+              @select="selectDay"
+              @enter="onEnterDay"
+              @leave="onLeaveDay"
               @update:month="month = $event"
             />
             <NNCalendar
@@ -198,20 +200,20 @@ const onClose = () => {
               :month="followingMonth"
               :first-year="props.firstYear"
               :last-year="props.lastYear"
-              @select="selectDay"
-              @enter="onEnterDay"
-              @leave="onLeaveDay"
               :is-highlighted="isHighlighted"
               :is-start="isStart"
               :is-end="isEnd"
+              @select="selectDay"
+              @enter="onEnterDay"
+              @leave="onLeaveDay"
               @update:month="updateFollowingMonth"
             />
           </div>
           <div>
             <div class="nn-date-range-picker__footer">
               <NNButton
-                @click="confirm"
                 :disabled="start === null || end === null"
+                @click="confirm"
               >
                 confirm
               </NNButton>

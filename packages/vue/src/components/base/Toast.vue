@@ -35,8 +35,10 @@ const icon = computed<FronntIcon | null>(() => {
   }
 });
 
+// eslint-disable-next-line vue/no-dupe-keys
 const show = ref(false);
 
+// eslint-disable-next-line vue/no-dupe-keys
 const timeout = ref<ReturnType<typeof setTimeout>>();
 
 const startTimer = () => {

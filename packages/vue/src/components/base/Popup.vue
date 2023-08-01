@@ -93,10 +93,10 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="nn-popup" :class="isOpen && 'nn-popup--open'" ref="el">
+  <div ref="el" class="nn-popup" :class="isOpen && 'nn-popup--open'">
     <div
-      class="nn-popup__trigger"
       ref="trigger"
+      class="nn-popup__trigger"
       :tabindex="props.disabled ? -1 : 0"
       @click="toggle"
       @focus="onFocus"
@@ -104,7 +104,7 @@ onBeforeUnmount(() => {
     >
       <slot></slot>
     </div>
-    <div class="nn-popup__popup" ref="popup" :style="popupStyle">
+    <div ref="popup" class="nn-popup__popup" :style="popupStyle">
       <div class="nn-popup__content">
         <slot name="popup"></slot>
       </div>

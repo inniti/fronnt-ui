@@ -4,6 +4,6 @@ import Link from "../Link.vue";
 
 <template>
   <Story title="Components/Link">
-    <Link href="/">Paket verfolgen</Link>
+    <Link href="/"> Paket verfolgen </Link>
   </Story>
 </template>

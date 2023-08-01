@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import Input from "../Input.vue";
-import { clear } from "console";
 
 const modelValue = ref("");
 

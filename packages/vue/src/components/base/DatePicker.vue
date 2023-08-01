@@ -23,6 +23,8 @@ const props = withDefaults(
   }>(),
   {
     firstYear: 1900,
+    lastYear: undefined,
+    modelValue: null,
   }
 );
 
@@ -117,10 +119,10 @@ const onFocus = () => {
           </slot>
         </div>
         <NNIconButton
-          class="nn-date-picker__clear"
-          @click.stop="clear"
           v-show="model !== null"
+          class="nn-date-picker__clear"
           icon="x"
+          @click.stop="clear"
         />
         <NNIcon name="arrow" class="nn-date-picker__icon" />
       </div>
@@ -132,13 +134,13 @@ const onFocus = () => {
             v-model:month="month"
             :first-year="props.firstYear"
             :last-year="props.lastYear"
-            @select="selectDay"
             :is-start="isStart"
             :is-end="isEnd"
+            @select="selectDay"
           />
           <div>
             <div class="nn-date-picker__footer">
-              <NNButton @click="confirm" :disabled="model === null">
+              <NNButton :disabled="model === null" @click="confirm">
                 confirm
               </NNButton>
             </div>

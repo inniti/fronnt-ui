@@ -5,10 +5,10 @@ import Alert from "../Alert.vue";
 <template>
   <Story title="Components/Alerts" :layout="{ type: 'single' }">
     <div class="alerts">
-      <Alert type="error">Something went wrong</Alert>
-      <Alert type="warning">Something went almost wrong</Alert>
-      <Alert type="info">Something went</Alert>
-      <Alert type="success">Something went right</Alert>
+      <Alert type="error"> Something went wrong </Alert>
+      <Alert type="warning"> Something went almost wrong </Alert>
+      <Alert type="info"> Something went </Alert>
+      <Alert type="success"> Something went right </Alert>
     </div>
   </Story>
 </template>

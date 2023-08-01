@@ -90,8 +90,8 @@ const onKeydown = (e: KeyboardEvent) => {
       <ul class="nn-menu__items">
         <li
           v-for="(item, i) in props.items"
-          class="nn-menu__item"
           :key="i"
+          class="nn-menu__item"
           tabindex="0"
           @click="onActivateItem(item)"
           @keydown.enter="onActivateItem(item)"

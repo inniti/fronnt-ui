@@ -61,14 +61,14 @@ const computeLayout = () => {
     tabindex="0"
     @pointerover="computeLayout"
   >
-    <slot></slot>
+    <slot />
     <span
       class="nn-tooltip__popup"
       :class="[`nn-tooltip__popup--${position}`]"
       :style="{ '--x': `${diffX}px` }"
     >
       <div ref="popupElement" class="nn-tooltip__popup-content">
-        <slot name="popup"></slot>
+        <slot name="popup" />
       </div>
     </span>
   </span>

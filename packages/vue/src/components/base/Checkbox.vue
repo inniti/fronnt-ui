@@ -33,6 +33,7 @@ const onChange = (e: Event) => {
       :checked="Boolean(props.modelValue)"
       @change="onChange"
     />
+    <!-- eslint-disable-next-line vue/no-v-html -->
     <span class="nn-checkbox__icon" v-html="CheckIcon"></span>
     <span class="nn-checkbox__label"><slot /></span>
   </label>

@@ -23,6 +23,7 @@ const props = withDefaults(
     type: "text",
     modelValue: "",
     error: false,
+    label: undefined,
   }
 );
 
@@ -54,8 +55,8 @@ function onInput(e: Event) {
         placeholder=" "
         @input="onInput"
       />
-      <span class="nn-input__label" v-if="props.label">{{ props.label }}</span>
-      <span class="nn-input__clear" v-if="clearable" tabindex="0">
+      <span v-if="props.label" class="nn-input__label">{{ props.label }}</span>
+      <span v-if="clearable" class="nn-input__clear" tabindex="0">
         <NNIcon name="x" />
       </span>
     </label>
