@@ -12,7 +12,7 @@ const onClick = () => {
 </script>
 
 <template>
-  <Story title="Components/Toast" group="">
+  <Story title="Components/Toast">
     <Variant title="Default">
       <template #controls>
         <HstCheckbox v-model="clickable" title="Clickable" />

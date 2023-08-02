@@ -7,4 +7,4 @@ next:
   label: Design System
 ---
 
-<h1>Welcome to fronnt UI</h1>
+# fronnt UI

@@ -6,7 +6,7 @@ const speed = ref(200);
 </script>
 
 <template>
-  <Story title="Components/Collapsible" group="">
+  <Story title="Components/Collapsible">
     <Variant title="Default">
       <template #controls>
         <HstCheckbox v-model="show" title="Show" />

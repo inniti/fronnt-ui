@@ -6,7 +6,7 @@ const title = ref("Card");
 </script>
 
 <template>
-  <Story title="Components/Card" :layout="{ type: 'single' }" group="base">
+  <Story title="Components/Card" :layout="{ type: 'single' }">
     <Variant title="Default">
       <template #controls>
         <HstText v-model="title" title="Title" />

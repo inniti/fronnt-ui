@@ -28,25 +28,26 @@ export default defineConfig({
       {
         id: "top",
         title: "", // No toggle
-      },
+      }/* ,
       {
-        id: "base",
-        title: "Base",
+        id: "typography",
+        title: "Typography",
         include: (file) => {
-          return file.path.includes("/base/");
+          return file.path.includes("typography");
         },
       },
       {
-        id: "ecommerce",
-        title: "eCommerce",
+        id: "components",
+        title: "Components",
         include: (file) => {
-          return file.path.includes("e-commerce");
+          return file.path.includes("/components/");
         },
-      } /* 
+      }, */
+      /* 
       {
         title: "Others",
         include: (file) => true,
-      }, */,
+      }, */
     ],
     order: (a, b) => {
       return a.localeCompare(b);

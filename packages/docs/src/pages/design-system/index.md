@@ -1,12 +1,12 @@
 ---
-layout: ../layouts/Default.astro
+layout: ../../layouts/DesignSystem.astro
 title: Design System
 prev:
   link: /
   label: Home
 next:
-  link: /components/buttons/
-  label: Components
+  link: /design-system/colors/
+  label: Colors
 ---
 
 # Design System

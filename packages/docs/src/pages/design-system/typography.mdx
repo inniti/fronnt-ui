@@ -1,0 +1,114 @@
+---
+layout: ../../layouts/DesignSystem.astro
+title: Typography
+prev:
+  link: /design-system/colors/
+  label: Colors
+next:
+  link: /components/buttons/
+  label: Components
+---
+
+import Preview from "../../components/Preview.astro";
+import PropsTable from "../../components/PropsTable.astro";
+import { NNCopyText } from "@fronnt/components-vue";
+import HeadingExample from "./_examples/Heading.vue";
+
+# Typography
+
+## Copy Text
+
+<Preview>
+  <NNCopyText>
+    Veniam ea in esse. Adipisicing Lorem pariatur veniam consectetur aute sunt.
+    Id labore qui aliqua excepteur labore quis voluptate commodo aute commodo
+    reprehenderit cillum laboris. Do anim ad veniam aute enim duis eu aute.
+  </NNCopyText>
+  <NNCopyText size="small">
+    Veniam ea in esse. Adipisicing Lorem pariatur veniam consectetur aute sunt.
+    Id labore qui aliqua excepteur labore quis voluptate commodo aute commodo
+    reprehenderit cillum laboris. Do anim ad veniam aute enim duis eu aute.
+  </NNCopyText>
+  <NNCopyText size="large">
+    Veniam ea in esse. Adipisicing Lorem pariatur veniam consectetur aute sunt.
+    Id labore qui aliqua excepteur labore quis voluptate commodo aute commodo
+    reprehenderit cillum laboris. Do anim ad veniam aute enim duis eu aute.
+  </NNCopyText>
+</Preview>
+
+```vue
+<NNCopyText>
+  Veniam ea in esse. Adipisicing Lorem pariatur veniam consectetur aute sunt.
+  Id labore qui aliqua excepteur labore quis voluptate commodo aute commodo
+  reprehenderit cillum laboris. Do anim ad veniam aute enim duis eu aute.
+</NNCopyText>
+
+<NNCopyText size="small">
+  Veniam ea in esse. Adipisicing Lorem pariatur veniam consectetur aute sunt. Id
+  labore qui aliqua excepteur labore quis voluptate commodo aute commodo
+  reprehenderit cillum laboris. Do anim ad veniam aute enim duis eu aute.
+</NNCopyText>
+
+<NNCopyText size="large">
+  Veniam ea in esse. Adipisicing Lorem pariatur veniam consectetur aute sunt.
+  Id labore qui aliqua excepteur labore quis voluptate commodo aute commodo
+  reprehenderit cillum laboris. Do anim ad veniam aute enim duis eu aute.
+</NNCopyText>
+```
+
+<PropsTable
+  props={[
+    {
+      key: "size",
+      type: "string",
+      description:
+        "One of `regular`, `small` or `large`. Defaults to `regular`",
+    },
+    {
+      key: "tag",
+      type: "string",
+      description: "Defaults to `div`",
+    },
+  ]}
+/>
+
+## Heading
+
+<Preview>
+  <HeadingExample />
+</Preview>
+
+```vue
+<NNHeading>Heading 1</NNHeading>
+<NNHeading variant="black">Heading 1 black</NNHeading>
+<NNHeading size="2">Heading 2</NNHeading>
+<NNHeading size="2" variant="black">Heading 2 black</NNHeading>
+<NNHeading size="3">Heading 3</NNHeading>
+<NNHeading size="3" variant="black">Heading 3 black</NNHeading>
+<NNHeading size="4">Heading 4</NNHeading>
+<NNHeading size="4" variant="black">Heading 4 black</NNHeading>
+<NNHeading size="5">Heading 5</NNHeading>
+<NNHeading size="5" variant="black">Heading 5 black</NNHeading>
+<NNHeading size="6">Heading 6</NNHeading>
+<NNHeading size="6" variant="black">Heading 6 black</NNHeading>
+```
+
+<PropsTable
+  props={[
+    {
+      key: "size",
+      type: "string | number",
+      description: "1, 2, 3, 4, 5, 6. Defaults to 1",
+    },
+    {
+      key: "variant",
+      type: "string",
+      description: "One of `light` or `black`. Defaults to `light`",
+    },
+    {
+      key: "tag",
+      type: "string",
+      description: "Defaults to `div`",
+    },
+  ]}
+/>

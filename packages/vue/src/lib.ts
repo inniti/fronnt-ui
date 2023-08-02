@@ -2,6 +2,8 @@
  fronnt components - vue
  */
 
+import NNCopyText from "./components/base/CopyText.vue";
+import NNHeading from "./components/base/Heading.vue";
 import NNActionButton from "./components/base/ActionButton.vue";
 import NNAlert from "./components/base/Alert.vue";
 import NNBadge from "./components/base/Badge.vue";
@@ -38,6 +40,8 @@ import NNDatePicker from "./components/base/DatePicker.vue";
 import NNExpandTransition from "./components/transitions/Expand.vue";
 
 export {
+  NNCopyText,
+  NNHeading,
   NNActionButton,
   NNAlert,
   NNBadge,

@@ -9,7 +9,8 @@
   "exports": {
     ".": "./dist/index.css",
     "./variables": "./dist/variables.css",
-    "./typography": "./dist/typography.css",
+    "./components/Heading": "./dist/components/Heading.css",
+    "./components/CopyText": "./dist/components/CopyText.css",
     "./components/Button": "./dist/components/Button.css",
     "./components/ActionButton": "./dist/components/ActionButton.css",
     "./components/Tag": "./dist/components/Tag.css",

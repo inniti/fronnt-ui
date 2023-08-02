@@ -1,9 +1,6 @@
-import type {
-  LabelNavigationItem,
-  LinkNavigationItem,
-} from "../types";
+import type { LabelNavigationItem, LinkNavigationItem } from "../types";
 
-const components: LabelNavigationItem[] = [
+export const components: LabelNavigationItem[] = [
   {
     label: "Base",
     children: [
@@ -13,7 +10,17 @@ const components: LabelNavigationItem[] = [
   },
 ];
 
-const topbar: LinkNavigationItem[] = [
+export const designSystem: LabelNavigationItem[] = [
+  {
+    label: "Design System",
+    children: [
+      { link: "/design-system/colors/", label: "Colors" },
+      { link: "/design-system/typography/", label: "Typography" },
+    ],
+  },
+];
+
+export const topbar: LinkNavigationItem[] = [
   {
     label: "Design System",
     link: "/design-system/",
@@ -23,5 +30,3 @@ const topbar: LinkNavigationItem[] = [
     link: "/components/buttons",
   },
 ];
-
-export { components, topbar };

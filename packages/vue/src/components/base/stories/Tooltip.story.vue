@@ -3,7 +3,7 @@ import Tooltip from "../Tooltip.vue";
 </script>
 
 <template>
-  <Story title="Components/Tooltip" group="" :layout="{ type: 'single' }">
+  <Story title="Components/Tooltip" :layout="{ type: 'single' }">
     <Variant title="Default">
       <template #controls />
       <p>
