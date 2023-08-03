@@ -48,8 +48,20 @@ jobs:
             ${{ runner.os }}-pnpm-store-
       - name: Install dependencies
         run: pnpm install
-      - name: Build
-        run: pnpm build
+      - name: Build styles package
+        working-directory: ./packages/styles
+        run: |
+          pnpm build
+          pnpm pack
+      - name: Build vue package
+        working-directory: ./packages/vue
+        run: |
+          pnpm build
+          pnpm pack
+      - name: Build Histoire
+        working-directory: ./packages/vue
+        run: |
+          pnpm build:histoire
       - name: Package
         uses: a7ul/tar-action@v1.1.0
         with:
@@ -57,12 +69,12 @@ jobs:
           cwd: "./packages/vue"
           files: |
             Dockerfile
-            .histoire/*
+            .histoire/
             captain-definition
           outPath: deploy.tar
       - name: Deploy to CapRover
         uses: caprover/deploy-from-github@v1.0.1
         with:
-          server: "${{ secrets.CAPROVER_HISTOIRE_SERVER }}"
+          server: "${{ secrets.CAPROVER_SERVER }}"
           app: "${{ secrets.CAPROVER_HISTOIRE_APP_NAME }}"
           token: "${{ secrets.CAPROVER_HISTOIRE_APP_TOKEN }}"
