@@ -1,0 +1,73 @@
+---
+import BaseLayout from "./Base.astro";
+import Navigation from "../components/Navigation.astro";
+import Toc from "../components/Toc.vue";
+import "@fronnt/styles";
+import "../fronnt-vars.css";
+
+import * as navigation from "../navigation";
+import PrevNext from "../components/PrevNext.astro";
+
+const { frontmatter } = Astro.props;
+
+let navigationItems = [];
+if (frontmatter.navigation) {
+  // @ts-ignore
+  navigationItems = navigation[frontmatter.navigation] || [];
+}
+---
+
+<BaseLayout title={frontmatter.title}>
+  <div class="layout">
+    <aside class="sidebar-left">
+      <div class="affix">
+        <Navigation items={navigationItems} />
+      </div>
+    </aside>
+
+    <main>
+      <slot />
+
+      <PrevNext prev={frontmatter.prev} next={frontmatter.next} />
+    </main>
+
+    <aside class="sidebar-right">
+      <div class="affix">
+        <Toc client:only="vue" />
+      </div>
+    </aside>
+  </div>
+</BaseLayout>
+
+<style>
+  .layout {
+    display: grid;
+    gap: 2rem;
+  }
+
+  @media screen and (min-width: 40rem) {
+    .layout {
+      grid-template-columns: 16rem 1fr;
+    }
+
+    .sidebar-left {
+      position: relative;
+    }
+
+    .affix {
+      position: sticky;
+      top: 6rem;
+      align-self: start;
+    }
+  }
+
+  @media screen and (min-width: 60rem) {
+    .layout {
+      grid-template-columns: 16rem 1fr 16rem;
+    }
+
+    .sidebar-right {
+      position: relative;
+    }
+  }
+</style>
