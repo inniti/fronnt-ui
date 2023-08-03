@@ -3,3 +3,4 @@ node_modules
 dist
 
 fronnt-components-vue*.tgz
+deploy.tar

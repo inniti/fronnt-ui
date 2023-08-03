@@ -17,9 +17,9 @@
   "scripts": {
     "dev": "histoire dev",
     "build": "vue-tsc --noEmit && vite build",
-    "build:histoire": "histoire build",
     "lint": "eslint --ext .ts,.vue --ignore-path .gitignore --fix src",
-    "format": "prettier --write src/**/*.{vue,ts,css}"
+    "format": "prettier --write src/**/*.{vue,ts,css}",
+    "histoire:deploy": "rm -rf .histoire && histoire build && tar -cvf ./deploy.tar ./Dockerfile .histoire/* ./captain-definition && caprover deploy -t ./deploy.tar"
   },
   "dependencies": {
     "vue": "^3.3.4"

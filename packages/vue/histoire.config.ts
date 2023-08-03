@@ -13,6 +13,7 @@ export default defineConfig({
   viteIgnorePlugins: ["vite:dts"],
   plugins: [HstVue()],
   setupFile: "./histoire.setup.ts",
+  routerMode: 'hash',
   theme: {
     title: "fronnt",
     logoHref: "https://fronnt.io",
