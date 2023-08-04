@@ -1,5 +1,7 @@
 ---
-layout: ../../layouts/DesignSystem.astro
+layout: ../../layouts/Default.astro
+navigation: designSystem
+toc: false
 title: Design System
 prev:
   link: /

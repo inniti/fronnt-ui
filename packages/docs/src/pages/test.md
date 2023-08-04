@@ -1,8 +1,9 @@
 ---
-layout: ../layouts/TwoSidebars.astro
+layout: ../layouts/Default.astro
 title: fronnt UI
 appendSiteTitle: false
 navigation: components
+toc: true
 ---
 
 # fronnt UI

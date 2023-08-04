@@ -1,5 +1,7 @@
 ---
-layout: ../../layouts/DesignSystem.astro
+layout: ../../layouts/Default.astro
+navigation: designSystem
+toc: false
 title: Colors
 prev:
   link: /design-system/

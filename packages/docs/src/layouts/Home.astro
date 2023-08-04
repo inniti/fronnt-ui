@@ -1,0 +1,98 @@
+---
+import Base from "./_Base.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<Base title={frontmatter.title} appendSiteTitle={false}>
+  <header>Welcome to fronnt UI</header>
+
+  <div class="tiles">
+    <a class="tile" href="/design-system/">
+      <div class="title">Design System</div>
+    </a>
+    <a class="tile" href="/components/">
+      <div class="title">Components</div>
+    </a>
+  </div>
+
+  <main>
+    <slot />
+  </main>
+</Base>
+
+<style lang="scss">
+  header {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10rem 1rem;
+    background-image: linear-gradient(
+      to right bottom,
+      #423b70,
+      #655d90,
+      #8981b1
+    );
+    background-size: cover;
+    background-position: top center;
+
+    font-size: 4rem;
+    font-weight: 900;
+    color: white;
+  }
+
+  .tiles {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 6rem 0;
+  }
+
+  .tile {
+    width: 18rem;
+    border-radius: 1rem;
+    background: white;
+    padding: 2rem 3rem;
+    display: block;
+    text-decoration: none;
+    position: relative;
+
+    .title {
+      font-weight: bold;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 1rem;
+      opacity: 0.5;
+      transition: opacity 300ms ease;
+      box-shadow:
+        1.1px 1.8px 2.2px rgba(0, 0, 0, 0.02),
+        2.6px 4.3px 5.3px rgba(0, 0, 0, 0.028),
+        4.9px 8px 10px rgba(0, 0, 0, 0.035),
+        8.7px 14.3px 17.9px rgba(0, 0, 0, 0.042),
+        16.3px 26.7px 33.4px rgba(0, 0, 0, 0.05),
+        39px 64px 80px rgba(0, 0, 0, 0.07);
+    }
+
+    &:hover,
+    &:focus {
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  main {
+    padding: 6rem var(--page-padding) 2rem;
+    max-width: var(--page-max-width);
+    margin: 0 auto;
+  }
+</style>
