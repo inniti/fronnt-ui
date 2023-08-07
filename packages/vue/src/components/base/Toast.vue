@@ -24,7 +24,6 @@ export function useToast() {
 
     const objToast = storeToast.filter((item) => item.id === id)[0];
 
-    //setTimeout(() => objToast.show = true, 5);
     setTimeout(() => objToast.show = false, timeout);
   };
 }
