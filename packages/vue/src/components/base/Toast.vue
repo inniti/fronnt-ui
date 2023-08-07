@@ -10,8 +10,10 @@ export function useToast() {
     submit: string,
     timeout: number
   ) => {
+    const id = Math.floor(Math.random() * 1000000);
+
     storeToast.push({
-      id: Math.floor(Math.random() * 1000000),
+      id: id,
       type: type,
       title: title,
       message: message,
@@ -19,6 +21,11 @@ export function useToast() {
       timeout: timeout,
       show: true
     });
+
+    const objToast = storeToast.filter((item) => item.id === id)[0];
+
+    //setTimeout(() => objToast.show = true, 5);
+    setTimeout(() => objToast.show = false, timeout);
   };
 }
 </script>
@@ -30,32 +37,31 @@ watch(storeToast, (toasts) => {
   const toastId = toasts[toasts.length - 1].id;
 
   /**
-   * Starting timeout after which the taost automatically disappears.
-   */
+   * Start timeout, after which the taost disappears automatically.
+   
   setTimeout(() => 
     toasts.forEach((item) => (item.id === toastId) ? item.show = false : null), 
     toasts[toasts.length - 1].timeout
   );
+  */
 });
 </script>
 
 <template>
   <Teleport to="body">
-    <Transition name="fadeHeight" mode="out-in">
-      <div class="nn-toast__wrapper">
-        <Transition name="nn-toast-transition" v-for="toast in storeToast.slice().reverse()">
-          <div :class="`nn-toast nn-toast--${toast.type}`" v-if="toast.show">
-            <div class="nn-toast__close" @click="toast.show = false">
-              <Icon name="x" />
-            </div>
-
-            <h1 class="nn-text-m nn-toast__title">{{ toast.title }}</h1>
-            <p class="nn-text-m nn-toast__message">{{ toast.message }}</p>
-            <a class="nn-text-m nn-toast__clickable" v-if="toast.submit"><b>{{ toast.submit }}</b></a>
+    <div class="nn-toast__wrapper">
+      <Transition name="nn-toast-transition" v-for="toast in storeToast.slice().reverse()">
+        <div :class="`nn-toast nn-toast--${toast.type}`" v-if="toast.show">
+          <div class="nn-toast__close" @click="toast.show = false">
+            <Icon name="x" />
           </div>
-        </Transition>
-      </div>
-    </Transition>
+
+          <h1 class="nn-text-m nn-toast__title">{{ toast.title }}</h1>
+          <p class="nn-text-m nn-toast__message">{{ toast.message }}</p>
+          <a class="nn-text-m nn-toast__clickable" v-if="toast.submit"><b>{{ toast.submit }}</b></a>
+        </div>
+      </Transition>
+    </div>
   </Teleport>
 </template>
 
