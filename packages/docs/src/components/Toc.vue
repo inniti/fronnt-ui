@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref } from "vue";
+import { onMounted, ref } from "vue";
 
 type Item = { id: string; label: string; level: number };
 
 const toc = ref<Item[]>([]);
+const itemRefs = ref<HTMLElement[]>([]);
 
-const activeId = ref();
-
-let observer: IntersectionObserver;
+const el = ref();
 
 const build = () => {
   const list: Item[] = [];
@@ -29,39 +28,34 @@ const build = () => {
   toc.value = list;
 };
 
-const register = () => {
-  observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        activeId.value = entry.target.getAttribute("id");
-      }
+const scrollToHeading = (id: string) => {
+  const heading = document.getElementById(id);
+  if (heading) {
+    window.scrollTo({
+      behavior: "smooth",
+      top: heading.offsetTop - 100,
+      left: 0,
     });
-  });
-
-  document.querySelectorAll("h2[id],h3[id],h4[id]").forEach((heading) => {
-    observer.observe(heading);
-  });
+  }
 };
 
 onMounted(() => {
   build();
-  register();
-});
-
-onBeforeUnmount(() => {
-  observer.disconnect();
 });
 </script>
 
 <template>
-  <nav id="toc">
+  <nav id="toc" ref="el">
     <ol>
       <li
         v-for="item in toc"
+        ref="itemRefs"
         :key="item.id"
-        :class="[activeId === item.id && 'active', `level-${item.level}`]"
+        :class="[`level-${item.level}`]"
       >
-        <a :href="`#${item.id}`">{{ item.label }}</a>
+        <a :href="`#${item.id}`" @click.prevent="scrollToHeading(item.id)">
+          {{ item.label }}
+        </a>
       </li>
     </ol>
   </nav>
@@ -89,22 +83,19 @@ li {
   margin: 0;
   position: relative;
 }
-li::before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: -0.125rem;
-  width: 0.125rem;
-  height: 2em;
-}
-li.active::before {
-  background: gray;
-}
 a {
   line-height: 2;
   display: block;
   text-decoration: none;
+  padding-left: 1em;
+  position: relative;
+  &::before {
+    content: "#";
+    position: absolute;
+    color: lightgray;
+    left: 0;
+    top: 0;
+  }
 }
 a:hover {
   text-decoration: underline;

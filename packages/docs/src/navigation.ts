@@ -29,4 +29,9 @@ export const topbar: LinkNavigationItem[] = [
     label: "Components",
     link: "/components/buttons",
   },
+  {
+    label: "Pro",
+    link: "/pro/",
+    highlight: true
+  },
 ];

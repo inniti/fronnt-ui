@@ -13,7 +13,24 @@ const { prev, next } = Astro.props;
 <div class="prev-next" class:list={[!prev && !next && "prev-next--hidden"]}>
   {
     prev && (
-      <a class="button" href={prev.link}>
+      <a class="button prev" href={prev.link}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-arrow-left"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M5 12l14 0" />
+          <path d="M5 12l6 6" />
+          <path d="M5 12l6 -6" />
+        </svg>
         {prev.label}
       </a>
     )
@@ -21,20 +38,37 @@ const { prev, next } = Astro.props;
   {!prev && <div />}
   {
     next && (
-      <a class="button" href={next.link}>
+      <a class="button next" href={next.link}>
         {next.label}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-arrow-right"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M5 12l14 0" />
+          <path d="M13 18l6 -6" />
+          <path d="M13 6l6 6" />
+        </svg>
       </a>
     )
   }
   {!next && <div />}
 </div>
 
-<style>
+<style lang="scss">
   .prev-next {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-top: 1px solid #eaeaea;
+    border-top: 1px solid #e9ecef;
     padding-top: 1rem;
     margin-top: 3rem;
   }
@@ -44,16 +78,33 @@ const { prev, next } = Astro.props;
   }
 
   .button {
-    border: 1px solid currentColor;
-    padding: 0.75rem 1rem;
-    border-radius: 0.5rem;
+    padding: 0.75rem 0;
     text-decoration: none;
     font-size: 0.875rem;
-    opacity: 0.5;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+
+    svg {
+      color: #adb5bd;
+      transition:
+        transform 150ms ease-in-out,
+        opacity 150ms ease-in-out;
+    }
   }
 
   .button:hover,
   .button:focus {
-    opacity: 1;
+    &.prev {
+      svg {
+        transform: translateX(-0.25em);
+      }
+    }
+
+    &.next {
+      svg {
+        transform: translateX(0.25em);
+      }
+    }
   }
 </style>

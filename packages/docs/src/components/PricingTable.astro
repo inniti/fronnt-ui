@@ -1,0 +1,25 @@
+---
+const tiles = [
+  {
+    title: "Developer",
+    price: 199.0,
+    description: "asdf",
+  },
+  {
+    title: "Team",
+    price: 599.0,
+    description: "asdf",
+  },
+];
+---
+
+<div class="pricing-table">
+  {
+    tiles.map((tile) => (
+      <div class="tile">
+        <div class="title">{tile.title}</div>
+        <div class="description">{tile.description}</div>
+      </div>
+    ))
+  }
+</div>
