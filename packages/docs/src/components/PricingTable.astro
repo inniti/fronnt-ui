@@ -1,25 +1,16 @@
 ---
-const tiles = [
-  {
-    title: "Developer",
-    price: 199.0,
-    description: "asdf",
-  },
-  {
-    title: "Team",
-    price: 599.0,
-    description: "asdf",
-  },
-];
+
 ---
 
 <div class="pricing-table">
-  {
-    tiles.map((tile) => (
-      <div class="tile">
-        <div class="title">{tile.title}</div>
-        <div class="description">{tile.description}</div>
-      </div>
-    ))
-  }
+  <slot />
 </div>
+
+<style lang="scss">
+  .pricing-table {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    justify-content: center;
+    gap: 2rem;
+  }
+</style>

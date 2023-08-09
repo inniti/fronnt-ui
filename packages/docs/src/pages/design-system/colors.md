@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/Default.astro
+layout: ../../layouts/Markdown.astro
 navigation: designSystem
 toc: false
 title: Colors

@@ -16,6 +16,7 @@ export const designSystem: LabelNavigationItem[] = [
     children: [
       { link: "/design-system/colors/", label: "Colors" },
       { link: "/design-system/typography/", label: "Typography" },
+      { link: "/design-system/tokens/", label: "Tokens" },
     ],
   },
 ];
@@ -32,6 +33,6 @@ export const topbar: LinkNavigationItem[] = [
   {
     label: "Pro",
     link: "/pro/",
-    highlight: true
+    highlight: true,
   },
 ];

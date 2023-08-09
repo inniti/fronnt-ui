@@ -1,0 +1,43 @@
+---
+layout: ../../layouts/Markdown.astro
+navigation: designSystem
+toc: true
+title: Design Tokens
+prev:
+  link: /design-system/typography/
+  label: Typography
+next:
+  link: /components/buttons/
+  label: Components
+---
+
+import Preview from "../../components/Preview.astro";
+import PropsTable from "../../components/PropsTable.astro";
+import { NNCopyText } from "@fronnt/components-vue";
+import HeadingExample from "./_examples/Heading.vue";
+
+# Design Tokens
+
+## Shadows
+
+Smooth layered box shadows with a natural look.
+
+Shadows are provided as CSS variables `--nn-shadow-lg` and `--nn-shadow-sm`.
+
+<Preview>
+  <div style="box-shadow: var(--nn-shadow-lg); padding: 1rem; border-radius: 1rem; margin: 3rem; width: 10rem; text-align: center; background: white;">
+    large
+  </div>
+  <div style="box-shadow: var(--nn-shadow-sm); padding: 1rem; border-radius: 1rem; margin: 3rem; width: 10rem; text-align: center; background: white;">
+    small
+  </div>
+</Preview>
+
+```html
+<div style="box-shadow: var(--nn-shadow-lg);">
+    large
+</div>
+<div style="box-shadow: var(--nn-shadow-sm);">
+    small
+</div>
+```

@@ -31,6 +31,14 @@ code {
     Courier New,
     monospace;
   font-size: inherit;
+  
+}
+
+p code {
+  border: 1px solid var(--nn-color-gray-100);
+  border-radius: 0.25em;
+  padding: 0 0.25em;
+  user-select: all;
 }
 
 .astro-code {

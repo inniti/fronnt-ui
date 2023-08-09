@@ -1,0 +1,130 @@
+---
+import Layout from "../layouts/Default.astro";
+import PricingTable from "../components/PricingTable.astro";
+import PricingTableTile from "../components/PricingTableTile.astro";
+
+const pricingTiles = [
+  {
+    title: "Free",
+    price: "0 €",
+    description:
+      "The design system and the base UI components are open source and can be used free of charge",
+    cta: {
+      label: "Get started",
+      link: "#",
+    },
+    bulletPoints: [
+      {
+        label: "MIT license",
+        description:
+          "Use the design system and fronnt UI components free of charge.",
+      },
+      {
+        label: "fronnt UI framework components",
+        description: "UI components for Vue.js (React and Svelte coming)",
+      },
+      {
+        label: "fronnt UI styles",
+        description:
+          "Stylesheets for fronnt UI components, compatible with all supported framework variants",
+      },
+      {
+        label: "Single developer",
+        description: "Perfect for freelancers",
+      },
+      {
+        label: "Support",
+        description: "Get support via Github",
+      },
+    ],
+  },
+  {
+    highlight: true,
+    title: "PRO",
+    price: "from 199 €",
+    description: "Premium UI components",
+    cta: {
+      label: "Learn more",
+      link: "/pro/",
+    },
+    bulletPoints: [
+      {
+        label: "E-Commerce components",
+        description:
+          "Beautifully designed E-Commerce components based on Vue.js (React and Svelte coming)",
+      },
+      {
+        label: "Perpetual license",
+        description:
+          "Pay once and use forever. Get updates for one year. Optionally renew your license with a discount.",
+      },
+    ],
+  },
+  {
+    title: "Hire us",
+    price: "Get a quote",
+    description: "Special needs? We're here to help!",
+    cta: {
+      label: "Get in touch",
+      link: "#",
+    },
+    bulletPoints: [
+      {
+        label: "Customized components",
+        description:
+          "Let us customize fronnt UI components according to your corporate design",
+      },
+      {
+        label: "Individual development",
+        description:
+          "Let us implement completely new components as per your requirements",
+      },
+    ],
+  },
+];
+---
+
+<Layout title="Pricing">
+  <h1>Pricing</h1>
+
+  <p>
+    Pricing plans created to suit your needs. For everyone, from freelancers to
+    large frontend teams.
+  </p>
+
+  <PricingTable>
+    {
+      pricingTiles.map((tile) => (
+        <PricingTableTile
+          title={tile.title}
+          price={tile.price}
+          cta={tile.cta}
+          bulletPoints={tile.bulletPoints}
+          highlight={tile.highlight}
+        >
+          {tile.description}
+        </PricingTableTile>
+      ))
+    }
+  </PricingTable>
+
+  <h2>What's included?</h2>
+
+  <div class="usps">
+    <div class="usp">
+      <div class="title">fronnt UI</div>
+      <div class="description">
+        The fronnt UI design system and fronnt UI JS components are always free
+        of charge and can be used in any project.
+      </div>
+    </div>
+    <div class="usp">
+      <div class="title">1 year of updates</div>
+      <div class="description">
+        If you prefer not to renew your subscription, you're free to keep using
+        the version you currently have — but you won't get new updates. You can
+        subscribe at any time if you change your mind.
+      </div>
+    </div>
+  </div>
+</Layout>
