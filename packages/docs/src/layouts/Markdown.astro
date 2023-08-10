@@ -30,7 +30,10 @@ const hasRightSidebar = !!frontmatter.toc;
       hasLeftSidebar && (
         <aside class="sidebar-left">
           <div class="affix">
-            <Navigation items={navigationItems} />
+            <Navigation
+              items={navigationItems}
+              currentPath={Astro.url.pathname}
+            />
           </div>
         </aside>
       )

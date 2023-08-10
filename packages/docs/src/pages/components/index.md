@@ -7,8 +7,8 @@ prev:
   link: /design-system/
   label: Design System
 next:
-  link: /components/buttons/
-  label: Buttons
+  link: /components/getting-started/
+  label: Getting started
 ---
 
 # Components

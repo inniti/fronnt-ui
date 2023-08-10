@@ -1,28 +1,52 @@
 ---
-import { topbar } from "../navigation";
 import { githubUrl } from "../../config";
+import MainNav from "./MainNav.vue";
 ---
 
-<header class="topbar">
+<header id="topbar">
   <div class="content">
     <a class="site-title" href="/">fronnt UI</a>
-    <nav>
-      <ul>
-        {
-          topbar.map((navItem) => (
-            <li>
-              <a
-                href={navItem.link}
-                class:list={{ highlight: navItem.highlight }}
-              >
-                {navItem.label}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
-    <div>
+    <div class="main-nav-toggle" title="Menu">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="icon icon-tabler icon-tabler-menu"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M4 8l16 0"></path>
+        <path d="M4 16l16 0"></path>
+      </svg>
+    </div>
+    <div id="topbar-main-nav">
+      <div class="main-nav-toggle" title="close">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-x"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M18 6l-12 12"></path>
+          <path d="M6 6l12 12"></path>
+        </svg>
+      </div>
+      <MainNav currentPath={Astro.url.pathname} />
+    </div>
+    <div class="right-nav">
+      <a href="/hire-us/">Hire us</a>
       <a
         href={githubUrl}
         title="Github"
@@ -52,7 +76,7 @@ import { githubUrl } from "../../config";
 </header>
 
 <style lang="scss">
-  .topbar {
+  #topbar {
     backdrop-filter: blur(10px);
     background: rgba(white, 0.5);
     position: sticky;
@@ -66,52 +90,97 @@ import { githubUrl } from "../../config";
     margin: 0 auto;
     display: flex;
     align-items: center;
-    gap: 4rem;
+    gap: 2rem;
     justify-content: space-between;
+
+    @media screen and (min-width: 64rem) {
+      gap: 4rem;
+    }
   }
   .site-title {
     font-weight: bold;
   }
 
-  nav {
-    display: block;
+  .main-nav-toggle {
+    display: flex;
+    align-items: center;
     flex: 1;
+    cursor: pointer;
 
-    ul {
-      display: flex;
-      gap: 1rem;
-      overflow-x: auto;
-      padding: 0;
-      margin: 0;
-      list-style: none;
+    @media screen and (min-width: 64rem) {
+      display: none;
+    }
+  }
+
+  #topbar-main-nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    height: 100vh;
+    width: 100%;
+    transform: translateX(-100%);
+    transition: transform 200ms ease-in;
+
+    .main-nav-toggle {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      cursor: pointer;
     }
 
-    li {
-      display: block;
-      padding: 0;
-      margin: 0;
+    &.open {
+      transform: translateX(0);
+      transition: transform 200ms ease-out;
+    }
 
-      a {
-        display: block;
-        line-height: 3;
-        text-decoration: none;
-        border-radius: 0.5em;
-        padding: 0 1em;
-        transition: background-color 100ms ease;
-        font-weight: bold;
+    @media screen and (min-width: 64rem) {
+      transform: translateX(0);
+      transition: none;
+      position: static;
+      flex: 1;
+      background: none;
+      width: auto;
+      height: auto;
 
-        &:hover {
-          background: var(--nn-color-gray-50);
-        }
+      .close {
+        display: none;
+      }
+    }
+  }
 
-        &.highlight {
-          color: var(--nn-color-primary);
+  .right-nav {
+    display: flex;
+    align-items: center;
+    a {
+      display: flex;
+      line-height: 3;
+      text-decoration: none;
+      border-radius: 0.5em;
+      padding: 0 1em;
+      transition: background-color 100ms ease;
+      font-weight: bold;
 
-          &:hover {
-            background: var(--nn-color-primary-50);
-          }
-        }
+      &:hover {
+        background: var(--nn-color-gray-50);
       }
     }
   }
 </style>
+
+<script>
+  const mainNav = document.getElementById("topbar-main-nav");
+
+  document.querySelectorAll("#topbar .main-nav-toggle").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      mainNav?.classList.toggle("open");
+    });
+  });
+  window.addEventListener("resize", () => {
+    if (window.innerWidth < 1024) {
+      mainNav?.classList.remove("open");
+    }
+  });
+</script>

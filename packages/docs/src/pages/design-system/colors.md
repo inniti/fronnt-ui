@@ -2,7 +2,7 @@
 layout: ../../layouts/Markdown.astro
 navigation: designSystem
 toc: false
-title: Colors
+title: Colors | Design System
 prev:
   link: /design-system/
   label: Design System
