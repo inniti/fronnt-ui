@@ -10,6 +10,7 @@ export const components: Navigation = [
     children: [
       { link: "/components/buttons/", label: "Buttons" },
       { link: "/components/navigation/", label: "Navigation" },
+      { link: "/components/input-fields/", label: "Input Fields" },
     ],
   },
 ];

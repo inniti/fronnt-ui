@@ -1,0 +1,45 @@
+---
+layout: ../../layouts/Markdown.astro
+navigation: components
+toc: true
+title: Input Fields
+prev:
+  link: /components/navigation/
+  label: Navigation
+---
+
+import Preview from "../../components/Preview.astro";
+import PropsTable from "../../components/PropsTable.astro";
+import { NNInput } from "@fronnt/components-vue";
+
+# Input Fields
+
+## NNInput
+
+<Preview>
+  <NNInput client:only="vue" label="NNInput" />
+  <NNInput client:only="vue" label="Clearble" clearable />
+  <NNInput client:only="vue" modelValue="No Label" />
+  <NNInput client:only="vue" label="Disabled" disabled />
+  <NNInput client:only="vue" label="Required" required />
+  <NNInput client:only="vue" label="With Error" error>
+    This is not a valid e-amil address.
+  </NNInput>
+</Preview>
+
+```vue
+<NNInput label="NNInput" />
+```
+
+<PropsTable
+  props={[
+    { key: "label", type: "string", description: "Label" },
+    { key: "disabled", type: "boolean", description: "" },
+    { key: "required", type: "boolean", description: "" },
+    { key: "label", type: "string", description: "" },
+    { key: "type", type: "string", description: "" },
+    { key: "modelValue", type: "string", description: "" },
+    { key: "error", type: "boolean", description: "" },
+    { key: "clearable", type: "boolean", description: "" },
+  ]}
+/>
