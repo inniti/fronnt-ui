@@ -63,7 +63,7 @@ jobs:
         run: |
           pnpm build:histoire
       - name: Package
-        uses: a7ul/tar-action@v1.1.0
+        uses: a7ul/tar-action@v1.1.3
         with:
           command: c
           cwd: "./packages/vue"
