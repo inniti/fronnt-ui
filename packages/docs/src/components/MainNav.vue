@@ -12,7 +12,7 @@ const props = defineProps<{ currentPath: string }>();
           :href="item.link"
           :class="{
             highlight: item.highlight,
-            active: props.currentPath.startsWith(item.link),
+            active: item.link && props.currentPath.startsWith(item.link),
           }"
         >
           {{ item.label }}

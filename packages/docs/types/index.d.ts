@@ -1,14 +1,8 @@
-type LabelNavigationItem = {
+export type NavigationItem = {
   label: string;
-  children: LinkNavigationItem[];
+  link?: string;
+  children?: Array<NavigationItem>;
   highlight?: boolean;
 };
 
-type LinkNavigationItem = {
-  label: string;
-  link: string;
-  children?: LinkNavigationItem[];
-  highlight?: boolean;
-};
-
-export type NavigationItem = LabelNavigationItem | LinkNavigationItem;
+export type Navigation = Array<NavigationItem>;

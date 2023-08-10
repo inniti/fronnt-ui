@@ -1,6 +1,6 @@
-import type { LabelNavigationItem, LinkNavigationItem } from "../types";
+import type { Navigation } from "../types";
 
-export const components: LabelNavigationItem[] = [
+export const components: Navigation = [
   {
     label: "Getting started",
     link: "/components/getting-started/",
@@ -14,7 +14,7 @@ export const components: LabelNavigationItem[] = [
   },
 ];
 
-export const designSystem: LabelNavigationItem[] = [
+export const designSystem: Navigation = [
   {
     label: "Design System",
     link: "/design-system/",
@@ -27,7 +27,7 @@ export const designSystem: LabelNavigationItem[] = [
   },
 ];
 
-export const mainNav: LinkNavigationItem[] = [
+export const mainNav: Navigation = [
   {
     label: "Design System",
     link: "/design-system/",
