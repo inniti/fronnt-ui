@@ -1,5 +1,5 @@
 ---
-layout: ../layouts/Home.astro
+layout: "@/layouts/Home.astro"
 title: fronnt UI
 ---
 
