@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import Breadcrumbs from "../Breadcrumbs.vue";
-import Button from "../Button.vue";
 const crumbs = [
   {
     label: "Home",
@@ -23,7 +22,7 @@ const crumbs = [
       <Breadcrumbs :crumbs="crumbs" />
     </Variant>
     <Variant title="Custom rendering">
-      <Breadcrumbs :crumbs="crumbs" :link-tag="Button">
+      <Breadcrumbs :crumbs="crumbs">
         <template #crumb="{ crumb }">
           <a :href="crumb.href">
             <template v-if="crumb.href === '/'">🏠</template>

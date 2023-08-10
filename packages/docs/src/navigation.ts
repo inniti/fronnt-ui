@@ -9,7 +9,7 @@ export const components: Navigation = [
     label: "Components",
     children: [
       { link: "/components/buttons/", label: "Buttons" },
-      { link: "/components/links/", label: "Links" },
+      { link: "/components/navigation/", label: "Navigation" },
     ],
   },
 ];
