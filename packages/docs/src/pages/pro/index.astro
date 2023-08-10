@@ -2,11 +2,12 @@
 import PricingTable from "../../components/PricingTable.astro";
 import PricingTableTile from "../../components/PricingTableTile.astro";
 import Layout from "../../layouts/Default.astro";
+import Licenses from "../../licenses";
 
 const pricingTiles = [
   {
-    title: "Developer",
-    price: "199 €",
+    title: Licenses.developer.title,
+    price: Licenses.developer.price,
     description: "A single license. Perfect for freelance developers.",
     cta: {
       label: "Get started",
@@ -34,8 +35,8 @@ const pricingTiles = [
   },
   {
     highlight: true,
-    title: "Team",
-    price: "599 €",
+    title: Licenses.team.title,
+    price: Licenses.team.price,
     description:
       "Up to 5 developers. Perfect for smaller teams, agencies and startups.",
     cta: {
@@ -63,8 +64,8 @@ const pricingTiles = [
     ],
   },
   {
-    title: "Enterprise",
-    price: "custom",
+    title: Licenses.enterprise.title,
+    price: Licenses.enterprise.price,
     description: "Have more than 5 developers or special needs?",
     cta: {
       label: "Get in touch",
