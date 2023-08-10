@@ -1,13 +1,8 @@
 <script lang="ts">
 import type { FronntIcon } from "@fronnt/icons";
-export default {
-  name: "NNIcon",
-};
 </script>
 
-<script lang="ts" setup>
-import { computed } from "vue";
-
+<script setup lang="ts">
 import ArrowSmall from "@fronnt/icons/arrow-small?raw";
 import Arrow from "@fronnt/icons/arrow?raw";
 import Bag from "@fronnt/icons/bag?raw";
@@ -89,15 +84,45 @@ const icons: Record<FronntIcon, string> = {
   "x-circle": XCircle,
   x: X,
 };
-
-const props = defineProps<{
-  name: FronntIcon;
-}>();
-
-const markup = computed(() => icons[props.name]);
 </script>
 
 <template>
-  <!-- eslint-disable-next-line -->
-  <i class="nn-icon" v-html="markup"></i>
+  <div class="icons">
+    <div class="icon" v-for="(markup, name) in icons">
+      <i v-html="markup"></i>
+      <div class="name">{{ name }}</div>
+    </div>
+  </div>
 </template>
+
+<style scoped lang="scss">
+.icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr));
+  gap: 1rem;
+}
+
+.icon {
+  background: white;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+
+  i {
+    display: block;
+    width: 2rem;
+  }
+
+  .name {
+    font-size: 0.75rem;
+    text-align: center;
+    word-break: keep-all;
+    white-space: nowrap;
+    color: var(--nn-color-gray-400);
+    user-select: all;
+  }
+}
+</style>

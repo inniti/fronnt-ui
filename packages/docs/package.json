@@ -12,11 +12,11 @@
     "docs:deploy": "rm -rf dist && astro build && tar -cvf ./deploy.tar ./Dockerfile ./dist/* ./captain-definition && caprover deploy -t ./deploy.tar"
   },
   "dependencies": {
-    "@fontsource/barlow": "^5.0.7",
+    "@fontsource/barlow": "^5.0.8",
     "@fronnt/components-vue": "workspace:*",
     "@fronnt/icons": "workspace:*",
     "@fronnt/styles": "workspace:*",
-    "astro": "^2.10.0"
+    "astro": "^2.10.4"
   },
   "devDependencies": {
     "@astrojs/markdown-remark": "^2.2.1",
