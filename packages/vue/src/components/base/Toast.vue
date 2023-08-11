@@ -9,6 +9,8 @@ import Icon from "./Icon.vue";
  */
 const { toasts, timeouts } = useToast();
 
+defineEmits(["close", "submit"]);
+
 /**
  * Make sure to clear timeouts of the toasts components to avoid memory leaks. 
  */
@@ -22,13 +24,20 @@ onBeforeUnmount(() => {
     <div class="nn-toast__wrapper">
       <Transition name="nn-toast-transition" v-for="toast in toasts.slice().reverse()">
         <div :class="`nn-toast nn-toast--${toast.type}`" v-if="toast.show">
-          <div class="nn-toast__close" @click="toast.show = false">
+          <div class="nn-toast__close" @click="$emit('close', toast.id)">
             <Icon name="x" />
           </div>
 
           <h1 class="nn-text-m nn-toast__title">{{ toast.title }}</h1>
           <p class="nn-text-m nn-toast__message">{{ toast.message }}</p>
-          <a class="nn-text-m nn-toast__clickable" v-if="toast.submit"><b>{{ toast.submit }}</b></a>
+          
+          <a  
+            class="nn-text-m nn-toast__clickable"
+            v-if="toast.submit"
+            @click="$emit('submit', toast.id)"
+          >
+            <b>{{ toast.submit }}</b>
+          </a>
         </div>
       </Transition>
     </div>

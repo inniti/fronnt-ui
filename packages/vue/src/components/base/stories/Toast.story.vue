@@ -7,7 +7,7 @@ import Toast from "../Toast.vue";
 /**
  * The composable can only be used if the <Toast /> component is provided by any root component in the parent.
  */
-const { addToast } = useToast();
+const { addToast, removeToast } = useToast();
 
 /**
  * The type of the component differs only from the colors of the heading and the link to submit.
@@ -33,6 +33,11 @@ const submit = ref("Got it");
  * Duration, how long the toast should remain visible on the page.
  */
 const timeout = ref(3000);
+
+/**
+ * Exmaple of a submit handler, which shows the current toast id.
+ */
+const handleSubmit = (id: string) => alert(`Your Toast ID: ${id}`);
 </script>
 
 <template>
@@ -61,7 +66,7 @@ const timeout = ref(3000);
 
       <button class="button" @click="addToast(type, title, message, submit, timeout)">Show Toast</button>
 
-      <Toast />
+      <Toast @close="(id) => removeToast(id)" @submit="handleSubmit" />
     </Variant>
   </Story>
 </template>
