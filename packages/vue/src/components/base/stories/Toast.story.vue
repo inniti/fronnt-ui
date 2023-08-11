@@ -1,13 +1,13 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 
-import { useToast } from "../Toast.vue";
+import useToast from "../../../composables/useToast.vue";
 import Toast from "../Toast.vue";
 
 /**
  * The composable can only be used if the <Toast /> component is provided by any root component in the parent.
  */
-const toast = useToast();
+const { addToast } = useToast();
 
 /**
  * The type of the component differs only from the colors of the heading and the link to submit.
@@ -59,7 +59,7 @@ const timeout = ref(3000);
         <HstNumber title="Timeout" v-model="timeout" />
       </template>
 
-      <button class="button" @click="toast(type, title, message, submit, timeout)">Show Toast</button>
+      <button class="button" @click="addToast(type, title, message, submit, timeout)">Show Toast</button>
 
       <Toast />
     </Variant>
