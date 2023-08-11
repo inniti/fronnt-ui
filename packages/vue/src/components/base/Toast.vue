@@ -1,8 +1,20 @@
 <script lang="ts" setup>
+import { onBeforeUnmount } from "vue";
+
 import useToast from "../../composables/useToast.vue";
 import Icon from "./Icon.vue";
 
-const { toasts } = useToast();
+/**
+ * Get toasts components from store.
+ */
+const { toasts, timeouts } = useToast();
+
+/**
+ * Make sure to clear timeouts of the toasts components to avoid memory leaks. 
+ */
+onBeforeUnmount(() => {
+  timeouts.value.forEach(item => clearTimeout(item));
+});
 </script>
 
 <template>

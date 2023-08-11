@@ -1,7 +1,9 @@
 <script lang="ts">
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 
-// The toast component memory contains a list of objects with the respective toast properties.
+/**
+ * The toast component memory contains a list of objects with the respective toast properties.
+ */
 const toasts = reactive<[
   {
     id: string,
@@ -24,6 +26,14 @@ const toasts = reactive<[
   }
 ]);
 
+/**
+ * Save timeouts in store to clear onBeforeUnmount.
+ */
+const timeouts = ref<Array<ReturnType<typeof setTimeout>>>([]);
+
+/**
+ * Creates a new toasts component and adds it to the store. 
+ */
 const addToast = (
   type: string,
   title: string,
@@ -47,11 +57,16 @@ const addToast = (
   const objToast = toasts.filter((item) => item.id === id)[0];
 
   //Start timeout, after which the taost disappears automatically.
-  setTimeout(() => objToast.show = false, timeout);
+  timeouts.value.push(
+    setTimeout(() => objToast.show = false, timeout)
+  );
 
   return id;
 };
 
+/**
+ * Removes a toast component by the given id. 
+ */
 const removeToast = (id: string) => {
   const objToast = toasts.filter((item) => item.id === id)[0];
 
@@ -59,6 +74,6 @@ const removeToast = (id: string) => {
 };
 
 export default function useToast() {
-  return { addToast, removeToast, toasts };
+  return { addToast, removeToast, toasts, timeouts };
 }
 </script>
