@@ -51,9 +51,7 @@
     "./compositions/Cart": "./dist/compositions/Cart.css",
     "./compositions/CartItem": "./dist/compositions/CartItem.css",
     "./compositions/PDP": "./dist/compositions/PDP.css",
-    "./compositions/SearchFilter": "./dist/compositions/SearchFilter.css",
-
-    "./components/Test": "./dist/components/Test.css"
+    "./compositions/SearchFilter": "./dist/compositions/SearchFilter.css"
   },
   "scripts": {
     "build": "rimraf dist && postcss ./src/** --base src --ext css --verbose --dir dist",
