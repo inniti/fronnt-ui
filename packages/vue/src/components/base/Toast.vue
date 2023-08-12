@@ -7,16 +7,14 @@ import Icon from "./Icon.vue";
 /**
  * Get toasts components from store.
  */
-const { toasts, timeouts } = useToast();
+const { toasts, clearToasts } = useToast();
 
 defineEmits(["close", "submit"]);
 
 /**
  * Make sure to clear timeouts of the toasts components to avoid memory leaks. 
  */
-onBeforeUnmount(() => {
-  timeouts.value.forEach(item => clearTimeout(item));
-});
+onBeforeUnmount(clearToasts);
 </script>
 
 <template>

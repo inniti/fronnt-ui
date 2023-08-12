@@ -73,7 +73,15 @@ const removeToast = (id: string) => {
   objToast.show = false;
 };
 
+/**
+ * Clears all timeouts and  visisble toasts. 
+ */
+ const clearToasts = () => {
+  timeouts.value.forEach(item => clearTimeout(item));
+  toasts.splice(1, toasts.length);
+};
+
 export default function useToast() {
-  return { addToast, removeToast, toasts, timeouts };
+  return { addToast, removeToast, clearToasts, toasts };
 }
 </script>

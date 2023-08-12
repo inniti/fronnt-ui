@@ -35,7 +35,7 @@ const submit = ref("Got it");
 const timeout = ref(3000);
 
 /**
- * Exmaple of a submit handler, which shows the current toast id.
+ * Example of a submit handler, which shows the current toast id.
  */
 const handleSubmit = (id: string) => alert(`Your Toast ID: ${id}`);
 </script>
