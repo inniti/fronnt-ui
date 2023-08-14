@@ -5,6 +5,7 @@
 import NNCopyText from "./components/base/CopyText.vue";
 import NNHeading from "./components/base/Heading.vue";
 import NNActionButton from "./components/base/ActionButton.vue";
+import NNFlyout from './components/base/Flyout.vue';
 import NNAlert from "./components/base/Alert.vue";
 import NNBadge from "./components/base/Badge.vue";
 import NNBreadcrumbs from "./components/base/Breadcrumbs.vue";
@@ -43,6 +44,7 @@ export {
   NNCopyText,
   NNHeading,
   NNActionButton,
+  NNFlyout,
   NNAlert,
   NNBadge,
   NNButton,

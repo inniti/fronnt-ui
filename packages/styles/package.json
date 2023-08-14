@@ -38,6 +38,7 @@
     "./components/Toast": "./dist/components/Toast.css",
     "./components/Collapsible": "./dist/components/Collapsible.css",
     "./components/Range": "./dist/components/Range.css",
+    "./components/Flyout": "./dist/components/Flyout.css",
     "./components/Menu": "./dist/components/Menu.css",
     "./components/Calendar": "./dist/components/Calendar.css",
     "./components/Popup": "./dist/components/Popup.css",
