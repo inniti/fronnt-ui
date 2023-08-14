@@ -3,15 +3,15 @@ import Breadcrumbs from "../Breadcrumbs.vue";
 const crumbs = [
   {
     label: "Home",
-    href: "/",
+    link: "/",
   },
   {
     label: "Wohnen",
-    href: "/living/",
+    link: "/living/",
   },
   {
     label: "Möbel",
-    href: "/living/furniture/",
+    link: "/living/furniture/",
   },
 ];
 </script>
@@ -24,8 +24,8 @@ const crumbs = [
     <Variant title="Custom rendering">
       <Breadcrumbs :crumbs="crumbs">
         <template #crumb="{ crumb }">
-          <a :href="crumb.href">
-            <template v-if="crumb.href === '/'">🏠</template>
+          <a :href="crumb.link">
+            <template v-if="crumb.link === '/'">🏠</template>
             <template v-else>{{ crumb.label }}</template>
           </a>
         </template>
