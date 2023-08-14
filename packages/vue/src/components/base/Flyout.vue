@@ -12,12 +12,16 @@ const props = withDefaults(
   defineProps<{
     align?: "left" | "right";
     viewportPadding?: number;
+    disabled?: boolean;
   }>(),
   {
     viewportPadding: 16,
     align: "left",
+    disabled: false,
   }
 );
+
+const emit = defineEmits(["open", "close", "focus"]);
 
 const isOpen = ref(false);
 const el = ref<HTMLElement>();
@@ -48,10 +52,12 @@ const handleClickOutside = function (e: MouseEvent) {
 };
 
 const open = () => {
+  if (props.disabled) return;
   calculatePosition();
   isOpen.value = true;
   window.addEventListener("resize", onWindowResize);
   document.addEventListener("click", handleClickOutside, false);
+  emit("open");
 };
 
 const resetPopupStyles = () => {
@@ -66,14 +72,17 @@ const resetPopupStyles = () => {
 };
 
 const close = () => {
+  if (props.disabled) return;
   window.removeEventListener("resize", onWindowResize);
   document.removeEventListener("click", handleClickOutside);
 
   isOpen.value = false;
   triggerEl.value?.focus();
+  emit("close");
 };
 
 const toggle = () => {
+  if (props.disabled) return;
   if (isOpen.value) {
     close();
   } else {
@@ -122,11 +131,19 @@ defineExpose({
 </script>
 
 <template>
-  <div ref="el" class="nn-flyout" :class="{ 'nn-flyout--open': isOpen }">
+  <div
+    ref="el"
+    class="nn-flyout"
+    :class="{
+      'nn-flyout--open': isOpen,
+      'nn-flyout--disabled': props.disabled,
+    }"
+  >
     <div
       ref="triggerEl"
       class="nn-flyout__trigger"
-      tabindex="0"
+      :tabindex="props.disabled ? -1 : 0"
+      @focus="emit('focus')"
       @click="toggle"
       @keydown.enter="toggle"
       @keydown.escape="close"

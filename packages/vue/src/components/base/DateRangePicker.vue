@@ -9,7 +9,7 @@ import NNCalendar from "./Calendar.vue";
 import NNIconButton from "./IconButton.vue";
 import NNButton from "./Button.vue";
 import NNIcon from "./Icon.vue";
-import NNPopup from "./Popup.vue";
+import NNFlyout from "./Flyout.vue";
 
 const now = new Date();
 
@@ -155,72 +155,71 @@ const onClose = () => {
 
 <template>
   <div
-    ref="el"
     class="nn-date-range-picker"
     :class="[props.disabled && 'nn-date-range-picker--disabled']"
   >
-    <NNPopup ref="popup" :disabled="props.disabled" @close="onClose">
-      <div class="nn-date-range-picker__field">
-        <div class="nn-date-range-picker__selection">
-          <slot name="selection" :value="{ start, end }">
-            <template v-if="start">
-              <span>{{ start?.toLocaleDateString() }}</span>
-              <span>–</span>
-              <span>{{ end?.toLocaleDateString() }}</span>
-            </template>
-          </slot>
-        </div>
-        <NNIconButton
-          v-show="start !== null"
-          icon="x"
-          class="nn-date-range-picker__clear"
-          @click.stop="clear"
-        />
-        <NNIcon name="arrow" class="nn-date-range-picker__icon" />
-      </div>
-
-      <template #popup>
-        <div class="nn-date-range-picker__popup">
-          <div class="nn-date-range-picker__calendars">
-            <NNCalendar
-              v-model:year="year"
-              :month="month"
-              :first-year="props.firstYear"
-              :last-year="props.lastYear"
-              :is-highlighted="isHighlighted"
-              :is-start="isStart"
-              :is-end="isEnd"
-              @select="selectDay"
-              @enter="onEnterDay"
-              @leave="onLeaveDay"
-              @update:month="month = $event"
-            />
-            <NNCalendar
-              v-model:year="year"
-              :month="followingMonth"
-              :first-year="props.firstYear"
-              :last-year="props.lastYear"
-              :is-highlighted="isHighlighted"
-              :is-start="isStart"
-              :is-end="isEnd"
-              @select="selectDay"
-              @enter="onEnterDay"
-              @leave="onLeaveDay"
-              @update:month="updateFollowingMonth"
-            />
+    <NNFlyout ref="popup" :disabled="props.disabled" @close="onClose">
+      <template #trigger>
+        <div class="nn-date-range-picker__field">
+          <div class="nn-date-range-picker__selection">
+            <slot name="selection" :value="{ start, end }">
+              <template v-if="start">
+                <span>{{ start?.toLocaleDateString() }}</span>
+                <span>–</span>
+                <span>{{ end?.toLocaleDateString() }}</span>
+              </template>
+            </slot>
           </div>
-          <div>
-            <div class="nn-date-range-picker__footer">
-              <NNButton
-                :disabled="start === null || end === null"
-                @click="confirm"
-              >
-                confirm
-              </NNButton>
-            </div>
-          </div>
+          <NNIconButton
+            v-show="start !== null"
+            icon="x"
+            class="nn-date-range-picker__clear"
+            @click.stop="clear"
+          />
+          <NNIcon name="arrow" class="nn-date-range-picker__icon" />
         </div>
       </template>
-    </NNPopup>
+
+      <div class="nn-date-range-picker__popup">
+        <div class="nn-date-range-picker__calendars">
+          <NNCalendar
+            v-model:year="year"
+            :month="month"
+            :first-year="props.firstYear"
+            :last-year="props.lastYear"
+            :is-highlighted="isHighlighted"
+            :is-start="isStart"
+            :is-end="isEnd"
+            @select="selectDay"
+            @enter="onEnterDay"
+            @leave="onLeaveDay"
+            @update:month="month = $event"
+          />
+          <NNCalendar
+            v-model:year="year"
+            :month="followingMonth"
+            :first-year="props.firstYear"
+            :last-year="props.lastYear"
+            :is-highlighted="isHighlighted"
+            :is-start="isStart"
+            :is-end="isEnd"
+            @select="selectDay"
+            @enter="onEnterDay"
+            @leave="onLeaveDay"
+            @update:month="updateFollowingMonth"
+          />
+        </div>
+        <div>
+          <div class="nn-date-range-picker__footer">
+            <NNButton
+              :disabled="start === null || end === null"
+              @click="confirm"
+            >
+              confirm
+            </NNButton>
+          </div>
+        </div>
+      </div>
+    </NNFlyout>
   </div>
 </template>

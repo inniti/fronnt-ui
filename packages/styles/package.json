@@ -41,7 +41,6 @@
     "./components/Flyout": "./dist/components/Flyout.css",
     "./components/Menu": "./dist/components/Menu.css",
     "./components/Calendar": "./dist/components/Calendar.css",
-    "./components/Popup": "./dist/components/Popup.css",
     "./components/DatePicker": "./dist/components/DatePicker.css",
     "./components/DateRangePicker": "./dist/components/DateRangePicker.css",
     "./transitions/Expand": "./dist/transitions/Expand.css"
