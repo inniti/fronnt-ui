@@ -106,7 +106,7 @@ onBeforeUnmount(() => {
       />
       <IconButton
         v-show="term"
-        icon="X"
+        icon="x"
         class="nn-autocomplete__clear"
         tabindex="0"
         @click="reset"
