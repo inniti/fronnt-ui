@@ -64,19 +64,9 @@ const handleSubmit = (id: string) => alert(`Your Toast ID: ${id}`);
         <HstNumber title="Timeout" v-model="timeout" />
       </template>
 
-      <button class="button" @click="addToast(type, title, message, submit, timeout)">Show Toast</button>
+      <button @click="addToast(type, title, message, submit, timeout)">Show Toast</button>
 
       <Toast @close="(id) => removeToast(id)" @submit="handleSubmit" />
     </Variant>
   </Story>
 </template>
-
-<style scoped>
-.button {
-  border: 1px solid whitesmoke;
-  border-radius: 4px;
-  background: white;
-  color: black;
-  cursor: pointer;
-}
-</style>

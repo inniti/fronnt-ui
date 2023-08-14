@@ -1,89 +1,95 @@
 /*! @fronnt/styles NNToast */
-.nn-toast__wrapper {
-  width: 100vw;
-  height: auto;
-  pointer-events: none;
-  position: fixed;
-  top: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
+.nn-toast {
+  .nn-toast__wrapper {
+    width: 100vw;
+    height: auto;
+    pointer-events: none;
+    position: fixed;
+    top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 
-  & * {
-    pointer-events: auto;
-  }
-
-  & .nn-toast--default {
-    & .nn-toast__title,
-    & .nn-toast__clickable {
-      color: var(--nn-color-gray-600);
-    }
-  }
-
-  & .nn-toast--info {
-    & .nn-toast__title,
-    & .nn-toast__clickable {
-      color: var(--nn-color-primary-600);
-    }
-  }
-
-  & .nn-toast--success {
-    & .nn-toast__title,
-    & .nn-toast__clickable {
-      color: var(--nn-color-success-600);
-    }
-  }
-
-  & .nn-toast--warning {
-    & .nn-toast__title,
-    & .nn-toast__clickable {
-      color: var(--nn-color-warning-600);
-    }
-  }
-
-  & .nn-toast--error {
-    & .nn-toast__title,
-    & .nn-toast__clickable {
-      color: var(--nn-color-error-600);
-    }
-  }
-
-  & .nn-toast {
-    width: 640px;
-    padding: 1rem;
-    position: relative;
-    background: var(--nn-color-primary-contrast);
-    border-radius: 4px;
-    box-shadow: 2px 2px 12px -3px black;
-    transition: transform 0.4s cubic-bezier(0, 0.29, 0.25, 1), opacity 0.2s cubic-bezier(0, 0.29, 0.25, 1);
-
-    & .nn-toast__title {
-      margin: 0;
+    & * {
+      pointer-events: auto;
     }
 
-    & .nn-toast__close,
-    & .nn-toast__clickable {
-      transition: all 0.15s ease;
-      cursor: pointer;
-
-      &:hover {
-        opacity: 0.4;
+    & .nn-toast--default {
+      & .nn-toast__title,
+      & .nn-toast__clickable {
+        color: var(--nn-color-gray-600);
       }
     }
 
-    & .nn-toast__close {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      font-size: 0.7rem;
+    & .nn-toast--info {
+      & .nn-toast__title,
+      & .nn-toast__clickable {
+        color: var(--nn-color-primary-600);
+      }
     }
 
-    & .nn-toast__clickable {
-      text-decoration: underline;
-      text-decoration-thickness: 2px;
-      text-underline-offset: 4px;
+    & .nn-toast--success {
+      & .nn-toast__title,
+      & .nn-toast__clickable {
+        color: var(--nn-color-success-600);
+      }
+    }
+
+    & .nn-toast--warning {
+      & .nn-toast__title,
+      & .nn-toast__clickable {
+        color: var(--nn-color-warning-600);
+      }
+    }
+
+    & .nn-toast--error {
+      & .nn-toast__title,
+      & .nn-toast__clickable {
+        color: var(--nn-color-error-600);
+      }
+    }
+
+    & .nn-toast {
+      width: 640px;
+      padding: 1rem;
+      position: relative;
+      background: var(--nn-color-primary-contrast);
+      border-radius: 4px;
+      box-shadow: 2px 2px 12px -3px black;
+      transition: transform 0.4s cubic-bezier(0, 0.29, 0.25, 1), opacity 0.2s cubic-bezier(0, 0.29, 0.25, 1);
+
+      & .nn-toast__title {
+        margin: 0;
+      }
+
+      & .nn-toast__close,
+      & .nn-toast__clickable {
+        transition: all 0.15s ease;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.4;
+        }
+      }
+
+      & .nn-toast__close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 0.7rem;
+      }
+
+      & .nn-toast__clickable {
+        padding: 0;
+        background: transparent;
+
+        font-weight: bolder;
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 4px;
+      }
     }
   }
 }
