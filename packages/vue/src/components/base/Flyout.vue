@@ -41,10 +41,17 @@ const onWindowResize = () => {
   }
 };
 
+const handleClickOutside = function (e: MouseEvent) {
+  if (el.value !== e.target && !el.value?.contains(e.target as HTMLElement)) {
+    close();
+  }
+};
+
 const open = () => {
   calculatePosition();
   isOpen.value = true;
   window.addEventListener("resize", onWindowResize);
+  document.addEventListener("click", handleClickOutside, false);
 };
 
 const resetPopupStyles = () => {
@@ -60,7 +67,10 @@ const resetPopupStyles = () => {
 
 const close = () => {
   window.removeEventListener("resize", onWindowResize);
+  document.removeEventListener("click", handleClickOutside);
+
   isOpen.value = false;
+  triggerEl.value?.focus();
 };
 
 const toggle = () => {
@@ -105,6 +115,10 @@ const calculatePosition = () => {
 };
 
 onMounted(resetPopupStyles);
+defineExpose({
+  open,
+  close,
+});
 </script>
 
 <template>
@@ -115,6 +129,7 @@ onMounted(resetPopupStyles);
       tabindex="0"
       @click="toggle"
       @keydown.enter="toggle"
+      @keydown.escape="close"
     >
       <slot name="trigger" />
     </div>
