@@ -6,7 +6,7 @@ export default {
 <script setup lang="ts">
 import { ref, watch, computed } from "vue";
 import NNCalendar from "./Calendar.vue";
-import NNIconButton from "./IconButton.vue";
+import NNClearButton from "./ClearButton.vue";
 import NNButton from "./Button.vue";
 import NNIcon from "./Icon.vue";
 import NNFlyout from "./Flyout.vue";
@@ -151,6 +151,10 @@ const onClose = () => {
   start.value = props.modelValue?.start || null;
   end.value = props.modelValue?.end || null;
 };
+
+defineExpose({
+  clear,
+});
 </script>
 
 <template>
@@ -170,13 +174,12 @@ const onClose = () => {
               </template>
             </slot>
           </div>
-          <NNIconButton
-            v-show="start !== null"
-            icon="x"
-            class="nn-date-range-picker__clear"
-            @click.stop="clear"
-          />
-          <NNIcon name="arrow" class="nn-date-range-picker__icon" />
+          <span v-show="start !== null" class="nn-date-range-picker__clear">
+            <slot name="clear">
+              <NNClearButton @click.stop="clear" />
+            </slot>
+          </span>
+          <NNIcon name="calendar" class="nn-date-range-picker__icon" />
         </div>
       </template>
 
@@ -190,6 +193,7 @@ const onClose = () => {
             :is-highlighted="isHighlighted"
             :is-start="isStart"
             :is-end="isEnd"
+            class="nn-date-range-picker__calendar"
             @select="selectDay"
             @enter="onEnterDay"
             @leave="onLeaveDay"
@@ -203,6 +207,7 @@ const onClose = () => {
             :is-highlighted="isHighlighted"
             :is-start="isStart"
             :is-end="isEnd"
+            class="nn-date-range-picker__calendar"
             @select="selectDay"
             @enter="onEnterDay"
             @leave="onLeaveDay"

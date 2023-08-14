@@ -13,6 +13,7 @@
     "./components/CopyText": "./dist/components/CopyText.css",
     "./components/Button": "./dist/components/Button.css",
     "./components/ActionButton": "./dist/components/ActionButton.css",
+    "./components/ClearButton": "./dist/components/ClearButton.css",
     "./components/Tag": "./dist/components/Tag.css",
     "./components/Badge": "./dist/components/Badge.css",
     "./components/Icon": "./dist/components/Icon.css",

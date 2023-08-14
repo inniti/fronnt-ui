@@ -9,7 +9,6 @@
   position: relative;
   box-sizing: border-box;
   max-width: 14rem;
-  font-size: 0.875rem;
 
   & * {
     box-sizing: border-box;
@@ -48,16 +47,13 @@
     line-height: 1;
     appearance: none;
     padding: 0.875rem 1.25rem 0.875rem;
-    transition: background-color 0.1s ease, border-color 0.1s ease;
+    transition:
+      background-color 0.1s ease,
+      border-color 0.1s ease;
     border-radius: var(--nn-control-border-radius);
 
     &:placeholder-shown ~ .nn-input__label {
       transform: none;
-    }
-
-    ::selection,
-    ::-moz-selection {
-      background: magenta;
     }
 
     &:focus {
@@ -68,21 +64,26 @@
         transform: translateY(-0.5rem) scale(0.625);
       }
       .--tabbing &:focus {
-        box-shadow: 0 0 0 0.05em white, 0 0 0 0.2em var(--nn-color-primary-300);
+        box-shadow: var(--nn-focus-shadow);
       }
     }
   }
 
   & .nn-input__clear {
-    display: flex;
     position: absolute;
-    right: 0;
-
+    top: 1rem;
+    right: 0.5rem;
+    display: flex;
+    align-items: center;
   }
 
   &.nn-input--labelled {
     & .nn-input__input {
       padding: 1.5rem 1.25rem 0.5rem;
+    }
+
+    & .nn-input__clear {
+      top: 1.5rem;
     }
   }
 
@@ -115,6 +116,12 @@
       &:focus ~ .nn-input__label {
         color: var(--nn-color-error);
       }
+    }
+  }
+
+  &.nn-input--clearable {
+    .nn-input__input {
+      padding-right: 3rem;
     }
   }
 }

@@ -6,7 +6,7 @@ const modelValue = ref("");
 
 const required = ref(false);
 const disabled = ref(false);
-const clearable = ref(false);
+const clearable = ref(true);
 </script>
 
 <template>

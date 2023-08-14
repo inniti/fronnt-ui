@@ -9,7 +9,7 @@
       pointer-events: auto;
       opacity: 1;
       transform: translateY(10px);
-      transition-function: ease-out;
+      transition-timing-function: ease-out;
     }
   }
 }
@@ -37,8 +37,9 @@
   width: max-content;
   opacity: 0;
   transform: translateY(0);
+  background: white;
   transition:
     opacity 150ms,
     transform 150ms;
-  transition-function: ease-in;
+  transition-timing-function: ease-in;
 }

@@ -9,7 +9,7 @@ import { ref, watch } from "vue";
 import NNCalendar from "./Calendar.vue";
 import NNFlyout from "./Flyout.vue";
 import NNButton from "./Button.vue";
-import NNIconButton from "./IconButton.vue";
+import NNClearButton from "./ClearButton.vue";
 import NNIcon from "./Icon.vue";
 
 const now = new Date();
@@ -93,6 +93,10 @@ const onOpen = () => {
 const onFocus = () => {
   isFocused.value = true;
 };
+
+defineExpose({
+  clear,
+});
 </script>
 
 <template>
@@ -119,13 +123,12 @@ const onFocus = () => {
               <span>{{ model?.toLocaleDateString() }}</span>
             </slot>
           </div>
-          <NNIconButton
-            v-show="model !== null"
-            class="nn-date-picker__clear"
-            icon="x"
-            @click.stop="clear"
-          />
-          <NNIcon name="arrow" class="nn-date-picker__icon" />
+          <span v-show="model !== null" class="nn-date-picker__clear">
+            <slot name="clear">
+              <NNClearButton @click.stop="clear" />
+            </slot>
+          </span>
+          <NNIcon name="calendar" class="nn-date-picker__icon" />
         </div>
       </template>
 
@@ -137,6 +140,7 @@ const onFocus = () => {
           :last-year="props.lastYear"
           :is-start="isStart"
           :is-end="isEnd"
+          class="nn-datepicker__calendar"
           @select="selectDay"
         />
         <div>
