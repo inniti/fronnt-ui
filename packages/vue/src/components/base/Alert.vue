@@ -7,6 +7,8 @@ export default {
 <script lang="ts" setup>
 import { computed } from "vue";
 import Icon from "./Icon.vue";
+import type { FronntIcon } from "@fronnt/icons";
+
 const props = withDefaults(
   defineProps<{
     type?: "error" | "warning" | "info" | "success";
@@ -15,14 +17,14 @@ const props = withDefaults(
     type: "info",
   }
 );
-const icon = computed(() => {
+const icon = computed<FronntIcon>(() => {
   switch (props.type) {
     case "error":
-      return "X";
+      return "x";
     case "success":
-      return "Check";
+      return "check";
     default:
-      return "Heart";
+      return "heart";
   }
 });
 </script>
