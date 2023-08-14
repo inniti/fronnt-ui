@@ -8,6 +8,7 @@ export default {
 import { ref } from "vue";
 import { FronntIcon } from "@fronnt/icons";
 import NNIcon from "./Icon.vue";
+import NNButton from "./Button.vue";
 
 type Item = {
   label: string;
@@ -75,17 +76,15 @@ const onKeydown = (e: KeyboardEvent) => {
     :class="[isOpen && 'nn-menu--open', `nn-menu--${props.align}`]"
     @keydown="onKeydown"
   >
-    <div
+    <NNButton
+      variant="subtle"
       class="nn-menu__trigger"
-      tabindex="0"
       @click="toggle"
       @keydown.enter="toggle"
     >
-      <div class="nn-menu__trigger-label">
-        <slot />
-      </div>
-      <NNIcon name="Menu" class="nn-menu__trigger-icon" />
-    </div>
+      <slot />
+      <NNIcon name="menu" class="nn-menu__trigger-icon" />
+    </NNButton>
     <div class="nn-menu__popup">
       <ul class="nn-menu__items">
         <li
