@@ -4,65 +4,69 @@
   position: relative;
   overflow: visible;
   font-size: 1rem;
+  cursor: pointer;
 
   & input {
     display: flex;
     border-radius: 0;
     appearance: none;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 1.125rem;
+    height: 1.125rem;
     font-size: 1rem;
     border: none;
-    flex: 0 0 2.5rem;
+    flex: 0 0 2.125rem;
     align-items: center;
     margin: 0;
-    justify-content: center;
     transition: background 100ms ease;
-    transform: translateX(-0.75em);
-    cursor: pointer;
+    cursor: inherit;
 
-    &:focus {
+    &:focus,
+    &:focus-visible {
       outline: none;
     }
 
     &::before {
       content: "";
       display: block;
-      width: 1.5rem;
-      height: 1.5rem;
+      width: 1.125rem;
+      height: 1.125rem;
       border: var(--nn-stroke-width) solid var(--nn-color-primary);
       border-radius: var(--nn-border-radius);
     }
 
     &:focus-visible::before {
-      box-shadow: 0 0 0 0.05em white, 0 0 0 0.2em var(--nn-color-primary-300);
+      box-shadow:
+        0 0 0 0.05em white,
+        0 0 0 0.2em var(--nn-color-primary-300);
+    }
+  }
+
+  &:hover {
+    & input::before {
+      background: var(--nn-color-primary-100);
     }
   }
 
   &.nn-checkbox--checked {
     & .nn-checkbox__icon {
       opacity: 1;
-    }
-
-    & input::before {
-      background: var(--nn-color-primary-50);
+      transform: scale(1);
     }
   }
 
   &.nn-checkbox--disabled {
-    color: var(--nn-color-gray-400);
+    color: var(--nn-color-gray-200);
+    cursor: default;
 
     & input {
-      cursor: default;
-
       &::before {
         background: white;
-        border-color: var(--nn-color-gray-400);
+        border-color: var(--nn-color-gray-200);
       }
     }
 
     & .nn-checkbox__icon {
-      color: var(--nn-color-gray-400);
+      color: var(--nn-color-gray-200);
     }
   }
 }
@@ -70,21 +74,20 @@
 .nn-checkbox__icon {
   display: block;
   position: absolute;
-  top: 0.625em;
-  left: -0.125em;
+  top: 0.125rem;
+  left: 0.125rem;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 100ms ease;
+  transform: scale(0);
+  transition:
+    opacity 100ms ease,
+    transform 100ms ease;
   color: var(--nn-color-primary);
+
   & svg {
     display: block;
-    width: 1.25em;
-    height: 1.25em;
-    stroke-width: var(--nn-icon-stroke-width);
+    width: 0.875rem;
+    height: 0.875em;
+    stroke-width: calc(var(--nn-icon-stroke-width) * 1.5);
   }
-}
-
-.nn-checkbox__label {
-  padding-top: calc(0.5rem + var(--nn-stroke-width));
-  margin-left: -0.5rem;
 }
