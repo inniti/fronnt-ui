@@ -13,8 +13,19 @@
   cursor: pointer;
 
   &.nn-radio-buttons__option--disabled {
-    color: var(--nn-color-gray-400);
+    color: var(--nn-color-gray-200);
     cursor: default;
+    &:hover {
+      & .nn-radio-buttons__control {
+        background-color: white;
+      }
+    }
+  }
+
+  &:hover {
+    & .nn-radio-buttons__control {
+      background-color: var(--nn-color-primary-100);
+    }
   }
 }
 
@@ -25,8 +36,8 @@
 
 .nn-radio-buttons__control {
   display: flex;
-  height: 1.5rem;
-  width: 1.5rem;
+  height: 1.125rem;
+  width: 1.125rem;
   appearance: none;
   border: var(--nn-stroke-width) solid currentColor;
   border-radius: 1rem;
@@ -42,8 +53,8 @@
   &::before {
     content: "";
     display: block;
-    height: 0.875rem;
-    width: 0.875rem;
+    height: 0.625rem;
+    width: 0.625rem;
     border-radius: 2rem;
     transform: scale(0);
     transition: 100ms transform ease;
@@ -66,10 +77,10 @@
 
   &:disabled {
     cursor: default;
-    color: var(--nn-color-gray-200);
+    color: var(--nn-color-primary-200);
 
     & ~ .nn-radio-buttons__label {
-      color: var(--nn-color-gray-400);
+      color: var(--nn-color-gray-200);
     }
   }
 }
