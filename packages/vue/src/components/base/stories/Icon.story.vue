@@ -21,6 +21,7 @@ const variants = [
   "eye",
   "eye-off",
   "heart",
+  "home",
   "info-circle",
   "link-small",
   "link",

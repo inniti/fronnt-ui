@@ -28,6 +28,7 @@
     "./eye-off": "./svg/eye-off.svg",
     "./eye": "./svg/eye.svg",
     "./heart": "./svg/heart.svg",
+    "./home": "./svg/home.svg",
     "./info-circle": "./svg/info-circle.svg",
     "./link-small": "./svg/link-small.svg",
     "./link": "./svg/link.svg",

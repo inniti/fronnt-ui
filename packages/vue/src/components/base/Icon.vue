@@ -50,6 +50,7 @@ import X from "@fronnt/icons/x?raw";
 import Eye from "@fronnt/icons/eye?raw";
 import EyeOff from "@fronnt/icons/eye-off?raw";
 import ErrorCircle from "@fronnt/icons/error-circle?raw";
+import Home from "@fronnt/icons/home?raw";
 
 const icons: Record<FronntIcon, string> = {
   "arrow-small": ArrowSmall,
@@ -94,6 +95,7 @@ const icons: Record<FronntIcon, string> = {
   eye: Eye,
   "eye-off": EyeOff,
   "error-circle": ErrorCircle,
+  "home": Home
 };
 
 const props = defineProps<{
