@@ -11,27 +11,35 @@ import type { FronntIcon } from "@fronnt/icons";
 
 const props = withDefaults(
   defineProps<{
-    type?: "error" | "warning" | "info" | "success";
+    type?: "primary" | "error" | "warning" | "info" | "success";
+    icon?: FronntIcon | null;
+    noIcon?: boolean;
   }>(),
   {
-    type: "info",
+    type: "primary",
+    icon: null,
+    noIcon: false,
   }
 );
 const icon = computed<FronntIcon>(() => {
   switch (props.type) {
+    case "warning":
     case "error":
-      return "x";
+      return "error-circle";
     case "success":
-      return "check";
+      return "check-circle";
     default:
-      return "heart";
+      return "info-circle";
   }
 });
 </script>
 
 <template>
-  <div class="nn-alert" :class="[`nn-alert--${props.type}`]">
-    <Icon :name="icon" />
+  <div
+    class="nn-alert"
+    :class="[`nn-alert--${props.type}`, props.noIcon && 'nn-alert--no-icon']"
+  >
+    <Icon v-if="!props.noIcon" :name="icon" />
     <div class="nn-alert__message"><slot /></div>
   </div>
 </template>
