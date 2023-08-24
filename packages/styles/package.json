@@ -36,6 +36,7 @@
     "./components/IconButton": "./dist/components/IconButton.css",
     "./components/Modal": "./dist/components/Modal.css",
     "./components/Tooltip": "./dist/components/Tooltip.css",
+    "./components/TileSelect": "./dist/components/TileSelect.css",
     "./components/Toast": "./dist/components/Toast.css",
     "./components/Collapsible": "./dist/components/Collapsible.css",
     "./components/Range": "./dist/components/Range.css",

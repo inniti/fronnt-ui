@@ -1,0 +1,68 @@
+/*! @fronnt/styles NNTileSelect */
+.nn-tileselect {
+  & .nn-tileselect__wrapper {
+    overflow: hidden;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    transition: max-height 0.2s ease-out;
+    background: var(--nn-color-primary-contrast);
+
+    border-bottom: 1px solid var(--nn-color-gray-600);
+    padding: 1.5rem 0.7rem 0rem 0.7rem;
+
+    max-height: fit-content;
+    min-width: 25rem;
+
+    & .nn-tileselect__radio {
+      width: fit-content;
+
+      & p {
+        color: var(--nn-color-gray-600);
+      }
+    }
+    
+    & .nn-tileselect__header {
+      display: flex;
+
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    & .nn-tileselect__content {
+      width: 100%;
+      height: fit-content;
+
+      margin-bottom: 1rem;
+
+      & .nn-tileselect__information {
+        width: 100%;
+        height: fit-content;
+        justify-content: space-between;
+
+        & .nn-tileselect__information--right {
+          gap: 1rem;
+        }
+      }
+
+      & .nn-tileselect__description {
+        padding-top: 1.5rem;
+        padding-left: 2.5rem;
+      }
+    }
+  }
+}
+
+.nn-tileselect__text {
+  margin: 0;
+  padding: 0;
+
+  color: var(--nn-color-text);
+  font-weight: 400;
+}
+
+.nn-tileselect__wrapper,
+.nn-tileselect__information,
+.nn-tileselect__information--right {
+  display: flex;
+}

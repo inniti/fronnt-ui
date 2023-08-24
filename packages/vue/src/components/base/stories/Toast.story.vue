@@ -42,3 +42,13 @@ const onClick = () => {
     </Variant>
   </Story>
 </template>
+
+<style scoped>
+.button {
+  border: 1px solid whitesmoke;
+  border-radius: 4px;
+  background: white;
+  color: black;
+  cursor: pointer;
+}
+</style>
