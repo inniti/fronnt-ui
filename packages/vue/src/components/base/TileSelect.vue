@@ -17,6 +17,7 @@ const props = withDefaults(
     options: Array<{ 
       value: string;
       title: string;
+      description: string;
       disabled?: boolean;
     }>;
   }>(),
@@ -53,13 +54,13 @@ const tileSelectWrapper = ref<Array<HTMLInputElement>>([]);
                 <p class="nn-tileselect__text">{{ tile.title }}</p>
 
                 <div class="nn-tileselect__information--right">
-                  <slot :name="`header--${index}`" />
+                  <slot name="header" :tile="tile" />
                 </div>
               </div>
             </div>
           </template>
           <div class="nn-tileselect__description">
-            <slot :name="`description--${index}`" />
+            <slot name="description" :tile="tile" />
           </div>
         </Collapsible>
       </div>
