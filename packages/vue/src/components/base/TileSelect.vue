@@ -10,6 +10,10 @@ import { ref } from "vue";
 import RadioButtons from "./RadioButtons.vue";
 import Collapsible from "./Collapsible.vue";
 
+defineEmits(['update:modelValue']);
+
+const modelValue = ref("");
+
 const props = withDefaults(
   defineProps<{
     name: string,
@@ -26,9 +30,6 @@ const props = withDefaults(
     ]
   }
 );
-
-const selected = ref(-1);
-const modelValue = ref("");
 </script>
 
 <template>
@@ -36,7 +37,7 @@ const modelValue = ref("");
     <div class="nn-tileselect__wrapper">
       
       <div class="nn-tileselect__content">
-        <Collapsible :show="selected === index" :speed="200">
+        <Collapsible :show="modelValue === tile.value" :speed="200">
           <template #header>
             <div class="nn-tileselect__header">
               <div class="nn-tileselect__radio">
@@ -44,7 +45,7 @@ const modelValue = ref("");
                   v-model="modelValue"
                   :options="[{ value: tile.value, label: '', disabled: tile.disabled }]"
                   :name="props.name"
-                  @change="selected = index"
+                  @change="$emit('update:modelValue', modelValue)"
                 />
               </div>
 

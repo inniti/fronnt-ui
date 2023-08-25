@@ -17,7 +17,7 @@ const options = ref([
   <Story title="Components/TileSelect" group="base" :layout="{ type: 'single' }">
     <Variant title="Default">
 
-      <TileSelect name="example" :options="options">
+      <TileSelect name="example" :options="options" @update:model-value="(value) => console.log(value)">
 
         <template #header>
           <img width="80" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/2560px-PayPal.svg.png" alt="Icon" />
