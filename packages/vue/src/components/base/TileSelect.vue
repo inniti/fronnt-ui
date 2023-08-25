@@ -13,8 +13,7 @@ import Collapsible from "./Collapsible.vue";
 const props = withDefaults(
   defineProps<{
     name: string,
-    speed?: number,
-    options: Array<{ 
+    options?: Array<{ 
       value: string;
       title: string;
       description: string;
@@ -22,7 +21,9 @@ const props = withDefaults(
     }>;
   }>(),
   {
-    speed: 200
+    options: () => [
+      { value: "", title: "", description: "", disabled: false }
+    ]
   }
 );
 
