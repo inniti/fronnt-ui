@@ -8,13 +8,6 @@ on:
       - "packages/styles/**"
       - "packages/icons/**"
 
-  pull_request:
-    branches: ["main"]
-    paths:
-      - "packages/vue/**"
-      - "packages/styles/**"
-      - "packages/icons/**"
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
