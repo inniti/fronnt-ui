@@ -26,7 +26,6 @@ const props = withDefaults(
   }
 );
 
-const speed = ref(props.speed);
 const selected = ref(-1);
 const modelValue = ref("");
 </script>
@@ -36,7 +35,7 @@ const modelValue = ref("");
     <div class="nn-tileselect__wrapper">
       
       <div class="nn-tileselect__content">
-        <Collapsible :show="selected === index" :speed="speed">
+        <Collapsible :show="selected === index" :speed="200">
           <template #header>
             <div class="nn-tileselect__header">
               <div class="nn-tileselect__radio">
