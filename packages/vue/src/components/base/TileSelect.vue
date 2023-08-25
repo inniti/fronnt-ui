@@ -25,9 +25,7 @@ const props = withDefaults(
     }>;
   }>(),
   {
-    options: () => [
-      { value: "", title: "", description: "", disabled: false }
-    ]
+    options: () => []
   }
 );
 </script>
