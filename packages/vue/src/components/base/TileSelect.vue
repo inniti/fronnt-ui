@@ -28,14 +28,12 @@ const props = withDefaults(
 
 const speed = ref(props.speed);
 const selected = ref(-1);
-
 const modelValue = ref("");
-const tileSelectWrapper = ref<Array<HTMLInputElement>>([]);
 </script>
 
 <template>
   <div v-for="(tile, index) in props.options" :key="index" class="nn-tileselect">
-    <div ref="tileSelectWrapper" class="nn-tileselect__wrapper">
+    <div class="nn-tileselect__wrapper">
       
       <div class="nn-tileselect__content">
         <Collapsible :show="selected === index" :speed="speed">
