@@ -51,7 +51,7 @@ const tileSelectWrapper = ref<Array<HTMLInputElement>>([]);
               </div>
 
               <div class="nn-tileselect__information">
-                <p class="nn-tileselect__text">{{ tile.title }}</p>
+                <div class="nn-tileselect__text">{{ tile.title }}</div>
 
                 <div class="nn-tileselect__information--right">
                   <slot name="header" :tile="tile" />
