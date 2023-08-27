@@ -16,20 +16,20 @@
     "@fronnt/components-vue": "workspace:*",
     "@fronnt/icons": "workspace:*",
     "@fronnt/styles": "workspace:*",
-    "astro": "^2.10.4"
+    "astro": "^2.10.14"
   },
   "devDependencies": {
     "@astrojs/markdown-remark": "^2.2.1",
     "@astrojs/mdx": "^0.19.7",
     "@astrojs/vue": "^2.2.1",
-    "autoprefixer": "^10.4.14",
+    "autoprefixer": "^10.4.15",
     "cssnano": "^6.0.1",
-    "prettier": "^3.0.1",
-    "prettier-plugin-astro": "^0.11.0",
+    "prettier": "^3.0.2",
+    "prettier-plugin-astro": "^0.12.0",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.1.0",
     "shiki": "^0.14.3",
-    "sass": "^1.64.2",
+    "sass": "^1.66.1",
     "vue": "^3.3.4"
   }
 }
