@@ -54,5 +54,7 @@
     "./x": "./svg/x.svg"
   },
   "author": "inniti",
-  "private": true
+  "publishConfig": {
+    "registry": "http://localhost:4873"
+  }
 }
