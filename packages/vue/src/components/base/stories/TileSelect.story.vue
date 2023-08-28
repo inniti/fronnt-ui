@@ -11,13 +11,18 @@ const options = ref([
   { value: "paypal", title: "PayPal", description: "TileSelect 2", disabled: true },
   { value: "creditcard", title: "Kreditkarte", description: "TileSelect 3" },
 ]);
+
+/**
+ * Contains current selected tile value.
+ */
+const modelValue = ref("klarna");
 </script>
 
 <template>
   <Story title="Components/TileSelect" group="base" :layout="{ type: 'single' }">
     <Variant title="Default">
 
-      <TileSelect name="example" :options="options" @update:model-value="(value) => console.log(value)">
+      <TileSelect v-model="modelValue" name="example" :options="options">
 
         <template #header>
           <img width="80" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/2560px-PayPal.svg.png" alt="Icon" />

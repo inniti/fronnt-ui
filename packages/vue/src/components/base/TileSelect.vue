@@ -5,18 +5,18 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 
 import RadioButtons from "./RadioButtons.vue";
 import Collapsible from "./Collapsible.vue";
 
-defineEmits(['update:modelValue']);
-
-const modelValue = ref("");
+const emit  = defineEmits(['update:modelValue']);
+const model = ref("");
 
 const props = withDefaults(
   defineProps<{
     name: string,
+    modelValue?: string,
     options?: Array<{ 
       value: string;
       title: string;
@@ -25,9 +25,19 @@ const props = withDefaults(
     }>;
   }>(),
   {
+    modelValue: "",
     options: () => []
   }
 );
+
+onMounted(() => model.value = props.modelValue);
+
+const onChange = (e: Event) => {
+  const value = (e.target as HTMLInputElement).value;
+  model.value = value;
+
+  emit('update:modelValue', value);
+};
 </script>
 
 <template>
@@ -35,15 +45,15 @@ const props = withDefaults(
     <div class="nn-tileselect__wrapper">
       
       <div class="nn-tileselect__content">
-        <Collapsible :show="modelValue === tile.value" :speed="200">
+        <Collapsible :show="model === tile.value" :speed="200">
           <template #header>
             <div class="nn-tileselect__header">
               <div class="nn-tileselect__radio">
                 <RadioButtons
-                  v-model="modelValue"
+                  :model-value="props.modelValue"
                   :options="[{ value: tile.value, label: '', disabled: tile.disabled }]"
                   :name="props.name"
-                  @change="$emit('update:modelValue', modelValue)"
+                  @change="onChange"
                 />
               </div>
 
