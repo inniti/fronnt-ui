@@ -22,10 +22,8 @@
     "format": "prettier --write src/**/*.{vue,ts,css}",
     "histoire:deploy": "rm -rf .histoire && histoire build && tar -cvf ./deploy.tar ./Dockerfile .histoire/* ./captain-definition && caprover deploy -t ./deploy.tar"
   },
-  "dependencies": {
-    "vue": "^3.3.4"
-  },
   "peerDependencies": {
+    "vue": "^3.3.4",
     "@fronnt/icons": "workspace:*",
     "@fronnt/styles": "workspace:*"
   },
