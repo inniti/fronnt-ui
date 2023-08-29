@@ -1,91 +1,59 @@
-<script lang="ts">
-export default {
-  name: "NNToast",
-};
-</script>
-
 <script lang="ts" setup>
-import { computed, ref, watch, onBeforeUnmount } from "vue";
-import { FronntIcon } from "@fronnt/icons";
+import { onBeforeUnmount } from "vue";
+
+import useToast from "../../composables/useToast.vue";
 import Icon from "./Icon.vue";
 
-const props = withDefaults(
-  defineProps<{
-    show: boolean;
-    timeout?: number;
-    type?: "success" | "error" | "info" | "warning";
-    clickable?: boolean;
-  }>(),
-  {
-    timeout: 3000,
-    type: "info",
-  }
-);
+/**
+ * Get toasts components from store.
+ */
+const { toasts, clearToasts } = useToast();
 
-const emit = defineEmits(["timeout", "click"]);
+defineEmits(["close", "submit"]);
 
-const icon = computed<FronntIcon | null>(() => {
-  switch (props.type) {
-    case "success":
-      return "check";
-    case "error":
-      return "x";
-    default:
-      return "Arrow";
-  }
-});
-
-// eslint-disable-next-line vue/no-dupe-keys
-const show = ref(false);
-
-// eslint-disable-next-line vue/no-dupe-keys
-const timeout = ref<ReturnType<typeof setTimeout>>();
-
-const startTimer = () => {
-  timeout.value = setTimeout(() => {
-    show.value = false;
-    emit("timeout");
-  }, props.timeout);
-};
-
-watch(
-  () => props.show,
-  (value) => {
-    clearTimeout(timeout.value);
-    show.value = value;
-    if (show.value && props.timeout > 0) {
-      startTimer();
-    }
-  }
-);
-
-onBeforeUnmount(() => {
-  clearTimeout(timeout.value);
-});
+/**
+ * Make sure to clear timeouts of the toasts components to avoid memory leaks. 
+ */
+onBeforeUnmount(clearToasts);
 </script>
 
 <template>
   <Teleport to="body">
-    <Transition name="nn-toast-transition">
-      <div
-        v-if="show"
-        class="nn-toast"
-        aria-live="assertive"
-        role="alert"
-        :class="[
-          `nn-toast--${props.type}`,
-          props.clickable && `nn-toast--clickable`,
-        ]"
-        @click="emit('click')"
-      >
-        <span class="nn-toast__icon">
-          <slot name="icon">
-            <Icon v-if="icon" :name="icon" />
-          </slot>
-        </span>
-        <span class="nn-toast__content"><slot /></span>
-        <Icon name="Chevron" class="nn-toast__chevron" />
+    <div class="nn-toast">
+      <div class="nn-toast__wrapper">
+        <Transition name="nn-toast-transition" v-for="toast in toasts.slice().reverse()">
+          <div :class="`nn-toast nn-toast--${toast.type}`" v-if="toast.show">
+            <div class="nn-toast__close" @click="$emit('close', toast.id)">
+              <Icon name="x" />
+            </div>
+
+            <h1 class="nn-text-m nn-toast__title">{{ toast.title }}</h1>
+            <p class="nn-text-m nn-toast__message">{{ toast.message }}</p>
+            
+            <button 
+              class="nn-text-m nn-toast__clickable"
+              v-if="toast.submit"
+              @click="$emit('submit', toast.id)"
+            >
+              {{ toast.submit }}
+            </button>
+          </div>
+        </Transition>
       </div>
-    </Transition>
+    </div>
   </Teleport>
 </template>
+
+<style scoped>
+.fadeHeight-enter-active,
+.fadeHeight-leave-active {
+  transition: all 0.2s;
+  max-height: 230px;
+}
+.fadeHeight-enter,
+.fadeHeight-leave-to
+{
+  opacity: 0;
+  max-height: 0px;
+}
+</style>
