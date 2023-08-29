@@ -30,9 +30,9 @@ onBeforeUnmount(clearToasts);
             <h1 class="nn-text-m nn-toast__title">{{ toast.title }}</h1>
             <p class="nn-text-m nn-toast__message">{{ toast.message }}</p>
             
-            <button 
-              class="nn-text-m nn-toast__clickable"
+            <button
               v-if="toast.submit"
+              class="nn-text-m nn-toast__clickable"
               @click="$emit('submit', toast.id)"
             >
               {{ toast.submit }}

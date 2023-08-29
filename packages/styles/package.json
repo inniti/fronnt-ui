@@ -63,6 +63,7 @@
     "postcss-preset-env": "^9.1.1",
     "rimraf": "^5.0.1"
   },
+  "private": true,
   "publishConfig": {
     "registry": "http://localhost:4873"
   }
