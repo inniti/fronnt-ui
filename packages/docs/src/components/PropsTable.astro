@@ -1,0 +1,97 @@
+---
+interface Prop {
+  key: string;
+  type: string;
+  description: string;
+  required?: boolean;
+}
+interface Props {
+  props: Prop[];
+}
+const { props } = Astro.props as Props;
+---
+
+<div class="props">
+  <h3 class="title">Props</h3>
+  <div class="headings">
+    <div>Name</div>
+    <div>Type</div>
+    <div>Description</div>
+  </div>
+  <div class="list">
+    {
+      props.map((prop: Prop) => (
+        <div class="prop" class:list={[prop.required && "prop--required"]}>
+          <div>
+            <code>{prop.key}</code>
+            {prop.required && <span class="required">required</span>}
+          </div>
+          <div>
+            <code>{prop.type}</code>
+          </div>
+          <div>{prop.description}</div>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style lang="scss">
+  .props {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .list {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5em;
+  }
+
+  .prop {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5em;
+    padding: 1rem;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid rgb(208, 208, 208);
+    }
+
+    code {
+      border: 1px solid #ddd;
+      display: inline-flex;
+      padding: 0.25em;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      user-select: all;
+    }
+
+    @media screen and (min-width: 40rem) {
+      grid-template-columns: 10rem 15rem 1fr;
+    }
+  }
+
+  .headings {
+    font-size: 0.75rem;
+    font-weight: bold;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5em;
+    padding: 0.5rem 1rem;
+    color: rgb(184, 184, 184);
+
+    @media screen and (min-width: 40rem) {
+      grid-template-columns: 10rem 15rem 1fr;
+    }
+  }
+
+  .required {
+    display: inline-block;
+    margin-left: 0.5em;
+    font-size: 0.75em;
+    color: gray;
+    font-style: italic;
+  }
+</style>

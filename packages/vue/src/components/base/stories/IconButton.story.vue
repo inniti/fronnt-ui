@@ -7,7 +7,7 @@ const primary = ref(false);
 </script>
 
 <template>
-  <Story title="Components/IconButton" group="">
+  <Story title="Components/IconButton">
     <Variant title="Default">
       <template #controls>
         <HstText v-model="icon" title="Icon" />

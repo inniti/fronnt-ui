@@ -23,7 +23,13 @@ const props = withDefaults(
     isStart?: (day: Date) => boolean;
     isEnd?: (day: Date) => boolean;
   }>(),
-  { firstYear: 1900 }
+  {
+    firstYear: 1900,
+    lastYear: undefined,
+    isHighlighted: undefined,
+    isStart: undefined,
+    isEnd: undefined,
+  }
 );
 
 const emit = defineEmits([
@@ -149,12 +155,12 @@ const selectNextMonth = () => {
       </div>
       <div class="nn-calendar__month-and-year">
         <select :value="month + 1" @input="setMonth">
-          <option :value="m" v-for="m in 12">
+          <option v-for="m in 12" :key="`calendar_month_${m}`" :value="m">
             {{ m }}
           </option>
         </select>
         <select :value="year" @input="setYear">
-          <option :value="y" v-for="y in years">
+          <option v-for="y in years" :key="`calendar_year_${y}`" :value="y">
             {{ y }}
           </option>
         </select>
@@ -177,6 +183,8 @@ const selectNextMonth = () => {
     </div>
     <div class="nn-calendar__days">
       <div
+        v-for="day in days"
+        :key="day.date.toString()"
         class="nn-calendar__day"
         :class="[
           day.isHighlighted && 'nn-calendar__day--highlighted',
@@ -184,13 +192,12 @@ const selectNextMonth = () => {
           day.isEnd && 'nn-calendar__day--end',
           day.isFilled && 'nn-calendar__day--filled',
         ]"
-        v-for="day in days"
+        tabindex="0"
+        :title="day.date.toLocaleDateString()"
         @click="select(day.date)"
         @pointerenter="emit('enter', day.date)"
         @pointerleave="emit('leave', day.date)"
-        tabindex="0"
         @keydown.enter="select(day.date)"
-        :title="day.date.toLocaleDateString()"
       >
         <slot name="day" :day="day">
           {{ day.date.getDate() }}

@@ -8,10 +8,10 @@ import Tag from "../Tag.vue";
       <Tag>default</Tag>
     </Variant>
     <Variant title="Small">
-      <Tag size="small">small</Tag>
+      <Tag size="small"> small </Tag>
     </Variant>
     <Variant title="Custom Styles">
-      <Tag style="color: var(--nn-color-error)">Unikat</Tag>
+      <Tag style="color: var(--nn-color-error)"> Unikat </Tag>
     </Variant>
   </Story>
 </template>

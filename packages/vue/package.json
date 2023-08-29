@@ -16,36 +16,38 @@
   },
   "scripts": {
     "dev": "histoire dev",
-    "build": "vue-tsc --noEmit && vite build && histoire build",
-    "build:package": "vue-tsc --noEmit && vite build",
+    "build": "vue-tsc --noEmit && vite build",
     "build:histoire": "histoire build",
-    "lint": "eslint --ext .ts,.vue --ignore-path .gitignore --fix src/components",
-    "format": "prettier --write src/**/*"
-  },
-  "dependencies": {
-    "@fronnt/icons": "workspace:*",
-    "vue": "~3.3.4"
+    "lint": "eslint --ext .ts,.vue --ignore-path .gitignore --fix src",
+    "format": "prettier --write src/**/*.{vue,ts,css}",
+    "histoire:deploy": "rm -rf .histoire && histoire build && tar -cvf ./deploy.tar ./Dockerfile .histoire/* ./captain-definition && caprover deploy -t ./deploy.tar"
   },
   "peerDependencies": {
+    "vue": "^3.3.4",
+    "@fronnt/icons": "workspace:*",
     "@fronnt/styles": "workspace:*"
   },
   "devDependencies": {
-    "@histoire/plugin-vue": "~0.16.1",
-    "@types/node": "~18.0.0",
-    "@typescript-eslint/eslint-plugin": "~6.0.0",
-    "@typescript-eslint/parser": "~6.0.0",
-    "@vitejs/plugin-vue": "~4.2.3",
-    "@vue/eslint-config-typescript": "~11.0.3",
-    "eslint": "~8.44.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-vue": "~9.15.1",
-    "histoire": "~0.16.2",
-    "prettier": "~3.0.0",
-    "typescript": "~5.1.6",
-    "vite": "~4.4.3",
-    "vite-plugin-dts": "~3.2.0",
-    "vue-tsc": "~1.8.4",
-    "@fontsource/barlow": "~5.0.5"
+    "@fontsource/barlow": "^5.0.8",
+    "@histoire/plugin-vue": "^0.17.1",
+    "@types/node": "^18.17.1",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "@vitejs/plugin-vue": "^4.3.3",
+    "@vue/eslint-config-typescript": "^11.0.3",
+    "eslint": "^8.48.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "histoire": "^0.17.0",
+    "prettier": "^3.0.2",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.9",
+    "vite-plugin-dts": "^3.5.2",
+    "vue-eslint-parser": "^9.3.1",
+    "vue-tsc": "^1.8.8"
   },
-  "private": true
+  "publishConfig": {
+    "registry": "http://localhost:4873"
+  }
 }

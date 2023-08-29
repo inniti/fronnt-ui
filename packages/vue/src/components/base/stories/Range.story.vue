@@ -10,7 +10,7 @@ const high = ref(700);
 </script>
 
 <template>
-  <Story title="Components/Range" group="">
+  <Story title="Components/Range">
     <Variant title="Default">
       <template #controls>
         <HstCheckbox v-model="disabled" title="Disabled" />

@@ -33,10 +33,13 @@
   display: block;
   text-align: center;
   border-radius: 4px;
-  box-shadow: 0.8px 0.8px 0.7px rgba(0, 0, 0, 0.02),
-    1.9px 1.9px 1.6px rgba(0, 0, 0, 0.028), 3.6px 3.6px 3px rgba(0, 0, 0, 0.035),
+  box-shadow:
+    0.8px 0.8px 0.7px rgba(0, 0, 0, 0.02),
+    1.9px 1.9px 1.6px rgba(0, 0, 0, 0.028),
+    3.6px 3.6px 3px rgba(0, 0, 0, 0.035),
     6.5px 6.5px 5.4px rgba(0, 0, 0, 0.042),
-    12.1px 12.1px 10px rgba(0, 0, 0, 0.05), 29px 29px 24px rgba(0, 0, 0, 0.07);
+    12.1px 12.1px 10px rgba(0, 0, 0, 0.05),
+    29px 29px 24px rgba(0, 0, 0, 0.07);
 }
 
 .color-token--default {

@@ -6,6 +6,6 @@ export default {
 
 <template>
   <a class="nn-link">
-    <slot></slot>
+    <slot />
   </a>
 </template>

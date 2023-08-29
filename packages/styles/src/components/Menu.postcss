@@ -1,16 +1,5 @@
 /*! @fronnt/styles NNMenu */
 .nn-menu {
-  position: relative;
-  display: inline-flex;
-
-  &.nn-menu--open {
-    & .nn-menu__popup {
-      pointer-events: all;
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
   &.nn-menu--left {
     & .nn-menu__popup {
       left: 0;
@@ -32,6 +21,7 @@
       left: unset;
       right: 0;
     }
+
     & .nn-menu__trigger-icon {
       order: 2;
       margin-left: 0.5em;
@@ -43,43 +33,8 @@
   }
 }
 
-.nn-menu__trigger {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  transition: color 100ms ease;
-
-  &:focus {
-    outline: none;
-    border-radius: var(--nn-border-radius);
-  }
-
-  &:hover {
-    color: var(--nn-color-primary);
-  }
-
-  &:focus-visible {
-    box-shadow: 0 0 0 0.05em white, 0 0 0 0.2em var(--nn-color-primary-300);
-  }
-}
-
 .nn-menu__trigger-icon {
   font-size: 0.75em;
-}
-
-.nn-menu__popup {
-  background: white;
-  border-radius: var(--nn-border-radius);
-  min-width: 12rem;
-  max-width: 60vw;
-  width: 20rem;
-  position: absolute;
-  top: calc(100% + 4px);
-  pointer-events: none;
-  opacity: 0;
-  transform: translateY(1rem);
-  transition: opacity 0.2s cubic-bezier(0, 0.29, 0.25, 1),
-    transform 0.2s cubic-bezier(0, 0.29, 0.25, 1);
 }
 
 .nn-menu__items {
@@ -100,6 +55,7 @@
   border-radius: var(--nn-border-radius);
   transition: background 200ms ease;
   cursor: pointer;
+  min-width: 8rem;
 
   & .nn-icon {
     font-size: 0.75em;

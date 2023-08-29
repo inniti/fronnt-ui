@@ -17,7 +17,11 @@ const variants = [
   "dots",
   "edit-circle",
   "edit",
+  "error-circle",
+  "eye",
+  "eye-off",
   "heart",
+  "home",
   "info-circle",
   "link-small",
   "link",
@@ -46,7 +50,7 @@ const variants = [
 
 <template>
   <Story title="Icons" :layout="{ type: 'grid', width: 150 }" group="top">
-    <Variant :title="name" v-for="name in variants" :key="name">
+    <Variant v-for="name in variants" :key="name" :title="name">
       <Icon :name="name" />
     </Variant>
   </Story>

@@ -24,7 +24,11 @@
     "./dots": "./svg/dots.svg",
     "./edit-circle": "./svg/edit-circle.svg",
     "./edit": "./svg/edit.svg",
+    "./error-circle": "./svg/error-circle.svg",
+    "./eye-off": "./svg/eye-off.svg",
+    "./eye": "./svg/eye.svg",
     "./heart": "./svg/heart.svg",
+    "./home": "./svg/home.svg",
     "./info-circle": "./svg/info-circle.svg",
     "./link-small": "./svg/link-small.svg",
     "./link": "./svg/link.svg",
@@ -50,5 +54,7 @@
     "./x": "./svg/x.svg"
   },
   "author": "inniti",
-  "private": true
+  "publishConfig": {
+    "registry": "http://localhost:4873"
+  }
 }

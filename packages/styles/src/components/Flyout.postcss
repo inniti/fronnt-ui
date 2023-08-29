@@ -1,0 +1,47 @@
+/*! @fronnt/styles NNFlyout */
+.nn-flyout {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+
+  &.nn-flyout--open {
+    & .nn-flyout__popup {
+      pointer-events: auto;
+      opacity: 1;
+      transform: translateY(10px);
+      transition-timing-function: ease-out;
+    }
+  }
+}
+
+.nn-flyout__trigger {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    box-shadow: var(--nn-focus-shadow);
+  }
+}
+
+.nn-flyout__popup {
+  position: absolute;
+  pointer-events: none;
+  width: max-content;
+  opacity: 0;
+  transform: translateY(0);
+  background: white;
+  transition:
+    opacity 150ms,
+    transform 150ms;
+  transition-timing-function: ease-in;
+  padding: 0.25rem;
+  box-sizing: border-box;
+  border-radius: var(--nn-flyout-border-radius);
+  box-shadow: var(--nn-shadow-sm);
+}

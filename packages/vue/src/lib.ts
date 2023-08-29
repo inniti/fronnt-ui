@@ -2,7 +2,10 @@
  fronnt components - vue
  */
 
+import NNCopyText from "./components/base/CopyText.vue";
+import NNHeading from "./components/base/Heading.vue";
 import NNActionButton from "./components/base/ActionButton.vue";
+import NNFlyout from "./components/base/Flyout.vue";
 import NNAlert from "./components/base/Alert.vue";
 import NNBadge from "./components/base/Badge.vue";
 import NNBreadcrumbs from "./components/base/Breadcrumbs.vue";
@@ -31,24 +34,16 @@ import NNToast from "./components/base/Toast.vue";
 import NNCollapsible from "./components/base/Collapsible.vue";
 import NNRange from "./components/base/Range.vue";
 import NNMenu from "./components/base/Menu.vue";
-import NNPrice from "./components/base/Price.vue";
-import NNPopup from "./components/base/Popup.vue";
 import NNCalendar from "./components/base/Calendar.vue";
 import NNDatePicker from "./components/base/DatePicker.vue";
 
 import NNExpandTransition from "./components/transitions/Expand.vue";
 
-import NNCart from "./compositions/Cart.vue";
-import NNCartItem from "./compositions/CartItem.vue";
-import NNOrderList from "./compositions/OrderList.vue";
-import NNOrderListItem from "./compositions/OrderListItem.vue";
-import NNPDP from "./compositions/PDP.vue";
-import NNProductTile from "./compositions/ProductTile.vue";
-import NNSearchFilter from "./compositions/SearchFilter.vue";
-import NNShopTheLook from "./compositions/ShopTheLook.vue";
-
 export {
+  NNCopyText,
+  NNHeading,
   NNActionButton,
+  NNFlyout,
   NNAlert,
   NNBadge,
   NNButton,
@@ -77,19 +72,9 @@ export {
   NNCollapsible,
   NNRange,
   NNMenu,
-  NNPrice,
-  NNPopup,
   NNCalendar,
   NNDatePicker,
   //
   NNExpandTransition,
   //
-  NNCart,
-  NNCartItem,
-  NNOrderList,
-  NNOrderListItem,
-  NNPDP,
-  NNProductTile,
-  NNSearchFilter,
-  NNShopTheLook,
 };

@@ -1,10 +1,11 @@
 ---
-import type { NavigationItem } from "../../types";
-type Props = {
-  items: NavigationItem[];
-};
+import type { Navigation } from "../../types";
+interface Props {
+  items: Navigation;
+  currentPath: string;
+}
 
-const { items = [] } = Astro.props as Props;
+const { items = [], currentPath } = Astro.props as Props;
 ---
 
 <nav class="navigation">
@@ -12,12 +13,30 @@ const { items = [] } = Astro.props as Props;
     {
       items.map((rootItem) => (
         <li class="root-item">
-          <a href={rootItem.link}>{rootItem.label}</a>
+          {rootItem.link && (
+            <a
+              href={rootItem.link}
+              class:list={{ active: currentPath.startsWith(rootItem.link) }}
+            >
+              {rootItem.label}
+            </a>
+          )}
+          {!rootItem.link && <span class="group">{rootItem.label}</span>}
           {rootItem.children && rootItem.children.length > 0 && (
             <ul class="child-items">
               {rootItem.children?.map((childItem) => (
                 <li class="child-item">
-                  <a href={childItem.link}>{childItem.label}</a>
+                  {childItem.link && (
+                    <a
+                      href={childItem.link}
+                      class:list={{
+                        active: currentPath.startsWith(childItem.link),
+                      }}
+                    >
+                      {childItem.label}
+                    </a>
+                  )}
+                  {!childItem.link && <span>{childItem.label}</span>}
                 </li>
               ))}
             </ul>
@@ -33,21 +52,49 @@ const { items = [] } = Astro.props as Props;
     display: flex;
     flex-direction: column;
     padding: 0;
+    gap: 0.5rem;
   }
 
   li {
     display: block;
     line-height: 2.5;
-    padding: 0 0 0 1rem;
+    padding: 0;
+  }
+  ul ul {
+    padding-left: 0.75rem;
   }
 
   a {
     text-decoration: none;
-    display: block;
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 0.75rem;
+      height: 0.25rem;
+      border-radius: 0.125rem;
+      background: var(--nn-color-primary);
+      display: none;
+    }
+
+    &.active {
+      color: var(--nn-color-primary);
+      &::before {
+        display: block;
+      }
+    }
   }
 
   .root-item > a {
-    display: block;
+    display: flex;
     font-weight: bold;
+  }
+  .root-item > .group {
+    font-weight: bold;
+    color: var(--nn-color-gray-200);
+    font-size: 0.875em;
   }
 </style>

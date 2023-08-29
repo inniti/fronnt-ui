@@ -4,6 +4,6 @@ import LabeledValue from "../LabeledValue.vue";
 
 <template>
   <Story title="Components/Labeled Value">
-    <LabeledValue label="Gesamtsumme">168,00 €</LabeledValue>
+    <LabeledValue label="Gesamtsumme"> 168,00 € </LabeledValue>
   </Story>
 </template>

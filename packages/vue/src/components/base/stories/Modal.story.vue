@@ -7,7 +7,7 @@ const dismissable = ref(false);
 </script>
 
 <template>
-  <Story title="Components/Modal" group="" :layout="{ type: 'single' }">
+  <Story title="Components/Modal" :layout="{ type: 'single' }">
     <Variant title="Default">
       <template #controls>
         <HstText v-model="title" title="Title" />

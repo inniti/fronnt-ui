@@ -25,7 +25,7 @@ const initState = () => {
 </script>
 
 <template>
-  <Story title="Components/Action Button" group="base">
+  <Story title="Components/Action Button">
     <Variant title="Successful Action" :init-state="initState">
       <template #default="{ state }">
         <ActionButton

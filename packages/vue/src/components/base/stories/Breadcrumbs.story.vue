@@ -1,38 +1,38 @@
 <script lang="ts" setup>
 import Breadcrumbs from "../Breadcrumbs.vue";
-import Button from "../Button.vue";
+import NNIcon from '../Icon.vue';
 const crumbs = [
   {
     label: "Home",
-    href: "/",
+    link: "/",
   },
   {
     label: "Wohnen",
-    href: "/living/",
+    link: "/living/",
   },
   {
     label: "Möbel",
-    href: "/living/furniture/",
+    link: "/living/furniture/",
   },
 ];
 </script>
 
 <template>
-  <Story
-    title="Components/Breadcrumbs"
-  >
+  <Story title="Components/🎉 Breadcrumbs">
     <Variant title="Default">
       <Breadcrumbs :crumbs="crumbs" />
     </Variant>
     <Variant title="Custom rendering">
-      <Breadcrumbs :crumbs="crumbs" :link-tag="Button">
+      <Breadcrumbs :crumbs="crumbs">
         <template #crumb="{ crumb }">
-          <a :href="crumb.href">
-            <template v-if="crumb.href === '/'">🏠</template>
+          <a :href="crumb.link">
+            <template v-if="crumb.link === '/'">
+              <NNIcon name="home" style="font-size: 0.875em"/>
+            </template>
             <template v-else>{{ crumb.label }}</template>
           </a>
         </template>
-        <template #separator>&raquo;</template>
+        <template #separator> &raquo; </template>
       </Breadcrumbs>
     </Variant>
   </Story>
