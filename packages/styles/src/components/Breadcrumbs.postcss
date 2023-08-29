@@ -32,11 +32,23 @@
   padding: 0;
   margin: 0;
   text-decoration: none;
-  
+
   & a {
     color: inherit;
     text-decoration: none;
     color: var(--nn-color-primary);
+    display: flex;
+    align-items: center;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover,
+    &:focus-visible {
+      outline: none;
+      color: var(--nn-color-primary-800);
+    }
   }
 }
 

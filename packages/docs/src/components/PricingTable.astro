@@ -1,0 +1,16 @@
+---
+
+---
+
+<div class="pricing-table">
+  <slot />
+</div>
+
+<style lang="scss">
+  .pricing-table {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    justify-content: center;
+    gap: 2rem;
+  }
+</style>

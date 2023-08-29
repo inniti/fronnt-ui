@@ -26,11 +26,11 @@
 
 .nn-date-picker__icon {
   flex: 0 0 1.5rem;
-  color: var(--nn-color-gray-200);
 }
 
 .nn-date-picker__clear {
-  flex: 0;
+  display: flex;
+  align-items: center;
 }
 
 .nn-date-picker__popup {
@@ -43,6 +43,12 @@
   justify-content: flex-end;
   margin-top: 1rem;
   gap: 1rem;
+}
+
+.nn-datepicker__calendar {
+  & .nn-calendar__day {
+    cursor: pointer;
+  }
 }
 
 .nn-date-picker--focused,

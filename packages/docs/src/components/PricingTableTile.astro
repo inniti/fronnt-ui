@@ -1,0 +1,157 @@
+---
+interface Props {
+  title: string;
+  highlight?: boolean;
+  cta: { label: string; link: string };
+  price?: string;
+  bulletPoints: {
+    label: string;
+    description: string;
+  }[];
+}
+
+const { title, cta, highlight, bulletPoints, price } = Astro.props;
+---
+
+<div class="tile" class:list={{ highlight }}>
+  {highlight && <div class="popular">Most popular</div>}
+  <div class="title">{title}</div>
+  <div class="description">
+    <slot />
+  </div>
+  <div class="price">{price}</div>
+  <ul class="bullet-points">
+    {
+      bulletPoints.map((p) => (
+        <li class="bullet-point">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-circle-check"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+            <path d="M9 12l2 2l4 -4" />
+          </svg>
+          <div>
+            <span>{p.label}</span>
+            <span>{p.description}</span>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+  <div class="cta">
+    <a href={cta.link}>{cta.label}</a>
+  </div>
+</div>
+
+<style lang="scss">
+  .tile {
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid var(--nn-color-gray-100);
+    position: relative;
+    background: white;
+
+    &.highlight {
+      border-color: var(--nn-color-primary);
+      box-shadow: var(--nn-shadow-sm);
+    }
+  }
+
+  .popular {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 0.75rem;
+    border-radius: 1rem;
+    display: block;
+    padding: 0 0.5em;
+    line-height: 1.5;
+    color: var(--nn-color-primary);
+    border: 1px solid currentColor;
+  }
+
+  .title {
+    font-weight: var(--nn-font-weight-bold);
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .description {
+    color: var(--nn-color-gray-300);
+    font-size: 0.875rem;
+    height: 3rem;
+  }
+
+  .price {
+    font-size: 2rem;
+    font-weight: var(--nn-font-weight-black);
+  }
+
+  .bullet-points {
+    border-top: 1px solid var(--nn-color-gray-50);
+    border-bottom: 1px solid var(--nn-color-gray-50);
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+    margin: 1rem 0;
+    gap: 1rem;
+  }
+
+  .bullet-point {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+
+    & > div {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding-top: 0.25em;
+      gap: 0.25em;
+    }
+
+    & > div > :first-child {
+      font-weight: bold;
+    }
+
+    & > div > :nth-child(2) {
+      color: var(--nn-color-gray-300);
+    }
+
+    svg {
+      color: var(--nn-color-success);
+    }
+
+    .description {
+      height: auto;
+    }
+  }
+
+  .cta {
+    display: flex;
+    justify-content: center;
+
+    a {
+      display: block;
+      padding: 0.75rem 2rem;
+      text-align: center;
+      text-decoration: none;
+      background: var(--nn-color-primary);
+      color: var(--nn-color-primary-contrast);
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: var(--nn-font-weight-bold);
+      letter-spacing: 0.02em;
+    }
+  }
+</style>

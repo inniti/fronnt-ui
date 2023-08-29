@@ -19,7 +19,7 @@ const items: { label: string; icon?: FronntIcon }[] = [
     </Variant>
     <Variant title="Custom item rendering">
       <div class="container">
-        <Menu :items="items" @action="logEvent" align="right">
+        <Menu :items="items" align="right" @action="logEvent">
           Trigger
           <template #item="{ item }"> {{ item }}</template>
         </Menu>

@@ -1,0 +1,63 @@
+---
+layout: "@/layouts/Markdown.astro"
+navigation: components
+toc: true
+title: Navigation
+prev:
+  link: /components/buttons/
+  label: Buttons
+next:
+  link: /components/input-fields/
+  label: Input Fields
+---
+
+import Preview from "@/components/Preview.astro";
+import PropsTable from "@/components/PropsTable.astro";
+import { NNLink } from "@fronnt/components-vue";
+import BreadcrumbsExample from "./_examples/Breadcrumbs.vue";
+
+# Navigation
+
+## NNLink
+
+<Preview>
+  <NNLink client:only="vue">This is a link</NNLink>
+</Preview>
+
+```vue
+<NNLink>This is a link</NNLink>
+```
+
+<PropsTable
+  props={[{ key: "primary", type: "boolean", description: "adsfa asdf" }]}
+/>
+
+## NNBreadcrumbs
+
+Use breadcrumbsto display the current navigation path.
+
+Items and separators can be customized via slots.
+
+<Preview>
+  <BreadcrumbsExample />
+</Preview>
+
+```vue
+<NNBreadcrumbs :crumbs="crumbs" />
+
+<NNBreadcrumbs :crumbs="crumbs">
+  <template #crumb="{ crumb }">
+    <a :href="crumb.href">
+      <template v-if="crumb.href === '/'">🏠</template>
+      <template v-else>{{ crumb.label }}</template>
+    </a>
+  </template>
+  <template #separator> &raquo; </template>
+</NNBreadcrumbs>
+```
+
+<PropsTable
+  props={[
+    { key: "crumbs", type: "Array<{}>", description: "The list of crumbs" },
+  ]}
+/>

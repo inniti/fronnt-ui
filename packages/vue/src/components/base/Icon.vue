@@ -1,5 +1,5 @@
 <script lang="ts">
-import { FronntIcon } from "@fronnt/icons";
+import type { FronntIcon } from "@fronnt/icons";
 export default {
   name: "NNIcon",
 };
@@ -47,6 +47,10 @@ import User2 from "@fronnt/icons/user-2?raw";
 import User from "@fronnt/icons/user?raw";
 import XCircle from "@fronnt/icons/x-circle?raw";
 import X from "@fronnt/icons/x?raw";
+import Eye from "@fronnt/icons/eye?raw";
+import EyeOff from "@fronnt/icons/eye-off?raw";
+import ErrorCircle from "@fronnt/icons/error-circle?raw";
+import Home from "@fronnt/icons/home?raw";
 
 const icons: Record<FronntIcon, string> = {
   "arrow-small": ArrowSmall,
@@ -88,6 +92,10 @@ const icons: Record<FronntIcon, string> = {
   user: User,
   "x-circle": XCircle,
   x: X,
+  eye: Eye,
+  "eye-off": EyeOff,
+  "error-circle": ErrorCircle,
+  "home": Home
 };
 
 const props = defineProps<{

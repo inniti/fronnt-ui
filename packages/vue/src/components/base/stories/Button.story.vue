@@ -14,16 +14,25 @@ const state = reactive({
   <Story title="Components/Button">
     <Variant title="Default Button">
       <Button :disabled="state.disabled" @click="logEvent('Click', $event)">
-        Default
+        Default Button
       </Button>
     </Variant>
     <Variant title="Primary Button">
       <Button
-        primary
+        variant="primary"
         :disabled="state.disabled"
         @click="logEvent('Click', $event)"
       >
-        Primary
+        Primary Button
+      </Button>
+    </Variant>
+    <Variant title="Subtle Button">
+      <Button
+        variant="subtle"
+        :disabled="state.disabled"
+        @click="logEvent('Click', $event)"
+      >
+        Subtle Button
       </Button>
     </Variant>
     <Variant title="Button with icon">

@@ -49,19 +49,25 @@ function clear() {
             >
           </template>
           <template #option="{ option }">
-            <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.5rem">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 0.5rem;
+              "
+            >
               <span>{{ option.label }}</span>
               <span
-              style="
+                style="
                   font-size: 0.75em;
                   display: inline-block;
                   margin-left: 0.5rem;
                   color: red;
                 "
-                >
-                {{ option.id }}
-                </span
               >
+                {{ option.id }}
+              </span>
             </div>
           </template>
         </Dropdown>

@@ -1,0 +1,24 @@
+---
+layout: "@/layouts/Markdown.astro"
+navigation: designSystem
+toc: false
+title: Spacing | Design System
+prev:
+  link: /design-system/typography/
+  label: Typography
+next:
+  link: /design-system/shadows/
+  label: Shadows
+---
+
+import SpacingTable from "@/components/SpacingTable.astro";
+
+# Spacing
+
+fronnt UI uses an adapted 4/8-point grid system for spacing and whitespace management to achieve a conisten interface design.
+
+The multiples of the number 4 or 8 provide flexible and sufficiently clear steps for sizes, widths, distances, etc.. This allows easy and consistent scaling for diverse use cases.
+
+Spacing levels are made available as CSS variables. They are not coupled to a JS framework and can even be used without any components.
+
+<SpacingTable />

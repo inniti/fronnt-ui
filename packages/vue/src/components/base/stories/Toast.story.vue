@@ -41,7 +41,7 @@ const handleSubmit = (id: string) => alert(`Your Toast ID: ${id}`);
 </script>
 
 <template>
-  <Story title="Components/Toast" group="">
+  <Story title="Components/Toast">
     <Variant title="Default">
       <template #controls>
         <HstRadio
