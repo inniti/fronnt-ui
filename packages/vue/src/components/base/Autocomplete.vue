@@ -62,7 +62,7 @@ const selectResult = (result: Result) => {
   loading.value = false;
 };
 
-const reset = () => {
+const clear = () => {
   results.value = [];
   loading.value = false;
   term.value = "";
@@ -74,7 +74,6 @@ const showResults = computed(() => {
 
 const onDocumentClick = (e: Event) => {
   if (!element.value?.contains(e.target as HTMLElement)) {
-    console.log("click outside");
     results.value = [];
     loading.value = false;
   }
@@ -85,6 +84,10 @@ onMounted(() => {
 });
 onBeforeUnmount(() => {
   document.removeEventListener("click", onDocumentClick);
+});
+
+defineExpose({
+  clear,
 });
 </script>
 
@@ -102,16 +105,19 @@ onBeforeUnmount(() => {
         @input="onInput"
         @focus="load(false)"
         @keydown.enter="loadAndSelectFirst"
-        @keydown.esc="reset"
+        @keydown.esc="clear"
       />
-      <IconButton
-        v-show="term"
-        icon="X"
-        class="nn-autocomplete__clear"
-        tabindex="0"
-        @click="reset"
-        @keydown.enter="reset"
-      />
+      <span class="nn-autocomplete__clear">
+        <slot name="clear">
+          <IconButton
+            v-show="term"
+            icon="x"
+            tabindex="0"
+            @click="clear"
+            @keydown.enter="clear"
+          />
+        </slot>
+      </span>
       <LoadingIndicator v-if="loading" class="nn-autocomplete__loading" />
     </div>
     <ul v-show="showResults" class="nn-autocomplete__results">

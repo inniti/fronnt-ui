@@ -1,0 +1,56 @@
+---
+const spacing = [
+  4, 8, 16, 20, 24, 32, 40, 48, 64, 80, 96, 128, 160, 192, 224, 256,
+];
+
+const base = 16;
+---
+
+<div class="spacing-table">
+  {
+    spacing.map((value, level) => (
+      <div class="level">
+        <code class="variable">--nn-spacing-{level + 1}</code>
+        <div class="bar" style={{ "--width": `${value / base}rem` }}>
+          {`${value / base}rem / ${value}px`}
+        </div>
+      </div>
+    ))
+  }
+</div>
+
+<style lang="scss">
+  .spacing-table {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .level {
+      display: grid;
+      grid-template-columns: 10rem 1fr;
+      gap: 1rem;
+      line-height: 2;
+    }
+
+    .variable {
+      user-select: all;
+    }
+
+    .bar {
+      position: relative;
+      padding: 0 0.5rem;
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: -1;
+        height: 100%;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: var(--width);
+        background: var(--nn-color-primary-100);
+      }
+    }
+  }
+</style>

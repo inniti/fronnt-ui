@@ -3,7 +3,7 @@ import { ref } from "vue";
 import RadioButtons from "../RadioButtons.vue";
 
 const modelValue1 = ref("b");
-const modelValue2 = ref("b");
+const modelValue2 = ref("c");
 
 const options1 = [
   { value: "a", label: "A" },
@@ -23,7 +23,7 @@ const options2 = [
 </script>
 
 <template>
-  <Story title="Components/Radio Buttons">
+  <Story title="Components/🎉 Radio Buttons">
     <Variant title="Default">
       <div style="margin-bottom: 5rem">
         <RadioButtons

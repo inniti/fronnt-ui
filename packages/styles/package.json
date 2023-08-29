@@ -1,6 +1,6 @@
 {
   "name": "@fronnt/styles",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "CSS Stylesheets for @fronnt components",
   "main": "dist/index.css",
   "files": [
@@ -9,9 +9,11 @@
   "exports": {
     ".": "./dist/index.css",
     "./variables": "./dist/variables.css",
-    "./typography": "./dist/typography.css",
+    "./components/Heading": "./dist/components/Heading.css",
+    "./components/CopyText": "./dist/components/CopyText.css",
     "./components/Button": "./dist/components/Button.css",
     "./components/ActionButton": "./dist/components/ActionButton.css",
+    "./components/ClearButton": "./dist/components/ClearButton.css",
     "./components/Tag": "./dist/components/Tag.css",
     "./components/Badge": "./dist/components/Badge.css",
     "./components/Icon": "./dist/components/Icon.css",
@@ -31,27 +33,18 @@
     "./components/Card": "./dist/components/Card.css",
     "./components/Paging": "./dist/components/Paging.css",
     "./components/Autocomplete": "./dist/components/Autocomplete.css",
-    "./components/Price": "./dist/components/Price.css",
     "./components/IconButton": "./dist/components/IconButton.css",
     "./components/Modal": "./dist/components/Modal.css",
     "./components/Tooltip": "./dist/components/Tooltip.css",
     "./components/Toast": "./dist/components/Toast.css",
     "./components/Collapsible": "./dist/components/Collapsible.css",
     "./components/Range": "./dist/components/Range.css",
+    "./components/Flyout": "./dist/components/Flyout.css",
     "./components/Menu": "./dist/components/Menu.css",
     "./components/Calendar": "./dist/components/Calendar.css",
-    "./components/Popup": "./dist/components/Popup.css",
     "./components/DatePicker": "./dist/components/DatePicker.css",
     "./components/DateRangePicker": "./dist/components/DateRangePicker.css",
-    "./transitions/Expand": "./dist/transitions/Expand.css",
-    "./compositions/ProductTile": "./dist/compositions/ProductTile.css",
-    "./compositions/ShopTheLook": "./dist/compositions/ShopTheLook.css",
-    "./compositions/OrderList": "./dist/compositions/OrderList.css",
-    "./compositions/OrderListItem": "./dist/compositions/OrderListItem.css",
-    "./compositions/Cart": "./dist/compositions/Cart.css",
-    "./compositions/CartItem": "./dist/compositions/CartItem.css",
-    "./compositions/PDP": "./dist/compositions/PDP.css",
-    "./compositions/SearchFilter": "./dist/compositions/SearchFilter.css"
+    "./transitions/Expand": "./dist/transitions/Expand.css"
   },
   "scripts": {
     "build": "rimraf dist && postcss ./src/** --base src --ext css --verbose --dir dist",
@@ -63,12 +56,15 @@
   ],
   "author": "inniti",
   "devDependencies": {
-    "cssnano": "~6.0.1",
-    "postcss": "~8.4.25",
-    "postcss-cli": "~10.1.0",
-    "postcss-import": "~15.1.0",
-    "postcss-preset-env": "~9.0.0",
-    "rimraf": "~5.0.1"
+    "cssnano": "^6.0.1",
+    "postcss": "^8.4.28",
+    "postcss-cli": "^10.1.0",
+    "postcss-import": "^15.1.0",
+    "postcss-preset-env": "^9.1.1",
+    "rimraf": "^5.0.1"
   },
-  "private": true
+  "private": true,
+  "publishConfig": {
+    "registry": "http://localhost:4873"
+  }
 }

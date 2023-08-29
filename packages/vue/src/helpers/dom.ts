@@ -16,6 +16,9 @@ export function getNearestOverflowContainer(element: HTMLElement) {
 
     if (!nearestOverflowContainer && parentNode.parentNode) {
       parentNode = parentNode.parentNode as HTMLElement;
+      if (parentNode.tagName === "BODY") {
+        nearestOverflowContainer = parentNode;
+      }
     } else {
       nearestOverflowContainer = parentNode;
     }

@@ -123,9 +123,9 @@ function decrement() {
       <Icon name="minus" />
     </button>
     <input
+      ref="input"
       class="nn-step-input__input"
       type="text"
-      ref="input"
       :value="value"
       :min="props.min"
       :max="props.max"
@@ -137,7 +137,7 @@ function decrement() {
       :disabled="value >= Number(props.max)"
       @click="increment"
     >
-    <Icon name="plus" />
+      <Icon name="plus" />
     </button>
   </div>
 </template>

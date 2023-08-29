@@ -7,9 +7,9 @@ export default {
 <script setup lang="ts">
 import { ref, watch } from "vue";
 import NNCalendar from "./Calendar.vue";
-import NNPopup from "./Popup.vue";
+import NNFlyout from "./Flyout.vue";
 import NNButton from "./Button.vue";
-import NNIconButton from "./IconButton.vue";
+import NNClearButton from "./ClearButton.vue";
 import NNIcon from "./Icon.vue";
 
 const now = new Date();
@@ -23,6 +23,8 @@ const props = withDefaults(
   }>(),
   {
     firstYear: 1900,
+    lastYear: undefined,
+    modelValue: null,
   }
 );
 
@@ -91,6 +93,10 @@ const onOpen = () => {
 const onFocus = () => {
   isFocused.value = true;
 };
+
+defineExpose({
+  clear,
+});
 </script>
 
 <template>
@@ -103,48 +109,48 @@ const onFocus = () => {
       isFocused && 'nn-date-picker--focused',
     ]"
   >
-    <NNPopup
+    <NNFlyout
       ref="popup"
       :disabled="props.disabled"
       @close="onClose"
       @open="onOpen"
       @focus="onFocus"
     >
-      <div class="nn-date-picker__field">
-        <div class="nn-date-picker__selection">
-          <slot name="selection" :value="model">
-            <span>{{ model?.toLocaleDateString() }}</span>
-          </slot>
-        </div>
-        <NNIconButton
-          class="nn-date-picker__clear"
-          @click.stop="clear"
-          v-show="model !== null"
-          icon="x"
-        />
-        <NNIcon name="arrow" class="nn-date-picker__icon" />
-      </div>
-
-      <template #popup>
-        <div class="nn-date-picker__popup">
-          <NNCalendar
-            v-model:year="year"
-            v-model:month="month"
-            :first-year="props.firstYear"
-            :last-year="props.lastYear"
-            @select="selectDay"
-            :is-start="isStart"
-            :is-end="isEnd"
-          />
-          <div>
-            <div class="nn-date-picker__footer">
-              <NNButton @click="confirm" :disabled="model === null">
-                confirm
-              </NNButton>
-            </div>
+      <template #trigger>
+        <div class="nn-date-picker__field">
+          <div class="nn-date-picker__selection">
+            <slot name="selection" :value="model">
+              <span>{{ model?.toLocaleDateString() }}</span>
+            </slot>
           </div>
+          <span v-show="model !== null" class="nn-date-picker__clear">
+            <slot name="clear">
+              <NNClearButton @click.stop="clear" />
+            </slot>
+          </span>
+          <NNIcon name="calendar" class="nn-date-picker__icon" />
         </div>
       </template>
-    </NNPopup>
+
+      <div class="nn-date-picker__popup">
+        <NNCalendar
+          v-model:year="year"
+          v-model:month="month"
+          :first-year="props.firstYear"
+          :last-year="props.lastYear"
+          :is-start="isStart"
+          :is-end="isEnd"
+          class="nn-datepicker__calendar"
+          @select="selectDay"
+        />
+        <div>
+          <div class="nn-date-picker__footer">
+            <NNButton :disabled="model === null" @click="confirm">
+              confirm
+            </NNButton>
+          </div>
+        </div>
+      </div>
+    </NNFlyout>
   </div>
 </template>

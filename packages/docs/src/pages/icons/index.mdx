@@ -1,0 +1,38 @@
+---
+layout: "@/layouts/Markdown.astro"
+title: Icons
+---
+
+import Icons from "./_examples/Icons.vue";
+
+# Icons
+
+Icons are provided by the @fronnt/icons package. The package contains all icons as SVG files.
+
+## Usage
+
+```vue
+<script setup>
+import { NNIcon } from "@fronnt/components-vue";
+</script>
+
+<template>
+  <NNIcon name="arrow" />
+</template>
+```
+
+Icons can also be imported as raw SVG code (e.g. using Vite's `raw` directive) and bundled into your source code.
+
+```vue
+<script setup lang="ts">
+import Arrow from "@fronnt/icons/arrow?raw";
+</script>
+
+<template>
+  <i v-html="Arrow" />
+</template>
+```
+
+## List of icons
+
+<Icons />

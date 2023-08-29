@@ -12,26 +12,22 @@
   font-weight: bold;
   font-family: inherit;
   letter-spacing: 0.1em;
-  transition: background-color 200ms ease, border-color 200ms ease;
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease;
   background: none;
   border: solid var(--nn-stroke-width) currentColor;
   color: var(--nn-color-primary-600);
   cursor: default;
-  transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
+  transition:
+    background 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease;
   position: relative;
   border-radius: var(--nn-button-border-radius);
 
   &:enabled {
     cursor: pointer;
-
-    &:hover {
-      color: var(--nn-color-primary-800);
-    }
-  }
-
-  &:disabled {
-    filter: grayscale(1);
-    opacity: 0.5;
   }
 
   &:focus {
@@ -39,21 +35,52 @@
   }
 
   &:focus-visible {
-    box-shadow: 0 0 0 0.05em white, 0 0 0 0.2em var(--nn-color-primary-300);
+    box-shadow:
+      0 0 0 0.05em white,
+      0 0 0 0.2em var(--nn-color-primary-300);
   }
 
   &.nn-button--primary {
     background: var(--nn-color-primary-800);
     color: var(--nn-color-primary-contrast);
+    border-color: var(--nn-color-primary-800);
 
     &:enabled {
       &:hover {
         background: var(--nn-color-primary-700);
         color: var(--nn-color-primary-contrast);
+        border-color: var(--nn-color-primary-700);
       }
 
       &:active {
         background: var(--nn-color-primary-800);
+        border-color: var(--nn-color-primary-800);
+      }
+    }
+  }
+
+  &.nn-button--default {
+    &:enabled {
+      &:hover {
+        background: var(--nn-color-primary-100);
+      }
+
+      &:active {
+        background: var(--nn-color-primary-200);
+      }
+    }
+  }
+
+  &.nn-button--subtle {
+    border-color: transparent;
+
+    &:enabled {
+      &:hover {
+        background: var(--nn-color-primary-100);
+      }
+
+      &:active {
+        background: var(--nn-color-primary-200);
       }
     }
   }

@@ -81,11 +81,13 @@ const style = computed(() => {
   >
     <template v-if="state === 'error'">
       <slot name="error">
+        <!-- eslint-disable-next-line vue/no-v-html -->
         <span v-html="ErrorIcon"></span>
       </slot>
     </template>
     <template v-else-if="state === 'success'">
       <slot name="success">
+        <!-- eslint-disable-next-line vue/no-v-html -->
         <span v-html="CheckIcon"></span>
       </slot>
     </template>

@@ -10,7 +10,7 @@ const error = ref(false);
 </script>
 
 <template>
-  <Story title="Components/Textarea" :layout="{ type: 'single' }" group="base">
+  <Story title="Components/Textarea" :layout="{ type: 'single' }">
     <template #controls>
       <HstCheckbox v-model="disabled" title="Disabled" />
       <HstCheckbox v-model="error" title="Error" />

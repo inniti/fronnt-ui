@@ -1,14 +1,20 @@
 <script lang="ts" setup>
+import { ref } from "vue";
 import Alert from "../Alert.vue";
+const noIcon = ref(false);
 </script>
 
 <template>
-  <Story title="Components/Alerts" :layout="{ type: 'single' }">
+  <Story title="Components/🎉 Alerts" :layout="{ type: 'single' }">
+    <template #controls>
+      <HstCheckbox v-model="noIcon" title="No Icon" />
+    </template>
     <div class="alerts">
-      <Alert type="error">Something went wrong</Alert>
-      <Alert type="warning">Something went almost wrong</Alert>
-      <Alert type="info">Something went</Alert>
-      <Alert type="success">Something went right</Alert>
+      <Alert :no-icon="noIcon"> Something went </Alert>
+      <Alert type="info" :no-icon="noIcon"> Info </Alert>
+      <Alert type="success" :no-icon="noIcon"> Success </Alert>
+      <Alert type="warning" :no-icon="noIcon"> Warning </Alert>
+      <Alert type="error" :no-icon="noIcon"> Error </Alert>
     </div>
   </Story>
 </template>

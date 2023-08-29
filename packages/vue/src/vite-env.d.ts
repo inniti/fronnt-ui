@@ -3,10 +3,10 @@
 
 declare module "*.vue" {
   import type { DefineComponent } from "vue";
-  const component: DefineComponent<{}, {}, any>;
+  const component: DefineComponent<
+    NonNullable<unknown>,
+    NonNullable<unknown>,
+    unknown
+  >;
   export default component;
-}
-
-declare global {
-  const FRONNT_URL: string|undefined;
 }

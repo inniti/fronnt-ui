@@ -7,7 +7,7 @@ const total = ref(20);
 </script>
 
 <template>
-  <Story title="Components/Paging" group="base">
+  <Story title="Components/Paging">
     <Variant title="Default">
       <template #controls>
         <HstNumber v-model="page" title="Page" />

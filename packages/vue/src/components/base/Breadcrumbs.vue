@@ -7,7 +7,7 @@ export default {
 <script lang="ts" setup>
 const props = withDefaults(
   defineProps<{
-    crumbs: Array<{ label: string; href: string }>;
+    crumbs: Array<{ label: string; link: string }>;
   }>(),
   {}
 );
@@ -15,14 +15,15 @@ const props = withDefaults(
 
 <template>
   <nav class="nn-breadcrumbs">
-    <ul class="nn-breadcrumbs__list">
+    <ol class="nn-breadcrumbs__list">
       <li
         v-for="(crumb, idx) in props.crumbs"
         :key="idx"
         class="nn-breadcrumbs__crumb"
+        :class="[crumb.link && 'nn-breadcrumbs__crumb--link']"
       >
         <slot name="crumb" :crumb="crumb">
-          <a :href="crumb.href">
+          <a :href="crumb.link">
             {{ crumb.label }}
           </a>
         </slot>
@@ -32,6 +33,6 @@ const props = withDefaults(
           </span>
         </template>
       </li>
-    </ul>
+    </ol>
   </nav>
 </template>

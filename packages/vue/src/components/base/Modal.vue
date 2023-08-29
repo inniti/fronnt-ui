@@ -93,12 +93,12 @@ const titleId = `modal-title-${getCurrentInstance()?.uid}`;
         <div ref="panel" class="nn-modal__panel">
           <div class="nn-modal__header">
             <div>
-              <div :id="titleId" class="nn-modal__title nn-text-l">
+              <div :id="titleId" class="nn-modal__title">
                 {{ props.title }}
               </div>
               <slot name="header" />
             </div>
-            <IconButton ref="closeButton" icon="X" @click="close" />
+            <IconButton ref="closeButton" icon="x" @click="close" />
           </div>
           <div class="nn-modal__body">
             <slot />

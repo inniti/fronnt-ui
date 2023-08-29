@@ -1,0 +1,125 @@
+---
+import PricingTable from "@/components/PricingTable.astro";
+import PricingTableTile from "@/components/PricingTableTile.astro";
+import Layout from "@/layouts/Default.astro";
+import Licenses from "@/licenses";
+
+const pricingTiles = [
+  {
+    title: Licenses.developer.title,
+    price: Licenses.developer.price,
+    description: "A single license. Perfect for freelance developers.",
+    cta: {
+      label: "Get started",
+      link: "#",
+    },
+    bulletPoints: [
+      {
+        label: "Commercial use",
+        description: "Use all components for customer projects",
+      },
+      {
+        label: "Perpetual license",
+        description:
+          "Pay once and use forever. Get updates for one year. Optionally renew your license with a discount of 20%.",
+      },
+      {
+        label: "Single developer",
+        description: "Perfect for freelancers",
+      },
+      {
+        label: "Support",
+        description: "Get support via Matrix.org",
+      },
+    ],
+  },
+  {
+    highlight: true,
+    title: Licenses.team.title,
+    price: Licenses.team.price,
+    description:
+      "Up to 5 developers. Perfect for smaller teams, agencies and startups.",
+    cta: {
+      label: "Get started",
+      link: "#",
+    },
+    bulletPoints: [
+      {
+        label: "Premium components",
+        description:
+          "Premium UI E-Commerce components for Vue.js (React and Svelte coming)",
+      },
+      {
+        label: "Up to 5 developers",
+        description: "No per-seat pricing",
+      },
+      {
+        label: "Early access",
+        description: "Get early access to new components",
+      },
+      {
+        label: "Support",
+        description: "Get support via Matrix.org",
+      },
+    ],
+  },
+  {
+    title: Licenses.enterprise.title,
+    price: Licenses.enterprise.price,
+    description: "Have more than 5 developers or special needs?",
+    cta: {
+      label: "Get in touch",
+      link: "#",
+    },
+    bulletPoints: [
+      {
+        label: "Premium components",
+        description:
+          "Premium UI E-Commerce components for Vue.js (React and Svelte coming)",
+      },
+      {
+        label: "Unlimited developers",
+        description: "No per-seat pricing",
+      },
+      {
+        label: "Customizing",
+        description:
+          "Let use customize components or build entirely new components as per your requirements",
+      },
+      {
+        label: "1-to-1 support",
+        description: "Get a dedicated customer success manager",
+      },
+    ],
+  },
+];
+---
+
+<Layout title="fronnt UI PRO">
+  <h1>fronnt UI PRO</h1>
+  <p>
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat earum
+    fugiat repellat dolore quasi ex, saepe doloremque dolorem, aut voluptatem
+    ad, id molestias neque facilis porro aperiam. Consequuntur, enim ea.
+  </p>
+
+  <h2>Pricing</h2>
+
+  <PricingTable>
+    {
+      pricingTiles.map((tile) => (
+        <PricingTableTile
+          title={tile.title}
+          price={tile.price}
+          cta={tile.cta}
+          bulletPoints={tile.bulletPoints}
+          highlight={tile.highlight}
+        >
+          {tile.description}
+        </PricingTableTile>
+      ))
+    }
+  </PricingTable>
+
+  <h2>What's included?</h2>
+</Layout>

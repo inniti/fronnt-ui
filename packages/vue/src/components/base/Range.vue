@@ -27,7 +27,9 @@ const props = withDefaults(
 const emit = defineEmits(["update:low", "update:high"]);
 
 const element = ref();
+// eslint-disable-next-line vue/no-dupe-keys
 const min = ref(0);
+// eslint-disable-next-line vue/no-dupe-keys
 const max = ref(0);
 
 const knobSize = 16;

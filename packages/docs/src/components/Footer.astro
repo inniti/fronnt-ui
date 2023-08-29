@@ -1,0 +1,133 @@
+---
+const menus = [
+  {
+    heading: "Product",
+    items: [
+      {
+        label: "Design System",
+        link: "/design-system",
+      },
+      {
+        label: "fronnt UI Vue",
+        link: "#",
+      },
+      {
+        label: "fronnt UI Pro",
+        link: "#",
+      },
+    ],
+  },
+  {
+    heading: "Explore",
+    items: [
+      {
+        label: "Design Kit",
+        link: "#",
+      },
+      {
+        label: "Icon Library",
+        link: "#",
+      },
+      {
+        label: "Documentation",
+        link: "#",
+      },
+    ],
+  },
+  {
+    heading: "Resources",
+    items: [
+      {
+        label: "Pricing",
+        link: "/pricing/",
+      },
+      {
+        label: "FAQ",
+        link: "#",
+      },
+    ],
+  },
+  {
+    heading: "About",
+    items: [
+      {
+        label: "inniti",
+        link: "https://www.inniti.de",
+        target: "_blank",
+        rel: "noopener",
+      },
+      {
+        label: "License",
+        link: "#",
+      },
+    ],
+  },
+];
+---
+
+<footer>
+  <div class="content">
+    {
+      menus.map((menu) => (
+        <div class="menu">
+          <div class="heading">{menu.heading}</div>
+          <ul>
+            {menu.items.map((item) => (
+              <li>
+                <a href={item.link} target={item.target} rel={item.rel}>
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+</footer>
+
+<style lang="scss">
+  footer {
+    margin-top: 4rem;
+  }
+  .content {
+    max-width: var(--page-max-width);
+    margin: 0 auto;
+    padding: 6rem var(--page-padding);
+    border-top: 1px solid lightgray;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 2rem;
+  }
+
+  .menu {
+    .heading {
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    li {
+      display: block;
+      padding: 0;
+      margin: 0;
+      a {
+        display: block;
+        text-decoration: none;
+        line-height: 2.25;
+        &:hover,
+        &:focus {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+</style>
