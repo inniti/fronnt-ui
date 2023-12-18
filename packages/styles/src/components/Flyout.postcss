@@ -1,0 +1,30 @@
+/*! @fronntui/styles NNFlyout */
+
+.nn-flyout {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+
+  &.nn-flyout--open {
+    overflow: initial;
+    & .nn-flyout__popup {
+      pointer-events: auto;
+      opacity: 1;
+      transform: translateY(10px);
+      transition-timing-function: ease-out;
+    }
+  }
+}
+
+.nn-flyout__popup {
+  position: absolute;
+  pointer-events: none;
+  width: max-content;
+  opacity: 0;
+  transform: translateY(0);
+  transition:
+    opacity 150ms,
+    transform 150ms;
+  transition-timing-function: ease-in;
+  z-index: 1000;
+}

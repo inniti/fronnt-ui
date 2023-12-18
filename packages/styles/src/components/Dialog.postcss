@@ -1,0 +1,92 @@
+/*! @fronntui/styles NNDialog */
+
+.nn-dialog {
+  position: fixed;
+  z-index: 900;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: flex-end;
+  transition: opacity 0.2s cubic-bezier(0, 0.29, 0.25, 1);
+  backdrop-filter: var(--nn-backdrop-filter);
+  background: var(--nn-backdrop-color);
+}
+
+.nn-dialog__panel {
+  background: white;
+  margin: 0 auto;
+  max-width: 40rem;
+  max-height: calc(100vh - 2 * var(--nn-spacing-3));
+  width: 100%;
+  border-top-left-radius: var(--nn-dialog-border-radius);
+  border-top-right-radius: var(--nn-dialog-border-radius);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0, 0.29, 0.25, 1);
+  box-shadow: var(--nn-shadow-lg);
+
+  @media screen and (min-height: 700px) {
+    margin-top: auto;
+    margin-bottom: auto;
+    border-bottom-left-radius: var(--nn-dialog-border-radius);
+    border-bottom-right-radius: var(--nn-dialog-border-radius);
+  }
+}
+
+.nn-dialog__header {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--nn-spacing-6) var(--nn-spacing-4) var(--nn-spacing-4);
+  border-top-left-radius: var(--nn-dialog-border-radius);
+  border-top-right-radius: var(--nn-dialog-border-radius);
+  flex: 0;
+}
+
+.nn-dialog__footer {
+  padding: var(--nn-spacing-4) var(--nn-spacing-4) var(--nn-spacing-6);
+  flex: 0;
+
+  @media screen and (min-height: 700px) {
+    border-bottom-left-radius: var(--nn-dialog-border-radius);
+    border-bottom-right-radius: var(--nn-dialog-border-radius);
+  }
+}
+
+.nn-dialog__title {
+  flex: 1 0 auto;
+  font-weight: var(--nn-font-weight-bold);
+  line-height: 2;
+}
+
+.nn-dialog__body {
+  padding: var(--nn-spacing-4) var(--nn-spacing-4);
+  flex: 1;
+  overflow-y: auto;
+}
+
+.nn-dialog-transition-enter-from {
+  opacity: 0;
+}
+
+.nn-dialog-transition-leave-to {
+  opacity: 0;
+}
+
+.nn-dialog-transition-enter-from .nn-dialog__panel,
+.nn-dialog-transition-leave-to .nn-dialog__panel {
+  transform: translateY(5rem);
+  @media (prefers-reduced-motion) {
+    transform: translateY(0);
+  }
+}
+
+@media screen and (min-width: 36rem) {
+  .nn-dialog__header,
+  .nn-dialog__body,
+  .nn-dialog__footer {
+    padding-left: var(--nn-spacing-7);
+    padding-right: var(--nn-spacing-7);
+  }
+}

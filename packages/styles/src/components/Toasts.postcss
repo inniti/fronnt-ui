@@ -1,0 +1,25 @@
+/*! @fronntui/styles NNToasts */
+
+.nn-toasts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 2000;
+}
+
+.nn-toasts__list {
+  pointer-events: auto;
+  margin: 0 auto;
+  width: var(--nn-toast-width);
+  max-width: calc(100vw - 2rem);
+  display: flex;
+  flex-direction: column;
+  gap: var(--nn-spacing-3);
+  padding-top: var(--nn-spacing-3);
+
+  & > .nn-toast {
+    max-width: var(--nn-toast-width);
+  }
+}

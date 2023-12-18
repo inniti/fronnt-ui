@@ -1,0 +1,31 @@
+/*! @fronntui/styles NNMenuItem */
+
+.nn-menu-item {
+  display: flex;
+  align-items: center;
+  gap: var(--nn-spacing-2);
+  padding: var(--nn-spacing-1) var(--nn-spacing-2);
+  border-radius: var(--nn-border-radius-sm);
+  transition: background 200ms ease;
+  cursor: pointer;
+  min-width: 8rem;
+  line-height: 1.75;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background: var(--nn-color-primary-50);
+  }
+
+  &.nn-menu-item--disabled {
+    cursor: default;
+    color: var(--nn-color-disabled);
+    &:hover,
+    &:focus-visible {
+      background: none;
+    }
+  }
+}

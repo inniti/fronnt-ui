@@ -1,0 +1,134 @@
+/*! @fronntui/styles variables */
+
+:root {
+  --nn-color-primary-50: #f3f5fd;
+  --nn-color-primary-100: #e6eafa;
+  --nn-color-primary-200: #ccd5f5;
+  --nn-color-primary-300: #99abeb;
+  --nn-color-primary-400: #6681e1;
+  --nn-color-primary-500: #3357d7;
+  --nn-color-primary-600: #002dcd;
+  --nn-color-primary-700: #0024a4;
+  --nn-color-primary-800: #001b7b;
+  --nn-color-primary-900: #001252;
+  --nn-color-primary: var(--nn-color-primary-600);
+  --nn-color-primary-contrast: white;
+
+  --nn-color-gray-50: #efefef;
+  --nn-color-gray-100: #d5d5d6;
+  --nn-color-gray-200: #babbbc;
+  --nn-color-gray-300: #9fa0a3;
+  --nn-color-gray-400: #838589;
+  --nn-color-gray-500: #65686c;
+  --nn-color-gray-600: #46494f;
+  --nn-color-gray-700: #3c3f44;
+  --nn-color-gray-800: #303337;
+  --nn-color-gray-900: #26272b;
+  --nn-color-gray: var(--nn-color-gray-600);
+  --nn-color-gray-contrast: white;
+
+  --nn-color-error-50: #f9e9ea;
+  --nn-color-error-100: #f0c6c8;
+  --nn-color-error-200: #e5a2a6;
+  --nn-color-error-300: #db7c81;
+  --nn-color-error-400: #d0525a;
+  --nn-color-error-500: #c21a2e;
+  --nn-color-error-600: #b40000;
+  --nn-color-error-700: #9c0000;
+  --nn-color-error-800: #830000;
+  --nn-color-error-900: #690000;
+  --nn-color-error: var(--nn-color-error-600);
+  --nn-color-error-contrast: white;
+
+  --nn-color-success-50: #e6f7ef;
+  --nn-color-success-100: #bfead6;
+  --nn-color-success-200: #94ddbd;
+  --nn-color-success-300: #64d0a3;
+  --nn-color-success-400: #13c286;
+  --nn-color-success-500: #00b369;
+  --nn-color-success-600: #00a549;
+  --nn-color-success-700: #008f3e;
+  --nn-color-success-800: #007833;
+  --nn-color-success-900: #006028;
+  --nn-color-success: var(--nn-color-success-600);
+  --nn-color-success-contrast: white;
+
+  --nn-color-warning-50: #fff4ea;
+  --nn-color-warning-100: #fee5c8;
+  --nn-color-warning-200: #fed4a5;
+  --nn-color-warning-300: #fdc481;
+  --nn-color-warning-400: #fdb358;
+  --nn-color-warning-500: #fba21f;
+  --nn-color-warning-600: #fa9000;
+  --nn-color-warning-700: #d97d00;
+  --nn-color-warning-800: #b76700;
+  --nn-color-warning-900: #945300;
+  --nn-color-warning: var(--nn-color-warning-600);
+  --nn-color-warning-contrast: white;
+
+  --nn-color-text: var(--nn-color-gray-900);
+  --nn-color-assistive: var(--nn-color-gray-500);
+  --nn-color-disabled: var(--nn-color-gray-200);
+  --nn-color-highlighted: var(--nn-color-primary-600);
+
+  --nn-border-radius-sm: 0.25rem;
+  --nn-border-radius-md: 0.5rem;
+  --nn-border-radius-lg: 0.75rem;
+
+  --nn-stroke-width: 1px;
+
+  --nn-font-size-sm: 0.75rem;
+  --nn-font-size-xs: 0.625rem;
+
+  --nn-font-weight-light: 300;
+  --nn-font-weight-normal: 400;
+  --nn-font-weight-bold: 700;
+  --nn-font-weight-black: 900;
+
+  --nn-spacing-1: 0.25rem;
+  --nn-spacing-2: 0.5rem;
+  --nn-spacing-3: 0.75rem;
+  --nn-spacing-4: 1rem;
+  --nn-spacing-5: 1.25rem;
+  --nn-spacing-6: 1.5rem;
+  --nn-spacing-7: 2rem;
+  --nn-spacing-8: 2.5rem;
+  --nn-spacing-9: 3rem;
+  --nn-spacing-10: 4rem;
+  --nn-spacing-11: 5rem;
+  --nn-spacing-12: 6rem;
+  --nn-spacing-13: 8rem;
+  --nn-spacing-14: 10rem;
+  --nn-spacing-15: 12rem;
+  --nn-spacing-16: 14rem;
+  --nn-spacing-17: 16rem;
+
+  --nn-focus-shadow: 0 0 0 0.125rem var(--nn-color-primary-200);
+
+  /* prettier-ignore */
+  --nn-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04),
+                  0 2px 4px rgba(0, 0, 0, 0.04),
+                  0 4px 8px rgba(0, 0, 0, 0.04);
+
+  /* prettier-ignore */
+  --nn-shadow-lg: 0 1px 2px rgba(0, 0, 0, 0.04),
+                  0 2px 4px rgba(0, 0, 0, 0.04),
+                  0 4px 8px rgba(0, 0, 0, 0.04),
+                  0 8px 16px rgba(0, 0, 0, 0.04),
+                  0 16px 32px rgba(0, 0, 0, 0.04);
+
+  --nn-control-border: solid var(--nn-stroke-width) var(--nn-color-gray-400);
+  --nn-control-border-radius: var(--nn-border-radius-sm);
+  --nn-button-border-radius: var(--nn-control-border-radius);
+  --nn-card-border-radius: var(--nn-border-radius-lg);
+  --nn-popup-border-radius: var(--nn-border-radius-sm);
+  --nn-alert-border-radius: var(--nn-border-radius-md);
+  --nn-dialog-border-radius: var(--nn-border-radius-lg);
+  --nn-drawer-border-radius: var(--nn-border-radius-sm);
+  --nn-icon-stroke-width: 2px;
+
+  --nn-toast-width: 20rem;
+
+  --nn-backdrop-filter: blur(10px);
+  --nn-backdrop-color: rgba(0, 0, 0, 0.8);
+}

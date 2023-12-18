@@ -1,0 +1,46 @@
+/*! @fronntui/styles NNAlert */
+
+.nn-alert {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1rem;
+  border-radius: var(--nn-alert-border-radius);
+  background: var(--nn-color-gray-50);
+
+  &.nn-alert--primary {
+    background: var(--nn-color-primary-50);
+    color: var(--nn-color-primary);
+  }
+
+  &.nn-alert--info {
+    background: var(--nn-color-gray-50);
+    color: var(--nn-color-gray);
+  }
+
+  &.nn-alert--warning {
+    background: var(--nn-color-warning-50);
+    color: var(--nn-color-warning);
+  }
+
+  &.nn-alert--success {
+    background: var(--nn-color-success-50);
+    color: var(--nn-color-success);
+  }
+
+  &.nn-alert--error {
+    background: var(--nn-color-error-50);
+    color: var(--nn-color-error);
+  }
+}
+
+.nn-alert__icon {
+  display: flex;
+  align-items: center;
+  flex: 0;
+}
+
+.nn-alert__message {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}

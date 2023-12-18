@@ -1,0 +1,98 @@
+/*! @fronntui/styles NNDrawer */
+
+.nn-drawer {
+  --nn-drawer-inset: var(--nn-spacing-2);
+
+  pointer-events: none;
+  opacity: 0;
+  background: var(--nn-backdrop-color);
+  backdrop-filter: var(--nn-backdrop-filter);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  transition: opacity 200ms ease 160ms;
+}
+
+.nn-drawer__panel {
+  background: white;
+  position: absolute;
+  top: var(--nn-drawer-inset);
+  height: calc(100% - 2 * var(--nn-drawer-inset));
+  max-width: calc(100% - 2 * var(--nn-drawer-inset));
+  padding: var(--nn-spacing-6) var(--nn-spacing-4);
+  transition: transform 150ms ease-in;
+  transform: none;
+  will-change: transform;
+  min-width: 14rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--nn-spacing-4);
+  border-radius: var(--nn-drawer-border-radius);
+
+  right: var(--nn-drawer-inset);
+  left: var(--nn-drawer-inset);
+}
+
+.nn-drawer__header {
+  display: flex;
+  gap: var(--nn-spacing-4);
+  flex: 0;
+}
+
+.nn-drawer__title {
+  flex: 1;
+  font-weight: var(--nn-font-weight-bold);
+}
+
+.nn-drawer__close {
+  flex: 0;
+}
+
+.nn-drawer__content {
+  overflow-y: auto;
+  flex: 1;
+}
+
+.nn-drawer--left {
+  & .nn-drawer__panel {
+    transform: translateX(-100%);
+  }
+}
+
+.nn-drawer--right {
+  & .nn-drawer__panel {
+    transform: translateX(100%);
+  }
+}
+
+.nn-drawer--open {
+  pointer-events: auto;
+  opacity: 1;
+  transition-delay: 0s;
+  & .nn-drawer__panel {
+    transition-timing-function: ease-out;
+    transform: translateX(0);
+  }
+}
+
+@media screen and (min-width: 32rem) {
+  .nn-drawer__panel {
+    max-width: 26rem;
+    padding: var(--nn-spacing-6) var(--nn-spacing-7);
+  }
+
+  .nn-drawer--left {
+    & .nn-drawer__panel {
+      right: unset;
+    }
+  }
+
+  .nn-drawer--right {
+    & .nn-drawer__panel {
+      left: unset;
+    }
+  }
+}

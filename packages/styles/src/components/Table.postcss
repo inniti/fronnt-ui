@@ -1,0 +1,54 @@
+/*! @fronntui/styles NNTable */
+
+.nn-table {
+  overflow: auto;
+  position: relative;
+  color: var(--nn-color-text);
+}
+
+.nn-table__table {
+  display: grid;
+  border-collapse: collapse;
+  min-width: 100%;
+  position: relative;
+}
+
+.nn-table__header-row,
+.nn-table__row {
+  display: contents;
+}
+
+.nn-table__body,
+.nn-table__header {
+  display: grid;
+  background: white;
+}
+
+.nn-table__header {
+  position: sticky;
+  top: 0;
+}
+
+.nn-table__header-column,
+.nn-table__cell {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: var(--nn-spacing-3) var(--nn-spacing-2);
+}
+
+.nn-table__header-column {
+  text-align: left;
+  position: relative;
+  border-bottom: 1px solid var(--nn-color-primary);
+  font-size: var(--nn-font-size-sm);
+}
+
+.nn-table__column-label {
+  color: var(--nn-color-primary);
+  font-weight: var(--nn-font-weight-bold);
+}
+
+.nn-table__cell {
+  border-bottom: 1px solid var(--nn-color-gray-50);
+}

@@ -1,0 +1,49 @@
+/*! @fronntui/styles NNPaging */
+
+.nn-paging {
+  display: flex;
+  gap: var(--nn-spacing-2);
+  align-items: center;
+  color: var(--nn-color-text);
+
+  & .nn-paging__button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    appearance: none;
+
+    &.nn-paging__button--start,
+    &.nn-paging__button--prev {
+      transform: rotate(180deg);
+    }
+  }
+
+  & .nn-paging__page {
+    /* position: relative;
+    display: block;
+    background: none;
+    cursor: pointer;
+    min-width: 1.75rem;
+    border: none;
+    appearance: none;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
+    padding: 0; */
+    font-weight: var(--nn-font-weight-normal);
+    color: inherit;
+
+    &:focus-visible,
+    &:hover {
+      /* color: var(--nn-color-primary); */
+    }
+
+    &.nn-paging__page--active {
+      font-weight: var(--nn-font-weight-bold);
+      color: var(--nn-color-primary);
+    }
+  }
+}

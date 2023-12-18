@@ -1,0 +1,161 @@
+/*! @fronntui/styles NNButton */
+
+.nn-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  column-gap: 0.375em;
+  padding: 0 var(--nn-spacing-4) 0.125em;
+  height: 2.5rem;
+  appearance: none;
+  font-size: 1rem;
+  font-weight: var(--nn-font-weight-bold);
+  font-family: inherit;
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease;
+  background: none;
+  border: solid var(--nn-stroke-width) currentColor;
+  color: var(--nn-color-primary-600);
+  cursor: default;
+  transition:
+    background 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease;
+  position: relative;
+  border-radius: var(--nn-button-border-radius);
+  cursor: pointer;
+  text-decoration: none;
+
+  &:disabled {
+    color: var(--nn-color-disabled);
+    cursor: default;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    box-shadow: var(--nn-focus-shadow);
+  }
+
+  &.nn-button--size-small {
+    height: 2rem;
+    padding: 0 var(--nn-spacing-3) 0.125em;
+  }
+
+  &.nn-button--primary {
+    background: var(--nn-color-primary);
+    color: var(--nn-color-primary-contrast);
+    border-color: var(--nn-color-primary);
+
+    &:hover {
+      background: var(--nn-color-primary-700);
+      color: var(--nn-color-primary-contrast);
+      border-color: var(--nn-color-primary-700);
+    }
+
+    &:active {
+      background: var(--nn-color-primary-800);
+      border-color: var(--nn-color-primary-800);
+    }
+
+    &:disabled {
+      background: var(--nn-color-gray-50);
+      color: var(--nn-color-disabled);
+      border-color: var(--nn-color-gray-50);
+
+      &:hover {
+        background: var(--nn-color-gray-50);
+        color: var(--nn-color-disabled);
+        border-color: var(--nn-color-gray-50);
+      }
+
+      &:active {
+        background: var(--nn-color-gray-50);
+        color: var(--nn-color-disabled);
+        border-color: var(--nn-color-gray-50);
+      }
+    }
+  }
+
+  &.nn-button--default {
+    &:hover {
+      background: var(--nn-color-primary-100);
+    }
+
+    &:active {
+      background: var(--nn-color-primary-200);
+    }
+
+    &:disabled {
+      &:hover {
+        background: none;
+      }
+
+      &:active {
+        background: none;
+      }
+    }
+  }
+
+  &.nn-button--tertiary {
+    border-color: transparent;
+
+    &:focus-visible {
+      box-shadow: none;
+    }
+
+    &:focus-visible,
+    &:hover {
+      background: var(--nn-color-primary-100);
+    }
+
+    &:active {
+      background: var(--nn-color-primary-200);
+    }
+
+    &:disabled {
+      &:focus-visible,
+      &:hover {
+        background: transparent;
+      }
+
+      &:active {
+        background: transparent;
+      }
+    }
+  }
+
+  &.nn-button--neutral {
+    border-color: transparent;
+    color: inherit;
+
+    &:focus-visible {
+      box-shadow: none;
+    }
+
+    &:focus-visible,
+    &:hover {
+      background: var(--nn-color-gray-50);
+    }
+
+    &:active {
+      background: var(--nn-color-gray-100);
+    }
+
+    &:disabled {
+      color: var(--nn-color-disabled);
+      &:focus-visible,
+      &:hover {
+        background: none;
+      }
+
+      &:active {
+        background: none;
+      }
+    }
+  }
+}

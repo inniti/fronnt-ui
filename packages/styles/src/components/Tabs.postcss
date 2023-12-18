@@ -1,0 +1,71 @@
+/*! @fronntui/styles NNTabs */
+
+.nn-tabs {
+  width: 100%;
+  color: var(--nn-color-text);
+}
+
+.nn-tabs__header {
+  display: flex;
+  flex-wrap: no-wrap;
+  align-items: center;
+  column-gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: var(--nn-spacing-2);
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-gutter: stable;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.nn-tabs__content {
+  padding: var(--nn-spacing-3);
+}
+
+.nn-tabs__tab {
+  display: none;
+
+  &.nn-tabs__tab--active {
+    display: block;
+  }
+}
+
+.nn-tabs__trigger {
+  cursor: pointer;
+  padding: var(--nn-spacing-2) var(--nn-spacing-3);
+  white-space: nowrap;
+  border-radius: var(--nn-border-radius-sm);
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background: var(--nn-color-primary-50);
+  }
+
+  &.nn-tabs__trigger--active {
+    color: var(--nn-color-primary);
+    background: var(--nn-color-primary-50);
+  }
+}
+
+.nn-tabs__highlight {
+  height: 0.25rem;
+  background: var(--nn-color-primary);
+  display: block;
+  width: 100px;
+  position: absolute;
+  bottom: 0rem;
+  left: 0;
+  transform-origin: left center;
+  border-radius: var(--nn-border-radius-sm);
+  transition: transform 200ms ease-out;
+}

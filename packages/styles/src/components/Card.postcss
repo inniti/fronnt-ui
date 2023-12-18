@@ -1,0 +1,34 @@
+/*! @fronntui/styles NNCard */
+.nn-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--nn-card-border-radius);
+  background: white;
+  color: var(--nn-color-text);
+}
+
+.nn-card__header {
+  padding: var(--nn-spacing-6) var(--nn-spacing-7) var(--nn-spacing-4);
+  display: flex;
+  gap: 1rem;
+}
+
+.nn-card__title {
+  flex: 1;
+  font-weight: var(--nn-font-weight-bold);
+}
+
+.nn-card__content {
+  padding: var(--nn-spacing-4) var(--nn-spacing-7);
+  flex: 1;
+}
+
+.nn-card__footer {
+  padding: var(--nn-spacing-4) var(--nn-spacing-7) var(--nn-spacing-6);
+  flex: 0 0 auto;
+
+  &:empty {
+    padding: 0;
+    height: var(--nn-spacing-6);
+  }
+}

@@ -1,0 +1,46 @@
+/*! @fronntui/styles NNTextarea */
+.nn-textarea {
+  background: none;
+  display: block;
+  margin: 0;
+  padding: var(--nn-spacing-2) var(--nn-spacing-3);
+  position: relative;
+  box-sizing: border-box;
+  border-radius: var(--nn-control-border-radius);
+  border: var(--nn-control-border);
+  appearance: none;
+  font-size: 1rem;
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 3.5rem;
+  font-family: inherit;
+  color: var(--nn-color-text);
+
+  &::placeholder {
+    color: var(--nn-color-gray-300);
+    opacity: 1;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: var(--nn-focus-shadow);
+  }
+}
+
+.nn-textarea--error {
+  color: var(--nn-color-error);
+  border-color: var(--nn-color-error);
+
+  &:focus {
+    box-shadow: 0 0 0 0.125rem var(--nn-color-error-200);
+  }
+}
+
+.nn-textarea--disabled {
+  color: var(--nn-color-gray-300);
+  border-color: var(--nn-color-gray-300);
+
+  &::placeholder {
+    color: var(--nn-color-gray-100);
+  }
+}

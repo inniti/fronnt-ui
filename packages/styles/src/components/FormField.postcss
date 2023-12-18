@@ -1,0 +1,43 @@
+/*! @fronntui/styles NNFormField */
+
+.nn-form-field {
+  display: grid;
+  row-gap: var(--nn-spacing-2);
+}
+
+.nn-form-field__label {
+  font-weight: var(--nn-font-weight-bold);
+  font-size: var(--nn-font-size-sm);
+  display: flex;
+  column-gap: var(--nn-spacing-1);
+  align-items: center;
+  color: var(--nn-color-primary);
+  line-height: 1;
+}
+
+.nn-form-field__notes {
+  font-size: var(--nn-font-size-sm);
+  color: var(--nn-color-assistive);
+}
+
+.nn-form-field__control {
+  border-radius: var(--nn-control-border-radius);
+}
+
+.nn-form-field--error {
+  color: var(--nn-color-error);
+
+  & .nn-form-field__control,
+  & .nn-form-field__label,
+  & .nn-form-field__notes {
+    color: var(--nn-color-error);
+  }
+}
+
+.nn-form-field--required {
+  & .nn-form-field__label {
+    &::after {
+      content: " *";
+    }
+  }
+}

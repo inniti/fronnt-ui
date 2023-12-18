@@ -1,0 +1,134 @@
+/*! @fronntui/styles NNInput */
+
+.nn-input {
+  display: flex;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  box-sizing: border-box;
+  border: var(--nn-control-border);
+  border-radius: var(--nn-control-border-radius);
+  color: var(--nn-color-text);
+
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.nn-input__control {
+  display: flex;
+  flex: 1;
+  column-gap: var(--nn-spacing-1);
+  align-items: center;
+  height: calc(2.5rem - var(--nn-stroke-width) * 2);
+  padding: 0 var(--nn-spacing-3);
+
+  .nn-input--prefix & {
+    padding-left: var(--nn-spacing-1);
+  }
+
+  .nn-input--postfix & {
+    padding-right: var(--nn-spacing-1);
+  }
+}
+
+.nn-input__value {
+  font-size: 1rem;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  line-height: 1;
+  appearance: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  border: none;
+  max-width: none;
+  background: none;
+
+  &::placeholder {
+    color: var(--nn-color-gray-300);
+    opacity: 1;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    color: var(--nn-color-gray-300);
+    background: none;
+
+    &::placeholder {
+      color: var(--nn-color-gray-100);
+    }
+  }
+}
+
+.nn-input__prefix,
+.nn-input__postfix {
+  user-select: none;
+  color: var(--nn-color-assistive);
+  display: flex;
+  align-items: center;
+}
+
+.nn-input__prefix {
+  border-top-left-radius: var(--nn-control-border-radius);
+  border-bottom-left-radius: var(--nn-control-border-radius);
+  padding-left: var(--nn-spacing-3);
+}
+
+.nn-input__postfix {
+  border-top-right-radius: var(--nn-control-border-radius);
+  border-bottom-right-radius: var(--nn-control-border-radius);
+  padding-right: var(--nn-spacing-3);
+}
+
+.nn-input__clear {
+  align-items: center;
+  flex: 0;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.nn-input {
+  &:hover {
+    border-color: var(--nn-color-gray-600);
+    .nn-input__clear {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  &:focus-within {
+    box-shadow: var(--nn-focus-shadow);
+    border-color: var(--nn-color-primary);
+
+    & .nn-input__clear {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  &.nn-input--error {
+    border-color: var(--nn-color-error);
+
+    &:focus-within {
+      box-shadow: 0 0 0 0.125rem var(--nn-color-error-200);
+    }
+  }
+
+  &.nn-input--disabled {
+    border-color: var(--nn-color-disabled);
+    color: var(--nn-color-disabled);
+
+    .nn-input__prefix,
+    .nn-input__postfix {
+      color: var(--nn-color-disabled);
+    }
+  }
+}

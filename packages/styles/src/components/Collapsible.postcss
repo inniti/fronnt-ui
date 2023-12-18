@@ -1,0 +1,54 @@
+/*! @fronntui/styles NNCollapsible */
+
+.nn-collapsible {
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  transition: grid-template-rows var(--speed) ease-out;
+
+  &.nn-collapsible--collapsed {
+    grid-template-rows: min-content 0fr;
+    transition: grid-template-rows var(--speed) ease-in;
+
+    & .nn-collapsible__icon {
+      transform: rotate(0);
+    }
+
+    & .nn-collapsible__content {
+      pointer-events: none;
+      user-select: none;
+    }
+  }
+}
+
+.nn-collapsible__header {
+  display: flex;
+  border-radius: var(--nn-border-radius-sm);
+  padding: 0.5rem 0;
+  align-items: center;
+  font-weight: var(--nn-font-weight-bold);
+  cursor: pointer;
+
+  & > * {
+    flex: 1 1 100%;
+  }
+
+  & .nn-collapsible__icon {
+    flex: 0 0 auto;
+    transform: rotate(45deg);
+    transition: transform var(--speed) ease;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    box-shadow: var(--nn-focus-shadow);
+  }
+}
+
+.nn-collapsible__content {
+  box-sizing: border-box;
+  opacity: 1;
+  overflow: hidden;
+}

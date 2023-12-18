@@ -1,0 +1,29 @@
+{
+  "name": "@fronntui/base",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "fronnt UI Base components, styles and icons",
+  "author": "inniti <hey@inniti.de> (https://www.inniti.de)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/inniti/fronnt-ui"
+  },
+  "keywords": [
+    "fronntui",
+    "inniti",
+    "vue",
+    "js",
+    "css",
+    "BEM",
+    "notailwind",
+    "ecommerce"
+  ],
+  "homepage": "https://www.fronntui.pro",
+  "license": "MIT",
+  "scripts": {
+    "build": "turbo build"
+  },
+  "devDependencies": {
+    "turbo": "^1.11.2"
+  }
+}

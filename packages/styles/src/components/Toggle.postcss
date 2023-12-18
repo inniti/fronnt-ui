@@ -1,0 +1,88 @@
+/*! @fronntui/styles NNToggle */
+
+.nn-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--nn-spacing-3);
+  cursor: pointer;
+  color: var(--nn-color-text);
+
+  &.nn-toggle--disabled {
+    cursor: default;
+  }
+}
+
+.nn-toggle__control {
+  display: flex;
+  color: var(--nn-color-primary);
+  appearance: none;
+  border-radius: 1rem;
+  border: none;
+  background: var(--nn-color-gray-300);
+  width: 1.75rem;
+  height: 1rem;
+  align-items: center;
+  padding: 0;
+  cursor: pointer;
+  margin: 0;
+
+  &::before {
+    content: "";
+    display: block;
+    color: inherit;
+    background: white;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 1rem;
+    transform: translateX(0.125rem);
+    transition: transform 300ms cubic-bezier(0, 0.45, 0, 1);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background: var(--nn-color-gray-400);
+  }
+
+  &:focus-visible {
+    box-shadow: var(--nn-focus-shadow);
+  }
+
+  &:checked {
+    background: var(--nn-color-primary);
+
+    &::before {
+      transform: translateX(0.875rem);
+    }
+
+    &:hover,
+    &:focus-visible {
+      background: var(--nn-color-primary-700);
+    }
+
+    &:disabled {
+      background: var(--nn-color-primary-100);
+    }
+  }
+
+  &:disabled {
+    background: var(--nn-color-gray-100);
+    cursor: default;
+
+    &:hover,
+    &:focus-visible {
+      background: var(--nn-color-gray-100);
+    }
+
+    & ~ .nn-toggle__label {
+      color: var(--nn-color-disabled);
+    }
+  }
+}
+
+.nn-toggle__label {
+  line-height: 1;
+}

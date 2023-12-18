@@ -1,0 +1,30 @@
+/*! @fronntui/styles NNForm */
+
+.nn-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--nn-spacing-7);
+}
+
+.nn-form__fields {
+  display: grid;
+  gap: var(--nn-spacing-5);
+  padding: 0;
+  border: none;
+  margin: 0;
+}
+
+.nn-form__actions {
+  display: flex;
+  justify-content: flex-start;
+  gap: var(--nn-spacing-2);
+  flex-wrap: wrap;
+  align-items: center;
+  padding-top: var(--nn-spacing-3);
+  padding-bottom: var(--nn-spacing-3);
+  border-top: 1px solid var(--nn-color-gray-50);
+
+  &:empty {
+    display: none;
+  }
+}

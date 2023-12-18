@@ -1,0 +1,9 @@
+:root {
+  /* --nn-border-radius: 0.25rem; */
+  /* --nn-card-border-radius: 1rem; */
+}
+
+html {
+  font-family: "Barlow", system-ui, sans-serif !important;
+  color: var(--nn-color-gray-900);
+}

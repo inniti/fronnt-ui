@@ -1,0 +1,80 @@
+/*! @fronntui/styles NNToast */
+.nn-toast {
+  background: white;
+  padding: var(--nn-spacing-3) var(--nn-spacing-4) var(--nn-spacing-4);
+  border-radius: var(--nn-border-radius-sm);
+  box-shadow: var(--nn-shadow-sm);
+  color: var(--nn-color-text);
+}
+
+.nn-toast__header {
+  display: grid;
+  grid-template-columns: 1fr 2rem;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.nn-toast__title {
+  font-weight: var(--nn-font-weight-bold);
+}
+
+.nn-toast__close {
+  transform: translate(var(--nn-spacing-2), 0);
+}
+
+.nn-toast__action {
+  cursor: pointer;
+  font-weight: var(--nn-font-weight-bold);
+  background-image: linear-gradient(
+    to right,
+    currentColor 0%,
+    currentColor 100%
+  );
+  padding-bottom: 0.25em;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 0.125rem;
+}
+
+.nn-toast__footer,
+.nn-toast__message {
+  margin-top: var(--nn-spacing-3);
+}
+
+.nn-toast-transition-move,
+.nn-toast-transition-enter-active,
+.nn-toast-transition-leave-active {
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.nn-toast-transition-enter-from,
+.nn-toast-transition-leave-to {
+  opacity: 0;
+  transform: translateY(-1rem);
+}
+
+.nn-toast-transition-leave-active {
+  position: absolute;
+  width: 100%;
+}
+
+.nn-toast--success {
+  & .nn-toast__title,
+  & .nn-toast__action {
+    color: var(--nn-color-success);
+  }
+}
+
+.nn-toast--error {
+  & .nn-toast__title,
+  & .nn-toast__action {
+    color: var(--nn-color-error);
+  }
+}
+
+.nn-toast--warning {
+  & .nn-toast__title,
+  & .nn-toast__action {
+    color: var(--nn-color-warning);
+  }
+}

@@ -1,0 +1,77 @@
+/*! @fronntui/styles NNBreadcrumbs */
+
+.nn-breadcrumbs {
+  user-select: none;
+  display: block;
+  font-size: var(--nn-font-size-sm);
+  color: var(--nn-color-assistive);
+}
+
+.nn-breadcrumbs__list {
+  display: flex;
+  overflow-x: auto;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  padding: var(--nn-spacing-3) 0;
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-gutter: stable;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.nn-breadcrumbs__crumb {
+  display: flex;
+  align-items: stretch;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  line-height: 2em;
+  height: 2em;
+}
+
+.nn-breadcrumbs__label {
+  background: transparent;
+  transition: background 100ms ease;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 var(--nn-spacing-2);
+  border-radius: var(--nn-border-radius-sm);
+  text-decoration: none;
+}
+
+.nn-breadcrumbs__label--link {
+  cursor: pointer;
+  color: inherit;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover,
+  &:focus-visible {
+    outline: none;
+    background: var(--nn-color-gray-50);
+  }
+}
+
+.nn-breadcrumbs__crumb--link {
+}
+
+.nn-breadcrumbs__crumb--last {
+  color: var(--nn-color-primary);
+  font-weight: var(--nn-font-weight-bold);
+}
+
+.nn-breadcrumbs__separator {
+  display: flex;
+  align-items: center;
+  color: var(--nn-color-assistive);
+  user-select: none;
+}

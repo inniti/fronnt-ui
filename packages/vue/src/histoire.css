@@ -1,0 +1,134 @@
+@media (min-width: 640px) {
+  body {
+    font-size: 1rem !important;
+    color: var(--nn-color-gray-900);
+  }
+}
+
+body {
+  font-size: 1rem !important;
+  color: var(--nn-color-gray-900);
+}
+
+p {
+  display: block;
+  margin: 0;
+}
+p + p {
+  margin-top: 1rem;
+}
+
+.typography-token {
+  display: grid;
+  grid-template-columns: 1fr 14rem;
+  gap: 1rem;
+  align-items: baseline;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+.typography-token:hover {
+  background: #fafafa;
+}
+
+.typography-token__size {
+  text-align: right;
+  font-size: 0.875rem;
+  font-family: monospace;
+  color: gray;
+}
+
+.typography-token__class::before {
+  content: ".";
+}
+
+.color-token-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(120px, 100%), 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 6rem;
+}
+
+.color-token {
+  display: block;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow:
+    0.8px 0.8px 0.7px rgba(0, 0, 0, 0.02),
+    1.9px 1.9px 1.6px rgba(0, 0, 0, 0.028),
+    3.6px 3.6px 3px rgba(0, 0, 0, 0.035),
+    6.5px 6.5px 5.4px rgba(0, 0, 0, 0.042),
+    12.1px 12.1px 10px rgba(0, 0, 0, 0.05),
+    29px 29px 24px rgba(0, 0, 0, 0.07);
+}
+
+.color-token--default {
+  position: relative;
+}
+
+.color-token--default::after {
+  position: absolute;
+  content: "";
+  top: 0.5rem;
+  right: 0.5rem;
+  border-radius: 100%;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: white;
+  opacity: 0.5;
+}
+
+.color-token__color {
+  aspect-ratio: 3/2;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--nn-border-radius-lg);
+}
+
+.color-token__color::before {
+  position: absolute;
+  display: block;
+  content: "";
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  background-color: var(--color);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.color-token__label {
+  padding: 0.25rem;
+  font-size: 0.75rem;
+  font-family: monospace;
+}
+
+.shadow-examples {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 4rem;
+  padding: 6rem 2rem;
+}
+
+.shadow-examples__shadow {
+  width: 10rem;
+  height: 6rem;
+  background: white;
+  border-radius: var(--nn-border-radius-lg);
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  text-align: center;
+  font-family: monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Historie overrides */
+.histoire-generic-render-story {
+  padding: 1rem;
+}

@@ -1,0 +1,69 @@
+/*! @fronntui/styles NNSlider */
+
+.nn-slider {
+  color: var(--nn-color-text);
+}
+
+.nn-slider__title {
+}
+
+.nn-slider__viewport {
+  overflow-x: auto;
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  column-gap: 1rem;
+  scroll-snap-type: x mandatory;
+  scrollbar-gutter: 2rem;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  & > * {
+    scroll-snap-align: start;
+    flex: 0 0 auto;
+  }
+}
+
+.nn-slider__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.nn-slider__arrows {
+  display: flex;
+  padding: 0 2rem;
+  justify-content: flex-end;
+  gap: 2rem;
+}
+
+.nn-slider__arrow {
+  cursor: pointer;
+  &.nn-slider__arrow--left {
+    transform: rotate(180deg);
+  }
+
+  &.nn-slider__arrow--disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
+
+.nn-slider.nn-slider--padded {
+  & .nn-slider__header,
+  & .nn-slider__viewport {
+    padding-left: calc((100vw - var(--max-width)) / 2);
+    padding-right: calc((100vw - var(--max-width)) / 2);
+  }
+
+  & .nn-slider__viewport {
+    scroll-padding-inline-start: calc((100vw - var(--max-width)) / 2);
+  }
+}

@@ -1,0 +1,209 @@
+/*! @fronntui/styles NNSelect */
+
+.nn-select {
+  display: block;
+  color: var(--nn-color-text);
+}
+
+.nn-select__field {
+  cursor: pointer;
+  border-radius: var(--nn-control-border-radius);
+  padding: var(--nn-spacing-2) var(--nn-spacing-3);
+  background: white;
+  border: var(--nn-control-border);
+  min-width: 8rem;
+  display: flex;
+  gap: var(--nn-spacing-2);
+  align-items: center;
+  justify-content: space-between;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    border-color: var(--nn-color-gray-600);
+  }
+
+  &:focus-visible {
+    box-shadow: var(--nn-focus-shadow);
+    border-color: var(--nn-color-primary);
+  }
+
+  &:focus-within,
+  &:hover {
+    & .nn-select__clear {
+      visibility: visible;
+    }
+  }
+}
+
+.nn-select__chevron {
+  font-size: 0.75rem;
+}
+
+.nn-select__selection {
+  min-height: 1.25rem;
+  flex: 1;
+  display: flex;
+  gap: var(--nn-spacing-1);
+  align-items: center;
+  flex-wrap: wrap;
+  padding-bottom: 0.125rem;
+}
+
+.nn-select__options {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.nn-select__option {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  width: 100%;
+  padding: 0;
+  line-height: 1.75;
+  border-radius: var(--nn-border-radius-sm);
+  padding: var(--nn-spacing-1) var(--nn-spacing-2);
+
+  &:not(.nn-select__option--disabled):not(.nn-select__option--group) {
+    cursor: pointer;
+    &:focus,
+    &:hover {
+      background: var(--nn-color-primary-50);
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &.nn-select__option--selected {
+    color: var(--nn-color-primary);
+  }
+
+  &.nn-select__option--disabled {
+    color: var(--nn-color-disabled);
+  }
+}
+
+.nn-select__groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--nn-spacing-3);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nn-select__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--nn-spacing-1);
+}
+
+.nn-select__group--empty {
+  display: none;
+}
+
+.nn-select__group-label {
+  font-size: var(--nn-font-size-sm);
+  padding: var(--nn-spacing-1) var(--nn-spacing-2);
+  font-weight: var(--nn-font-weight-bold);
+}
+
+.nn-select__no-results {
+  display: flex;
+  justify-content: center;
+  padding: var(--nn-spacing-3) 0;
+  color: var(--nn-color-assistive);
+}
+
+.nn-select__option-label {
+  flex: 1;
+}
+
+.nn-select__option-check {
+  font-size: 0.625em;
+  .nn-raw-icon {
+    stroke-width: calc(var(--nn-icon-stroke-width) * 1.25);
+  }
+}
+
+.nn-select__clear {
+  visibility: hidden;
+}
+
+.nn-select__selection-value {
+  &.nn-select__selection-value--multiple {
+    background: var(--nn-color-gray-50);
+    padding: 0 var(--nn-spacing-1);
+    border-radius: var(--nn-border-radius-sm);
+  }
+}
+
+.nn-select__loading {
+  min-width: 8rem;
+  display: flex;
+  justify-content: center;
+}
+
+.nn-select__no-value {
+  color: var(--nn-color-assistive);
+  user-select: none;
+}
+
+.nn-select__search {
+  display: block;
+  flex: 1;
+  font-size: 1rem;
+  color: inherit;
+  appearance: none;
+  border-radius: 0;
+  background: white;
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: var(--nn-color-gray-300);
+    opacity: 1;
+  }
+}
+
+.nn-select--open {
+  & .nn-select__field {
+    box-shadow: var(--nn-focus-shadow);
+    border-color: var(--nn-color-primary);
+  }
+}
+
+.nn-select--disabled {
+  & .nn-select__field {
+    box-shadow: none;
+    color: var(--nn-color-disabled);
+    border-color: var(--nn-color-disabled);
+    cursor: default;
+  }
+
+  & .nn-select__no-value {
+    color: var(--nn-color-gray-100);
+  }
+}
+
+.nn-select--error {
+  & .nn-select__field {
+    color: var(--nn-color-error);
+    border-color: var(--nn-color-error);
+
+    &:focus-visible {
+      box-shadow: 0 0 0 0.125rem var(--nn-color-error-200);
+    }
+  }
+}

@@ -1,0 +1,113 @@
+/*! @fronntui/styles NNRadioButtons */
+
+.nn-radio-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--nn-spacing-4);
+  color: var(--nn-color-text);
+}
+
+.nn-radio-buttons__label {
+  font-size: var(--nn-size-text-m);
+  line-height: 1;
+}
+
+.nn-radio-buttons__control {
+  display: flex;
+  flex: 0 0 1rem;
+  height: 1rem;
+  width: 1rem;
+  appearance: none;
+  border: var(--nn-stroke-width) solid var(--nn-color-gray-400);
+  border-radius: 1rem;
+  outline: none;
+  background: none;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  position: relative;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    display: block;
+    height: 0.5rem;
+    width: 0.5rem;
+    border-radius: 1rem;
+    transform: scale(0);
+    transition: 100ms transform ease;
+    background-color: white;
+  }
+
+  &:checked {
+    background: var(--nn-color-primary);
+    border-color: var(--nn-color-primary);
+
+    &::before {
+      transform: scale(1);
+    }
+
+    &:hover,
+    &:focus-visible {
+      background: var(--nn-color-primary-700);
+      border-color: var(--nn-color-primary-700);
+    }
+  }
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+
+  &:focus-visible {
+    box-shadow: var(--nn-focus-shadow);
+  }
+
+  &:disabled {
+    cursor: default;
+    border-color: var(--nn-color-disabled);
+
+    &:checked {
+      border-color: var(--nn-color-primary-100);
+      background-color: var(--nn-color-primary-100);
+    }
+  }
+}
+
+.nn-radio-buttons__option {
+  display: flex;
+  flex-direction: row;
+  gap: var(--nn-spacing-3);
+  align-items: center;
+  cursor: pointer;
+
+  &:hover {
+    & .nn-radio-buttons__control {
+      border-color: var(--nn-color-gray-600);
+
+      &:checked {
+        background: var(--nn-color-primary-700);
+        border-color: var(--nn-color-primary-700);
+      }
+    }
+  }
+
+  &.nn-radio-buttons__option--disabled {
+    color: var(--nn-color-disabled);
+    cursor: default;
+
+    &:hover {
+      & .nn-radio-buttons__control {
+        border-color: var(--nn-color-disabled);
+        &:checked {
+          background: var(--nn-color-primary-100);
+          border-color: var(--nn-color-primary-100);
+        }
+      }
+    }
+
+    & .nn-radio-buttons__label {
+      color: var(--nn-color-disabled);
+    }
+  }
+}

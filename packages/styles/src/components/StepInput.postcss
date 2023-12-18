@@ -1,0 +1,60 @@
+/*! @fronntui/styles NNStepInput */
+
+.nn-step-input {
+  background: white;
+  border: var(--nn-control-border);
+  border-radius: var(--nn-control-border-radius);
+  display: grid;
+  grid-template-columns: 2.5rem auto 2.5rem;
+  align-items: center;
+  position: relative;
+  padding: calc(var(--nn-spacing-1) - var(--nn-stroke-width))
+    var(--nn-spacing-1);
+  touch-action: manipulation;
+  color: var(--nn-color-text);
+
+  &:focus-within {
+    box-shadow: var(--nn-focus-shadow);
+  }
+
+  &.nn-step-input--error {
+    border-color: var(--nn-color-error);
+    color: var(--nn-color-error);
+    &:focus-within {
+      box-shadow: 0 0 0 0.125rem var(--nn-color-error-200);
+    }
+  }
+
+  &.nn-step-input--disabled {
+    border-color: var(--nn-color-gray-300);
+    color: var(--nn-color-gray-300);
+  }
+}
+
+.nn-step-input__button {
+}
+
+.nn-step-input__input {
+  font-size: 1rem;
+  flex: 1 1 4rem;
+  width: 100%;
+  display: block;
+  appearance: none;
+  border-radius: 0;
+  padding: 0;
+  border: none;
+  line-height: 1;
+  position: relative;
+  z-index: 10;
+  background: none;
+  text-align: center;
+  color: inherit;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    background: none;
+  }
+}
