@@ -3,6 +3,9 @@
   "version": "1.0.0-alpha.0",
   "type": "module",
   "description": "Vector icons of the fronnt UI design system",
+  "author": "inniti <hey@inniti.de> (https://www.inniti.de)",
+  "homepage": "https://www.fronntui.pro",
+  "license": "MIT",
   "files": [
     "./svg",
     "./index.d.ts",
@@ -63,7 +66,6 @@
     "./x-circle": "./svg/x-circle.svg",
     "./x": "./svg/x.svg"
   },
-  "author": "inniti <hey@inniti.de> (https://www.inniti.de)",
   "scripts": {
     "build": "node ./build/cleanup.js && node ./build/update-exports.js"
   }

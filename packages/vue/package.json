@@ -3,6 +3,8 @@
   "version": "1.0.0-alpha.0",
   "description": "fronnt UI Vue components",
   "author": "inniti <hey@inniti.de> (https://www.inniti.de)",
+  "homepage": "https://www.fronntui.pro",
+  "license": "MIT",
   "type": "module",
   "types": "./dist/lib.d.ts",
   "files": [

@@ -2,6 +2,9 @@
   "name": "@fronntui/styles",
   "version": "1.0.0-alpha.0",
   "description": "CSS Stylesheets for fronnt UI components",
+  "author": "inniti <hey@inniti.de> (https://www.inniti.de)",
+  "homepage": "https://www.fronntui.pro",
+  "license": "MIT",
   "main": "dist/index.css",
   "type": "module",
   "files": [
@@ -63,7 +66,6 @@
     "ecommerce",
     "components"
   ],
-  "author": "inniti <hey@inniti.de> (https://www.inniti.de)",
   "devDependencies": {
     "cssnano": "^6.0.2",
     "postcss": "^8.4.32",
