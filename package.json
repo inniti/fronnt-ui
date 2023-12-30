@@ -24,6 +24,7 @@
     "build": "turbo build"
   },
   "devDependencies": {
-    "turbo": "^1.11.2"
+    "turbo": "^1.11.2",
+    "@changesets/cli": "^2.27.1"
   }
 }
