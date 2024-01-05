@@ -5,6 +5,10 @@
   color: var(--nn-color-text);
 }
 
+.nn-select__clear {
+  visibility: hidden;
+}
+
 .nn-select__field {
   cursor: pointer;
   border-radius: var(--nn-control-border-radius);
@@ -32,7 +36,7 @@
 
   &:focus-within,
   &:hover {
-    & .nn-select__clear {
+    .nn-select__clear {
       visibility: visible;
     }
   }
@@ -65,21 +69,21 @@
   align-items: center;
   margin: 0;
   width: 100%;
-  padding: 0;
   line-height: 1.75;
   border-radius: var(--nn-border-radius-sm);
   padding: var(--nn-spacing-1) var(--nn-spacing-2);
 
-  &:not(.nn-select__option--disabled):not(.nn-select__option--group) {
+  &:focus {
+    outline: none;
+  }
+
+  &:not(.nn-select__option--disabled, .nn-select__option--group) {
     cursor: pointer;
+
     &:focus,
     &:hover {
       background: var(--nn-color-primary-50);
     }
-  }
-
-  &:focus {
-    outline: none;
   }
 
   &.nn-select__option--selected {
@@ -129,13 +133,10 @@
 
 .nn-select__option-check {
   font-size: 0.625em;
+
   .nn-raw-icon {
     stroke-width: calc(var(--nn-icon-stroke-width) * 1.25);
   }
-}
-
-.nn-select__clear {
-  visibility: hidden;
 }
 
 .nn-select__selection-value {
@@ -178,27 +179,27 @@
 }
 
 .nn-select--open {
-  & .nn-select__field {
+  .nn-select__field {
     box-shadow: var(--nn-focus-shadow);
     border-color: var(--nn-color-primary);
   }
 }
 
 .nn-select--disabled {
-  & .nn-select__field {
+  .nn-select__field {
     box-shadow: none;
     color: var(--nn-color-disabled);
     border-color: var(--nn-color-disabled);
     cursor: default;
   }
 
-  & .nn-select__no-value {
+  .nn-select__no-value {
     color: var(--nn-color-gray-100);
   }
 }
 
 .nn-select--error {
-  & .nn-select__field {
+  .nn-select__field {
     color: var(--nn-color-error);
     border-color: var(--nn-color-error);
 

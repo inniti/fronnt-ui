@@ -24,12 +24,12 @@
   align-items: center;
   flex: 0 0 auto;
 
-  &:empty:after {
+  &:empty::after {
     content: "";
     display: block;
     width: 0.5rem;
     height: 0.5rem;
-    background: currentColor;
+    background: currentcolor;
     border-radius: 1rem;
     opacity: 0.8;
   }
@@ -49,22 +49,21 @@
   }
 }
 
-.nn-status--neutral {
-  /* */
-}
-
 .nn-status--success {
   background: var(--nn-color-success-50);
   color: var(--nn-color-success-700);
 }
+
 .nn-status--warning {
   background: var(--nn-color-warning-50);
   color: var(--nn-color-warning-700);
 }
+
 .nn-status--error {
   background: var(--nn-color-error-50);
   color: var(--nn-color-error-700);
 }
+
 .nn-status--active {
   background: var(--nn-color-primary-50);
   color: var(--nn-color-primary-700);

@@ -8,10 +8,7 @@
   background: var(--nn-backdrop-color);
   backdrop-filter: var(--nn-backdrop-filter);
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   z-index: 1000;
   transition: opacity 200ms ease 160ms;
 }
@@ -31,7 +28,6 @@
   flex-direction: column;
   gap: var(--nn-spacing-4);
   border-radius: var(--nn-drawer-border-radius);
-
   right: var(--nn-drawer-inset);
   left: var(--nn-drawer-inset);
 }
@@ -57,13 +53,13 @@
 }
 
 .nn-drawer--left {
-  & .nn-drawer__panel {
+  .nn-drawer__panel {
     transform: translateX(-100%);
   }
 }
 
 .nn-drawer--right {
-  & .nn-drawer__panel {
+  .nn-drawer__panel {
     transform: translateX(100%);
   }
 }
@@ -72,26 +68,27 @@
   pointer-events: auto;
   opacity: 1;
   transition-delay: 0s;
-  & .nn-drawer__panel {
+
+  .nn-drawer__panel {
     transition-timing-function: ease-out;
     transform: translateX(0);
   }
 }
 
-@media screen and (min-width: 32rem) {
+@media (min-width: 32rem) {
   .nn-drawer__panel {
     max-width: 26rem;
     padding: var(--nn-spacing-6) var(--nn-spacing-7);
   }
 
   .nn-drawer--left {
-    & .nn-drawer__panel {
+    .nn-drawer__panel {
       right: unset;
     }
   }
 
   .nn-drawer--right {
-    & .nn-drawer__panel {
+    .nn-drawer__panel {
       left: unset;
     }
   }

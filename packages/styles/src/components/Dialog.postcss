@@ -3,10 +3,7 @@
 .nn-dialog {
   position: fixed;
   z-index: 900;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  inset: 0;
   display: flex;
   align-items: flex-end;
   transition: opacity 0.2s cubic-bezier(0, 0.29, 0.25, 1);
@@ -27,7 +24,7 @@
   transition: transform 0.3s cubic-bezier(0, 0.29, 0.25, 1);
   box-shadow: var(--nn-shadow-lg);
 
-  @media screen and (min-height: 700px) {
+  @media (min-height: 44rem) {
     margin-top: auto;
     margin-bottom: auto;
     border-bottom-left-radius: var(--nn-dialog-border-radius);
@@ -48,7 +45,7 @@
   padding: var(--nn-spacing-4) var(--nn-spacing-4) var(--nn-spacing-6);
   flex: 0;
 
-  @media screen and (min-height: 700px) {
+  @media (min-height: 44rem) {
     border-bottom-left-radius: var(--nn-dialog-border-radius);
     border-bottom-right-radius: var(--nn-dialog-border-radius);
   }
@@ -77,12 +74,13 @@
 .nn-dialog-transition-enter-from .nn-dialog__panel,
 .nn-dialog-transition-leave-to .nn-dialog__panel {
   transform: translateY(5rem);
+
   @media (prefers-reduced-motion) {
     transform: translateY(0);
   }
 }
 
-@media screen and (min-width: 36rem) {
+@media (min-width: 36rem) {
   .nn-dialog__header,
   .nn-dialog__body,
   .nn-dialog__footer {

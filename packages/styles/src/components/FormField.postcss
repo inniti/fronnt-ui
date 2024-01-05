@@ -27,15 +27,15 @@
 .nn-form-field--error {
   color: var(--nn-color-error);
 
-  & .nn-form-field__control,
-  & .nn-form-field__label,
-  & .nn-form-field__notes {
+  .nn-form-field__control,
+  .nn-form-field__label,
+  .nn-form-field__notes {
     color: var(--nn-color-error);
   }
 }
 
 .nn-form-field--required {
-  & .nn-form-field__label {
+  .nn-form-field__label {
     &::after {
       content: " *";
     }

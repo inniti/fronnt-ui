@@ -5,15 +5,6 @@
   position: relative;
 }
 
-.nn-tooltip--show {
-  & .nn-tooltip__popup {
-    pointer-events: all;
-    opacity: 1;
-    transform: translateX(calc(-50% + var(--x))) translateY(0);
-    transition-delay: 30ms;
-  }
-}
-
 .nn-tooltip__popup {
   position: absolute;
   z-index: 100;
@@ -43,16 +34,17 @@
     box-sizing: border-box;
     border-radius: 0.125rem;
     z-index: 90;
-    transform: translate(0rem, -0.3rem) rotate(45deg);
+    transform: translate(0, -0.3rem) rotate(45deg);
   }
 
   &.nn-tooltip__popup--bottom {
     top: 100%;
     bottom: unset;
+
     &::after {
       bottom: unset;
       top: 0;
-      transform: translate(0rem, 0.3rem) rotate(45deg);
+      transform: translate(0, 0.3rem) rotate(45deg);
     }
   }
 }
@@ -67,4 +59,13 @@
   position: relative;
   max-width: calc(100vw - var(--nn-spacing-3));
   z-index: 101;
+}
+
+.nn-tooltip--show {
+  .nn-tooltip__popup {
+    pointer-events: all;
+    opacity: 1;
+    transform: translateX(calc(-50% + var(--x))) translateY(0);
+    transition-delay: 30ms;
+  }
 }

@@ -4,20 +4,6 @@
   display: grid;
   grid-template-rows: min-content 1fr;
   transition: grid-template-rows var(--speed) ease-out;
-
-  &.nn-collapsible--collapsed {
-    grid-template-rows: min-content 0fr;
-    transition: grid-template-rows var(--speed) ease-in;
-
-    & .nn-collapsible__icon {
-      transform: rotate(0);
-    }
-
-    & .nn-collapsible__content {
-      pointer-events: none;
-      user-select: none;
-    }
-  }
 }
 
 .nn-collapsible__header {
@@ -28,11 +14,11 @@
   font-weight: var(--nn-font-weight-bold);
   cursor: pointer;
 
-  & > * {
+  > * {
     flex: 1 1 100%;
   }
 
-  & .nn-collapsible__icon {
+  .nn-collapsible__icon {
     flex: 0 0 auto;
     transform: rotate(45deg);
     transition: transform var(--speed) ease;
@@ -51,4 +37,18 @@
   box-sizing: border-box;
   opacity: 1;
   overflow: hidden;
+}
+
+.nn-collapsible--collapsed {
+  grid-template-rows: min-content 0fr;
+  transition: grid-template-rows var(--speed) ease-in;
+
+  .nn-collapsible__icon {
+    transform: rotate(0);
+  }
+
+  .nn-collapsible__content {
+    pointer-events: none;
+    user-select: none;
+  }
 }

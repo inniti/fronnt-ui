@@ -39,6 +39,20 @@
     background-color: white;
   }
 
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+
+  &:focus-visible {
+    box-shadow: var(--nn-focus-shadow);
+  }
+
+  &:disabled {
+    cursor: default;
+    border-color: var(--nn-color-disabled);
+  }
+
   &:checked {
     background: var(--nn-color-primary);
     border-color: var(--nn-color-primary);
@@ -52,24 +66,10 @@
       background: var(--nn-color-primary-700);
       border-color: var(--nn-color-primary-700);
     }
-  }
 
-  &:focus,
-  &:focus-visible {
-    outline: none;
-  }
-
-  &:focus-visible {
-    box-shadow: var(--nn-focus-shadow);
-  }
-
-  &:disabled {
-    cursor: default;
-    border-color: var(--nn-color-disabled);
-
-    &:checked {
+    &:disabled {
+      background: var(--nn-color-primary-100);
       border-color: var(--nn-color-primary-100);
-      background-color: var(--nn-color-primary-100);
     }
   }
 }
@@ -82,7 +82,7 @@
   cursor: pointer;
 
   &:hover {
-    & .nn-radio-buttons__control {
+    .nn-radio-buttons__control {
       border-color: var(--nn-color-gray-600);
 
       &:checked {
@@ -97,8 +97,9 @@
     cursor: default;
 
     &:hover {
-      & .nn-radio-buttons__control {
+      .nn-radio-buttons__control {
         border-color: var(--nn-color-disabled);
+
         &:checked {
           background: var(--nn-color-primary-100);
           border-color: var(--nn-color-primary-100);
@@ -106,7 +107,7 @@
       }
     }
 
-    & .nn-radio-buttons__label {
+    .nn-radio-buttons__label {
       color: var(--nn-color-disabled);
     }
   }

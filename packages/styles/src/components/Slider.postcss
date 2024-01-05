@@ -4,9 +4,6 @@
   color: var(--nn-color-text);
 }
 
-.nn-slider__title {
-}
-
 .nn-slider__viewport {
   overflow-x: auto;
   position: relative;
@@ -19,11 +16,12 @@
   scrollbar-width: none;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+
   &::-webkit-scrollbar {
     display: none;
   }
 
-  & > * {
+  > * {
     scroll-snap-align: start;
     flex: 0 0 auto;
   }
@@ -46,6 +44,7 @@
 
 .nn-slider__arrow {
   cursor: pointer;
+
   &.nn-slider__arrow--left {
     transform: rotate(180deg);
   }
@@ -57,13 +56,13 @@
 }
 
 .nn-slider.nn-slider--padded {
-  & .nn-slider__header,
-  & .nn-slider__viewport {
+  .nn-slider__header,
+  .nn-slider__viewport {
     padding-left: calc((100vw - var(--max-width)) / 2);
     padding-right: calc((100vw - var(--max-width)) / 2);
   }
 
-  & .nn-slider__viewport {
+  .nn-slider__viewport {
     scroll-padding-inline-start: calc((100vw - var(--max-width)) / 2);
   }
 }

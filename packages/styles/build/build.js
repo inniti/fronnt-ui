@@ -5,6 +5,11 @@ const packageJson = fs.readFileSync(
   "utf-8"
 );
 
+const indexFile = fs.readFileSync(
+  new URL("../src/index.postcss", import.meta.url),
+  "utf-8"
+);
+
 const packageJsonContent = JSON.parse(packageJson);
 
 const components = [];
@@ -21,13 +26,10 @@ const exports = {
   "./index.css": "./dist/index.css",
   "./variables.css": "./dist/variables.css",
 };
-let indexContent = `/*! ${packageJsonContent.name} */\n@import "./variables.postcss";\n`;
 
 components.forEach((component) => {
-  exports[
-    `./components/${component}.css`
-  ] = `./dist/components/${component}.css`;
-  indexContent += `@import "./components/${component}.postcss";\n`;
+  exports[`./components/${component}.css`] =
+    `./dist/components/${component}.css`;
 });
 
 fs.writeFileSync(
@@ -40,11 +42,5 @@ fs.writeFileSync(
     null,
     2
   ),
-  "utf-8"
-);
-
-fs.writeFileSync(
-  new URL("../src/index.postcss", import.meta.url),
-  indexContent,
   "utf-8"
 );

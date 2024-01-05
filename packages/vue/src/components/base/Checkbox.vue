@@ -16,12 +16,10 @@ const props = withDefaults(
   defineProps<{
     modelValue?: boolean | null;
     disabled?: boolean;
-    class?: string;
   }>(),
   {
     modelValue: undefined,
     disabled: false,
-    class: undefined,
   }
 );
 
@@ -63,7 +61,6 @@ const indeterminate = computed(() => {
       props.disabled && 'nn-checkbox--disabled',
       checked && 'nn-checkbox--checked',
       indeterminate && 'nn-checkbox--indeterminate',
-      props.class,
     ]"
   >
     <input
@@ -72,6 +69,7 @@ const indeterminate = computed(() => {
       :checked="!!checked"
       :indeterminate="indeterminate"
       :disabled="props.disabled"
+      class="nn-checkbox__control"
       @change="onChange"
     />
     <NNIconMinus v-if="indeterminate" class="nn-checkbox__icon" />

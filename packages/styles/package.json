@@ -55,7 +55,8 @@
     "./components/Tooltip.css": "./dist/components/Tooltip.css"
   },
   "scripts": {
-    "build": "rimraf dist && node build/build.js && postcss ./src/** --base src --ext css --verbose --dir dist",
+    "lint": "stylelint --fix \"src/**/*.postcss\"",
+    "build": "rimraf dist && node build/check-index.js && node build/build.js && postcss ./src/** --base src --ext css --verbose --dir dist",
     "dev": "rimraf dist && postcss ./src/** --base src --ext css --verbose --dir dist -w"
   },
   "keywords": [
@@ -67,11 +68,14 @@
     "components"
   ],
   "devDependencies": {
-    "cssnano": "^6.0.2",
-    "postcss": "^8.4.32",
+    "cssnano": "^6.0.3",
+    "postcss": "^8.4.33",
     "postcss-cli": "^11.0.0",
-    "postcss-import": "^15.1.0",
+    "postcss-import": "^16.0.0",
     "postcss-preset-env": "^9.3.0",
-    "rimraf": "^5.0.5"
+    "rimraf": "^5.0.5",
+    "stylelint-selector-bem-pattern": "^3.0.1",
+    "stylelint": "^16.1.0",
+    "stylelint-config-standard": "^36.0.0"
   }
 }
