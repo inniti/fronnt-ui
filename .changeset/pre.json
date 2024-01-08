@@ -6,7 +6,5 @@
     "@fronntui/styles": "1.0.0-alpha.1",
     "@fronntui/vue": "1.0.0-alpha.1"
   },
-  "changesets": [
-    "popular-mugs-laugh"
-  ]
+  "changesets": []
 }
