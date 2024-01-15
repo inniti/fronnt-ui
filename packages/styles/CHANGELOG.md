@@ -1,5 +1,11 @@
 # @fronntui/styles
 
+## 0.1.0
+
+### Patch Changes
+
+- 11ec562: Improve Badge styles
+
 ## 1.0.0-alpha.2
 
 ### Minor Changes

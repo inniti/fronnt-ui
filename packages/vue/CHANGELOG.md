@@ -1,5 +1,13 @@
 # @fronntui/vue
 
+## 0.1.0
+
+### Patch Changes
+
+- Updated dependencies [11ec562]
+  - @fronntui/styles@0.1.0
+  - @fronntui/icons@0.1.0
+
 ## 1.0.0-alpha.2
 
 ### Minor Changes
