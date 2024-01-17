@@ -8,29 +8,6 @@
   }
 }
 
-.nn-action-button--success {
-  &:hover {
-    cursor: default;
-  }
-
-  &:enabled {
-    border-color: var(--nn-color-success);
-    background: var(--nn-color-success);
-    color: var(--nn-color-error-contrast);
-
-    &:active,
-    &:focus,
-    &:hover {
-      &.nn-action-button--primary,
-      &.nn-action-button--default,
-      &.nn-action-button--tertiary {
-        border-color: var(--nn-color-success);
-        background: var(--nn-color-success);
-      }
-    }
-  }
-}
-
 .nn-action-button--error {
   &:hover {
     cursor: default;
@@ -89,5 +66,11 @@
         background: var(--nn-color-primary-100);
       }
     }
+  }
+}
+
+.nn-action-button--success {
+  &:hover {
+    cursor: default;
   }
 }
