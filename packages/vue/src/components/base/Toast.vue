@@ -37,10 +37,7 @@ const runAction = () => {
   <div class="nn-toast" :class="`nn-toast--${props.type}`">
     <div class="nn-toast__header">
       <div class="nn-toast__title">{{ props.title }}</div>
-      <NNCloseButton
-        class="nn-toast__close"
-        @click="close(props.id)"
-      />
+      <NNCloseButton class="nn-toast__close" @click="close(props.id)" />
     </div>
     <div v-if="props.message" class="nn-toast__content">
       {{ props.message }}
