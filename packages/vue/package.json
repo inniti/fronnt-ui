@@ -29,11 +29,11 @@
     "histoire:deploy": "rm -rf .histoire && histoire build && tar -cvf ./deploy.tar ./Dockerfile .histoire/* ./captain-definition && caprover deploy -t ./deploy.tar"
   },
   "peerDependencies": {
-    "@fronntui/icons": "workspace:*",
-    "@fronntui/styles": "workspace:*",
     "vue": "^3.3.0"
   },
   "devDependencies": {
+    "@fronntui/icons": "workspace:*",
+    "@fronntui/styles": "workspace:*",
     "@fontsource/barlow": "^5.0.8",
     "@histoire/plugin-vue": "^0.17.6",
     "@types/node": "^18.19.2",

@@ -49,12 +49,6 @@ importers:
 
   packages/vue:
     dependencies:
-      '@fronntui/icons':
-        specifier: workspace:*
-        version: link:../icons
-      '@fronntui/styles':
-        specifier: workspace:*
-        version: link:../styles
       vue:
         specifier: ^3.3.0
         version: 3.3.9(typescript@5.3.3)
@@ -62,6 +56,12 @@ importers:
       '@fontsource/barlow':
         specifier: ^5.0.8
         version: 5.0.8
+      '@fronntui/icons':
+        specifier: workspace:*
+        version: link:../icons
+      '@fronntui/styles':
+        specifier: workspace:*
+        version: link:../styles
       '@histoire/plugin-vue':
         specifier: ^0.17.6
         version: 0.17.6(histoire@0.17.6)(vite@5.0.10)(vue@3.3.9)
