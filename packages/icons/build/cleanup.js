@@ -15,6 +15,10 @@ files.forEach((file) => {
     'stroke="currentColor"'
   );
   fileContent = fileContent.replace(/\s*stroke-width="[^"]*"/gi, "");
+  fileContent = fileContent.replace(
+    /viewBox="0 0 24 24">/,
+    'viewBox="0 0 24 24" width="24" height="24">'
+  );
   fileContent = fileContent.replace(/id="[^"]*"/gi, "");
   fileContent = fileContent.replace(/class="[^"]*"/gi, "");
   fileContent = fileContent.replace(
