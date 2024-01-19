@@ -1,5 +1,11 @@
 # @fronntui/vue
 
+## 0.2.0
+
+### Minor Changes
+
+- 2b62df1: Simplify loading indicator
+
 ## 0.1.0
 
 ### Patch Changes

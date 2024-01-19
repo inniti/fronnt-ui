@@ -1,5 +1,16 @@
 # @fronntui/styles
 
+## 0.2.0
+
+### Minor Changes
+
+- bfa489a: Make ActionButton success state less obtrusive
+- 2b62df1: Simplify loading indicator
+
+### Patch Changes
+
+- 7a1fe07: Fix border color of Input component when in error state and focused
+
 ## 0.1.0
 
 ### Patch Changes
