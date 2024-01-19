@@ -17,6 +17,7 @@ const props = withDefaults(
 
 <template>
   <nav class="nn-breadcrumbs">
+    <slot name="before" />
     <ol class="nn-breadcrumbs__list">
       <template v-for="(crumb, idx) in props.crumbs" :key="idx">
         <li
@@ -52,5 +53,6 @@ const props = withDefaults(
         </span>
       </template>
     </ol>
+    <slot name="after" />
   </nav>
 </template>
