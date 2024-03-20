@@ -1,5 +1,12 @@
 # @fronntui/icons
 
+## 0.3.0
+
+### Minor Changes
+
+- add new icons: gift, star
+- update icon: calendar
+
 ## 0.2.0
 
 ### Minor Changes
