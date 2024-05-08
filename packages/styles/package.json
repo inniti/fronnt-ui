@@ -68,13 +68,13 @@
     "components"
   ],
   "devDependencies": {
-    "cssnano": "^6.0.3",
-    "postcss": "^8.4.33",
+    "cssnano": "^7.0.1",
+    "postcss": "^8.4.38",
     "postcss-cli": "^11.0.0",
-    "postcss-import": "^16.0.0",
-    "postcss-preset-env": "^9.3.0",
+    "postcss-import": "^16.1.0",
+    "postcss-preset-env": "^9.5.11",
     "rimraf": "^5.0.5",
-    "stylelint": "^16.2.0",
+    "stylelint": "^16.5.0",
     "stylelint-config-standard": "^36.0.0"
   }
 }
