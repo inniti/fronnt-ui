@@ -23,18 +23,25 @@ const emit = defineEmits<{
 
 const isOpen = ref(false);
 const closeButton = ref();
+const panel = ref();
 
-const open = async () => {
+async function open() {
   isOpen.value = true;
   emit("open");
   await nextTick();
   closeButton.value?.$el?.focus();
-};
+}
 
-const close = () => {
+function close() {
   isOpen.value = false;
   emit("close");
-};
+}
+
+function onClick(e: Event) {
+  if (isOpen.value && !panel.value.contains(e.target)) {
+    close();
+  }
+}
 
 defineExpose({
   open,
@@ -48,8 +55,9 @@ defineExpose({
       class="nn-drawer"
       :class="[isOpen && 'nn-drawer--open', `nn-drawer--${props.side}`]"
       @keydown.esc="close"
+      @click="onClick"
     >
-      <div class="nn-drawer__panel">
+      <div class="nn-drawer__panel" ref="panel">
         <div class="nn-drawer__header">
           <div class="nn-drawer__title">
             <slot name="title" />
