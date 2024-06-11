@@ -21,7 +21,7 @@ const props = defineProps<{ label?: string }>();
         x="3"
         y="6"
         width="18"
-        height="13"
+        height="14"
         fill="none"
         stroke="currentColor"
         stroke-linecap="round"
@@ -79,9 +79,9 @@ const props = defineProps<{ label?: string }>();
       />
       <line
         x1="7"
-        y1="15"
+        y1="16"
         x2="8"
-        y2="15"
+        y2="16"
         fill="none"
         stroke="currentColor"
         stroke-linecap="round"
@@ -89,9 +89,9 @@ const props = defineProps<{ label?: string }>();
       />
       <line
         x1="11.5"
-        y1="15"
+        y1="16"
         x2="12.5"
-        y2="15"
+        y2="16"
         fill="none"
         stroke="currentColor"
         stroke-linecap="round"
@@ -99,9 +99,9 @@ const props = defineProps<{ label?: string }>();
       />
       <line
         x1="16"
-        y1="15"
+        y1="16"
         x2="17"
-        y2="15"
+        y2="16"
         fill="none"
         stroke="currentColor"
         stroke-linecap="round"

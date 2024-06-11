@@ -19,6 +19,7 @@ import NNIconEdit from "./IconEdit.vue";
 import NNIconErrorCircle from "./IconErrorCircle.vue";
 import NNIconEyeOff from "./IconEyeOff.vue";
 import NNIconEye from "./IconEye.vue";
+import NNIconGift from "./IconGift.vue";
 import NNIconHeart from "./IconHeart.vue";
 import NNIconHouse2 from "./IconHouse2.vue";
 import NNIconHouse from "./IconHouse.vue";
@@ -43,6 +44,7 @@ import NNIconShoppingCart from "./IconShoppingCart.vue";
 import NNIconSlash from "./IconSlash.vue";
 import NNIconSmile from "./IconSmile.vue";
 import NNIconSmileySad from "./IconSmileySad.vue";
+import NNIconStar from "./IconStar.vue";
 import NNIconThreeDots from "./IconThreeDots.vue";
 import NNIconTrash from "./IconTrash.vue";
 import NNIconTruck from "./IconTruck.vue";
@@ -71,6 +73,7 @@ export {
   NNIconErrorCircle,
   NNIconEyeOff,
   NNIconEye,
+  NNIconGift,
   NNIconHeart,
   NNIconHouse2,
   NNIconHouse,
@@ -95,6 +98,7 @@ export {
   NNIconSlash,
   NNIconSmile,
   NNIconSmileySad,
+  NNIconStar,
   NNIconThreeDots,
   NNIconTrash,
   NNIconTruck,
