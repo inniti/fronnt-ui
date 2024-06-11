@@ -20,7 +20,7 @@ importers:
   packages/styles:
     devDependencies:
       cssnano:
-        specifier: ^7.0.1
+        specifier: ^7.0.2
         version: 7.0.2(postcss@8.4.38)
       postcss:
         specifier: ^8.4.38
@@ -32,13 +32,13 @@ importers:
         specifier: ^16.1.0
         version: 16.1.0(postcss@8.4.38)
       postcss-preset-env:
-        specifier: ^9.5.11
+        specifier: ^9.5.14
         version: 9.5.14(postcss@8.4.38)
       rimraf:
-        specifier: ^5.0.5
+        specifier: ^5.0.7
         version: 5.0.7
       stylelint:
-        specifier: ^16.5.0
+        specifier: ^16.6.1
         version: 16.6.1(typescript@5.4.5)
       stylelint-config-standard:
         specifier: ^36.0.0
@@ -5568,7 +5568,7 @@ snapshots:
     dependencies:
       foreground-child: 3.1.1
       jackspeak: 2.3.6
-      minimatch: 9.0.3
+      minimatch: 9.0.4
       minipass: 7.0.4
       path-scurry: 1.10.1
 
@@ -6008,7 +6008,7 @@ snapshots:
 
   lru-cache@10.0.2:
     dependencies:
-      semver: 7.5.4
+      semver: 7.6.2
 
   lru-cache@4.1.5:
     dependencies:
