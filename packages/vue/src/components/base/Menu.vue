@@ -24,9 +24,17 @@ const props = withDefaults(
   }
 );
 
-const close = () => {
+function open() {
+  isOpen.value = true;
+}
+
+function close() {
   isOpen.value = false;
-};
+}
+
+function toggle() {
+  isOpen.value = !isOpen.value;
+}
 </script>
 
 <template>
@@ -38,16 +46,23 @@ const close = () => {
     :align="props.align"
   >
     <template #trigger>
-      <NNButton
-        ref="trigger"
-        variant="neutral"
-        class="nn-menu__trigger"
-        @click="isOpen = !isOpen"
+      <slot
+        name="trigger"
+        :is-open="isOpen"
+        :open="open"
+        :toggle="toggle"
+        :close="close"
       >
-        <slot name="trigger">
+        <NNButton
+          ref="trigger"
+          variant="neutral"
+          size="small"
+          class="nn-menu__trigger"
+          @click="isOpen = !isOpen"
+        >
           <NNIconThreeDots class="nn-menu__trigger-icon" />
-        </slot>
-      </NNButton>
+        </NNButton>
+      </slot>
     </template>
     <ul class="nn-menu__items" @click="close" @keydown.enter="close">
       <slot />

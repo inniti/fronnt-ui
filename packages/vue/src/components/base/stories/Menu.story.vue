@@ -14,7 +14,7 @@ import MenuItem from "../MenuItem.vue";
         </Menu>
       </div>
     </Variant>
-    <Variant title="Custom item rendering">
+    <Variant title="Custom trigger">
       <div
         class="container"
         style="
@@ -24,7 +24,9 @@ import MenuItem from "../MenuItem.vue";
         "
       >
         <Menu align="right">
-          <template #trigger> Custom Trigger </template>
+          <template #trigger="{ isOpen, toggle }">
+            <span @click="toggle">Custom Trigger {{ isOpen }}</span>
+          </template>
           <MenuItem> some action </MenuItem>
           <MenuItem disabled> disabled action </MenuItem>
           <MenuItem> another action </MenuItem>
