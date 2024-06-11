@@ -1,5 +1,13 @@
 # @fronntui/vue
 
+## 0.4.0
+
+### Minor Changes
+
+- Add support for auto closing toasts
+- Improve customizability of menu trigger
+- Close drawer when clicked outside
+
 ## 0.3.3
 
 ### Patch Changes
@@ -22,19 +30,19 @@
 
 ### Minor Changes
 
-- 3ec0eb0: Add width and height attributes to svg markup of icons
+- Add width and height attributes to svg markup of icons
 
 ## 0.2.0
 
 ### Minor Changes
 
-- 2b62df1: Simplify loading indicator
+- Simplify loading indicator
 
 ## 0.1.0
 
 ### Patch Changes
 
-- Updated dependencies [11ec562]
+- Updated dependencies
   - @fronntui/styles@0.1.0
   - @fronntui/icons@0.1.0
 
@@ -42,9 +50,9 @@
 
 ### Minor Changes
 
-- 1e14e1d: Ensure code conventions for stylesheets with stylelint
+- Ensure code conventions for stylesheets with stylelint
 
 ### Patch Changes
 
-- Updated dependencies [1e14e1d]
+- Updated dependencies
   - @fronntui/styles@1.0.0-alpha.2
