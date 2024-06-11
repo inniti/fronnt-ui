@@ -15,31 +15,72 @@ export type Toast = {
 
 const toasts = ref<Toast[]>([]);
 
-const add = (
-  type: ToastType,
-  title: string,
-  message?: string,
-  action?: { fn: (toast: { id: string }) => void; label: string }
-) => {
+type AddToastOptions = {
+  type: ToastType;
+  title: string;
+  message?: string;
+  action?: { fn: (toast: { id: string }) => void; label: string };
+  autoClose?: number;
+};
+
+function _add(options: AddToastOptions) {
+  const id = `toast_${Math.floor(Math.random() * 10000000000)}`;
   toasts.value.unshift({
-    id: `toast_${Math.floor(Math.random() * 10000000000)}`,
-    type,
-    title,
-    message,
-    action,
+    id,
+    type: options.type,
+    title: options.title,
+    message: options.message,
+    action: options.action,
   });
+
+  if (options.autoClose && !isNaN(options.autoClose)) {
+    setTimeout(() => {
+      close(id);
+    }, options.autoClose);
+  }
+}
+
+type AddFn =
+  | ((args: AddToastOptions) => void)
+  | ((
+      type: ToastType,
+      title: string,
+      message?: string,
+      action?: { fn: (toast: { id: string }) => void; label: string }
+    ) => void);
+
+const add: AddFn = (options: AddToastOptions, ...args: any[]) => {
+  let _options: AddToastOptions;
+
+  if (typeof options === "string") {
+    console.warn(
+      "The usage of useToasts#add with separate arguments is deprecated, use the options object instead"
+    );
+    _options = {
+      type: options as unknown as ToastType,
+      title: args[0],
+      message: args[1],
+      action: args[2],
+    };
+
+    console.log(_options);
+  } else {
+    _options = options;
+  }
+
+  _add(_options);
 };
 
-const clear = () => {
+function clear() {
   toasts.value = [];
-};
+}
 
-const close = (id: string) => {
+function close(id: string) {
   const idx = toasts.value.findIndex((toast) => toast.id === id);
   if (idx > -1) {
     toasts.value.splice(idx, 1);
   }
-};
+}
 
 const useToast = () => {
   return {
