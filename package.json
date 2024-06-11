@@ -20,12 +20,8 @@
   ],
   "homepage": "https://www.fronntui.pro",
   "license": "MIT",
-  "scripts": {
-    "build": "turbo build"
-  },
   "devDependencies": {
-    "turbo": "^1.13.3",
-    "@changesets/cli": "^2.27.1",
+    "@changesets/cli": "^2.27.5",
     "@changesets/changelog-git": "^0.2.0"
   }
 }
