@@ -219,6 +219,20 @@ const isOptionSelected = (option: Option) => {
     ? props.modelValue.indexOf(option.value) > -1
     : props.modelValue === option.value;
 };
+
+const getOptionLabel = (value: string | number) => {
+  for (let i = 0; i < groupedOptions.value.length; i++) {
+    const groupOptions = groupedOptions.value[i].options;
+    for (let j = 0; j < groupOptions.length; j++) {
+      const option = groupOptions[j];
+      if (option.value === value) {
+        return option.label;
+      }
+    }
+  }
+
+  return value;
+};
 </script>
 
 <template>
@@ -272,11 +286,11 @@ const isOptionSelected = (option: Option) => {
                   :key="`select-value-${value}`"
                   class="nn-select__selection-value nn-select__selection-value--multiple"
                 >
-                  {{ value }}
+                  {{ getOptionLabel(value) }}
                 </div>
               </template>
               <div v-else class="nn-select__selection-value">
-                {{ props.modelValue }}
+                {{ getOptionLabel(props.modelValue as SingleModelValue) }}
               </div>
             </slot>
           </template>
