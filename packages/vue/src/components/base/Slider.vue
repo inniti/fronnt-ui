@@ -3,7 +3,6 @@ import { ref, onMounted } from "vue";
 import { NNIconArrow } from "../icons";
 const props = defineProps<{
   arrows?: boolean;
-  title?: string;
   maxWidth?: string;
 }>();
 const emit = defineEmits<{
