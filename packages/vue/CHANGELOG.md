@@ -1,5 +1,15 @@
 # @fronntui/vue
 
+## 0.5.0
+
+### Minor Changes
+
+- Display option label in select's selection (fallback to option value)
+
+### Patch Changes
+
+- Remove obsolete prop declaration in Slider component
+
 ## 0.4.0
 
 ### Minor Changes
