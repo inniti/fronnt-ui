@@ -1,5 +1,11 @@
 # @fronntui/vue
 
+## 0.7.0
+
+### Minor Changes
+
+- Add aria-label to NNCloseButton
+
 ## 0.6.1
 
 ### Patch Changes
