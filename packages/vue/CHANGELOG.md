@@ -1,5 +1,11 @@
 # @fronntui/vue
 
+## 0.6.0
+
+### Patch Changes
+
+- Improve accessibility of NNMenu and NNMenuItem
+
 ## 0.5.0
 
 ### Minor Changes
