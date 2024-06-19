@@ -17,10 +17,12 @@ const isOpen = ref(false);
 const props = withDefaults(
   defineProps<{
     align?: "left" | "right";
+    label?: string;
   }>(),
   {
     items: () => [],
     align: "left",
+    label: "Menu",
   }
 );
 
@@ -59,13 +61,14 @@ function toggle() {
           size="small"
           class="nn-menu__trigger"
           @click="isOpen = !isOpen"
+          :aria-label="props.label"
         >
           <NNIconThreeDots class="nn-menu__trigger-icon" />
         </NNButton>
       </slot>
     </template>
-    <ul class="nn-menu__items" @click="close" @keydown.enter="close">
+    <menu class="nn-menu__items" @click="close" @keydown.enter="close">
       <slot />
-    </ul>
+    </menu>
   </NNFlyout>
 </template>
