@@ -6,10 +6,11 @@ export default {
 
 <script lang="ts" setup>
 import { NNIconX } from "../icons";
+withDefaults(defineProps<{ label?: string }>(), { label: "close" });
 </script>
 
 <template>
-  <button class="nn-close-button">
+  <button class="nn-close-button" :aria-label="label">
     <NNIconX />
   </button>
 </template>
