@@ -1,5 +1,11 @@
 # @fronntui/vue
 
+## 0.6.1
+
+### Patch Changes
+
+- Republish v0.6.0
+
 ## 0.6.0
 
 ### Patch Changes
