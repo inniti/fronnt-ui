@@ -67,8 +67,13 @@ function toggle() {
         </NNButton>
       </slot>
     </template>
-    <menu class="nn-menu__items" @click="close" @keydown.enter="close">
+    <ul
+      class="nn-menu__items"
+      @click="close"
+      @keydown.enter="close"
+      role="menu"
+    >
       <slot />
-    </menu>
+    </ul>
   </NNFlyout>
 </template>

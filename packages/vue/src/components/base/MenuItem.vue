@@ -17,12 +17,13 @@ const props = withDefaults(
 </script>
 
 <template>
-  <menuitem
+  <li
     class="nn-menu-item"
+    role="menuitem"
     :class="[props.disabled && `nn-menu-item--disabled`]"
     :aria-disabled="props.disabled"
     :tabindex="props.disabled ? -1 : 0"
   >
     <slot />
-  </menuitem>
+  </li>
 </template>
