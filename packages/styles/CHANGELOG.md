@@ -1,5 +1,11 @@
 # @fronntui/styles
 
+## 0.3.3
+
+### Patch Changes
+
+- Fix overflow of NNCollapsible header
+
 ## 0.3.2
 
 ### Patch Changes
