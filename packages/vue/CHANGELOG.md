@@ -1,5 +1,11 @@
 # @fronntui/vue
 
+## 0.7.1
+
+### Patch Changes
+
+- change deprecated html tag menuitem to lo for NNMenuItem
+
 ## 0.7.0
 
 ### Minor Changes
