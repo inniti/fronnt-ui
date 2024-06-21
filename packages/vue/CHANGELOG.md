@@ -1,5 +1,11 @@
 # @fronntui/vue
 
+## 0.9.0
+
+### Minor Changes
+
+- add support for disabled link-buttons
+
 ## 0.8.0
 
 ### Minor Changes

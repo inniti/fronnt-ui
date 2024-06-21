@@ -1,5 +1,11 @@
 # @fronntui/styles
 
+## 0.4.0
+
+### Minor Changes
+
+- add support for disabled link-buttons
+
 ## 0.3.3
 
 ### Patch Changes
