@@ -57,8 +57,8 @@ const buttonTag = computed(() => {
 });
 
 function onButtonClick(event: Event, page: number) {
+  if (page < 1 || page > props.total) return;
   if (props.preventClick) event.preventDefault();
-
   emit("update:modelValue", page);
 }
 </script>
@@ -71,7 +71,7 @@ function onButtonClick(event: Event, page: number) {
       size="small"
       :href="getButtonUrl(1)"
       :tag="buttonTag"
-      :disabled="props.modelValue === 1"
+      :disabled="props.modelValue <= 1"
       @click="(event) => onButtonClick(event, 1)"
     >
       <NNIconChevrons />
@@ -82,7 +82,7 @@ function onButtonClick(event: Event, page: number) {
       size="small"
       :href="getButtonUrl(props.modelValue - 1)"
       :tag="buttonTag"
-      :disabled="props.modelValue === 1"
+      :disabled="props.modelValue <= 1"
       @click="(event) => onButtonClick(event, props.modelValue - 1)"
     >
       <NNIconChevron />
@@ -108,7 +108,7 @@ function onButtonClick(event: Event, page: number) {
       size="small"
       :href="getButtonUrl(props.modelValue + 1)"
       :tag="buttonTag"
-      :disabled="props.modelValue === total"
+      :disabled="props.modelValue >= total"
       @click="(event) => onButtonClick(event, props.modelValue + 1)"
     >
       <NNIconChevron />
@@ -119,7 +119,7 @@ function onButtonClick(event: Event, page: number) {
       size="small"
       :href="getButtonUrl(props.total)"
       :tag="buttonTag"
-      :disabled="props.modelValue === total"
+      :disabled="props.modelValue >= total"
       @click="(event) => onButtonClick(event, props.total)"
     >
       <NNIconChevrons />

@@ -64,7 +64,9 @@ const state = reactive<{ disabled: boolean; size: "default" | "small" }>({
       </Button>
     </Variant>
     <Variant title="Link">
-      <Button tag="a" href="#" :size="state.size"> Link Button </Button>
+      <Button tag="a" href="#" :size="state.size" :disabled="state.disabled">
+        Link Button
+      </Button>
     </Variant>
     <Variant title="icon only">
       <Button
