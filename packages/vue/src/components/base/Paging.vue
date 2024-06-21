@@ -14,11 +14,17 @@ const props = withDefaults(
     modelValue: number;
     total?: number;
     entries?: number;
+    url?: string;
+    pageParam?: string;
+    preventClick?: boolean;
   }>(),
   {
     modelValue: 1,
     total: 1,
     entries: 5,
+    url: undefined,
+    pageParam: "page",
+    preventClick: false,
   }
 );
 const emit = defineEmits<{
@@ -38,9 +44,23 @@ const entries = computed(() => {
   return pages.filter((e) => e > 0 && e <= props.total);
 });
 
-const goToPage = (page: number) => {
+function getButtonUrl(page: number) {
+  if (!props.url) return;
+  let _page = Math.max(1, page);
+  const url = new URL(props.url);
+  url.searchParams.set(props.pageParam, `${_page}`);
+  return url.href;
+}
+
+const buttonTag = computed(() => {
+  return props.url ? "a" : "button";
+});
+
+function onButtonClick(event: Event, page: number) {
+  if (props.preventClick) event.preventDefault();
+
   emit("update:modelValue", page);
-};
+}
 </script>
 
 <template>
@@ -49,8 +69,10 @@ const goToPage = (page: number) => {
       class="nn-paging__button nn-paging__button--start"
       variant="neutral"
       size="small"
-      :disabled="modelValue === 1"
-      @click="goToPage(1)"
+      :href="getButtonUrl(1)"
+      :tag="buttonTag"
+      :disabled="props.modelValue === 1"
+      @click="(event) => onButtonClick(event, 1)"
     >
       <NNIconChevrons />
     </NNButton>
@@ -58,8 +80,10 @@ const goToPage = (page: number) => {
       class="nn-paging__button nn-paging__button--prev"
       variant="neutral"
       size="small"
+      :href="getButtonUrl(props.modelValue - 1)"
+      :tag="buttonTag"
       :disabled="props.modelValue === 1"
-      @click="goToPage(props.modelValue - 1)"
+      @click="(event) => onButtonClick(event, props.modelValue - 1)"
     >
       <NNIconChevron />
     </NNButton>
@@ -69,9 +93,11 @@ const goToPage = (page: number) => {
       :key="idx"
       variant="neutral"
       size="small"
+      :href="getButtonUrl(entry)"
+      :tag="buttonTag"
       class="nn-paging__page"
       :class="[modelValue === entry && 'nn-paging__page--active']"
-      @click="goToPage(entry)"
+      @click="(event) => onButtonClick(event, entry)"
     >
       {{ entry }}
     </NNButton>
@@ -80,8 +106,10 @@ const goToPage = (page: number) => {
       class="nn-paging__button nn-paging__button--next"
       variant="neutral"
       size="small"
+      :href="getButtonUrl(props.modelValue + 1)"
+      :tag="buttonTag"
       :disabled="props.modelValue === total"
-      @click="goToPage(props.modelValue + 1)"
+      @click="(event) => onButtonClick(event, props.modelValue + 1)"
     >
       <NNIconChevron />
     </NNButton>
@@ -89,8 +117,10 @@ const goToPage = (page: number) => {
       class="nn-paging__button nn-paging__button--end"
       variant="neutral"
       size="small"
+      :href="getButtonUrl(props.total)"
+      :tag="buttonTag"
       :disabled="props.modelValue === total"
-      @click="goToPage(props.total)"
+      @click="(event) => onButtonClick(event, props.total)"
     >
       <NNIconChevrons />
     </NNButton>
