@@ -1,5 +1,11 @@
 # @fronntui/vue
 
+## 0.8.0
+
+### Minor Changes
+
+- add support for button links in NNPaging
+
 ## 0.7.1
 
 ### Patch Changes
