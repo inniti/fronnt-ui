@@ -35,8 +35,8 @@ const popupEl = ref<HTMLElement>();
 const triggerEl = ref<HTMLElement>();
 const popupStyles = reactive({
   top: "100%",
-  left: "0",
   bottom: "unset",
+  left: "unset",
   right: "unset",
   maxWidth: "none",
   maxHeight: "none",
