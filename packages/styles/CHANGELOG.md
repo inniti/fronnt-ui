@@ -1,5 +1,11 @@
 # @fronntui/styles
 
+## 0.5.0
+
+### Minor Changes
+
+- adjust backdrop color
+
 ## 0.4.0
 
 ### Minor Changes
