@@ -1,5 +1,11 @@
 # @fronntui/styles
 
+## 0.6.2
+
+### Patch Changes
+
+- Clean up toast styles
+
 ## 0.6.1
 
 ### Patch Changes
