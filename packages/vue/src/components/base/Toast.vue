@@ -42,8 +42,8 @@ const runAction = () => {
     <div v-if="props.message" class="nn-toast__content">
       {{ props.message }}
     </div>
-    <div v-if="props.action">
-      <a class="nn-toast__action" @click="runAction">
+    <div v-if="props.action" class="nn-toast__action">
+      <a @click="runAction" class="nn-toast__action-link">
         {{ props.action.label }}
       </a>
     </div>

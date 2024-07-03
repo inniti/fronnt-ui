@@ -18,7 +18,8 @@ function openDeprecated() {
           add({
             type: 'info',
             title: 'This is a toast message',
-            message: 'With a description',
+            message:
+              'With a description, which might have a few words. And sentences, which required multiple line breaks.',
             action: {
               label: 'Show cart',
               fn: () => {},
@@ -32,10 +33,10 @@ function openDeprecated() {
         @click="
           add({
             type: 'success',
-            title: 'This is a toast message',
+            title: 'This is a toast message with a very long title',
             autoClose: 20000,
             action: {
-              label: 'Show cart',
+              label: 'action',
               fn: () => {},
             },
           })
@@ -62,6 +63,24 @@ function openDeprecated() {
         "
       >
         Warning
+      </button>
+      <button
+        @click="
+          add({
+            type: 'warning',
+            title: 'This is a toast message with a very long title',
+            message: 'And an excessive message text as well',
+            action: {
+              label: 'Got it',
+              fn: ({ id }) => {
+                console.log(id);
+                close(id);
+              },
+            },
+          })
+        "
+      >
+        looooooong
       </button>
       <button @click="clear">clear</button>
       <Toasts />
