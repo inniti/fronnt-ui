@@ -1,8 +1,14 @@
 # @fronntui/styles
 
-## 1.0.0
+## 0.6.1
 
-### Major Changes
+### Patch Changes
+
+- Fix styles of disappearing toasts
+
+## 0.6.0
+
+### Minor Changes
 
 - modernize styling of toasts
 
