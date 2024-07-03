@@ -19,6 +19,10 @@ function openDeprecated() {
             type: 'info',
             title: 'This is a toast message',
             message: 'With a description',
+            action: {
+              label: 'Show cart',
+              fn: () => {},
+            },
           })
         "
       >
@@ -29,8 +33,11 @@ function openDeprecated() {
           add({
             type: 'success',
             title: 'This is a toast message',
-            message: 'With a description',
-            autoClose: 2000,
+            autoClose: 20000,
+            action: {
+              label: 'Show cart',
+              fn: () => {},
+            },
           })
         "
       >

@@ -62,8 +62,6 @@ const add: AddFn = (options: AddToastOptions, ...args: any[]) => {
       message: args[1],
       action: args[2],
     };
-
-    console.log(_options);
   } else {
     _options = options;
   }

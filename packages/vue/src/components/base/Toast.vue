@@ -35,14 +35,14 @@ const runAction = () => {
 
 <template>
   <div class="nn-toast" :class="`nn-toast--${props.type}`">
-    <div class="nn-toast__header">
-      <div class="nn-toast__title">{{ props.title }}</div>
-      <NNCloseButton class="nn-toast__close" @click="close(props.id)" />
+    <NNCloseButton class="nn-toast__close" @click="close(props.id)" />
+    <div class="nn-toast__title">
+      {{ props.title }}
     </div>
     <div v-if="props.message" class="nn-toast__content">
       {{ props.message }}
     </div>
-    <div v-if="props.action" class="nn-toast__footer">
+    <div v-if="props.action">
       <a class="nn-toast__action" @click="runAction">
         {{ props.action.label }}
       </a>
