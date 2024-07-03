@@ -1,5 +1,11 @@
 # @fronntui/vue
 
+## 0.10.0
+
+### Minor Changes
+
+- modernize styling of toasts
+
 ## 0.9.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @fronntui/styles
 
+## 1.0.0
+
+### Major Changes
+
+- modernize styling of toasts
+
 ## 0.5.0
 
 ### Minor Changes
